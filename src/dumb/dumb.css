@@ -1,0 +1,9 @@
+.dumb-component{
+    border: 1px solid red;
+    padding: 20px;
+    background-color: white;
+    font-size: 20px;
+    color: red;
+    font-weight: bold;
+    text-transform: uppercase;
+}
