@@ -13,19 +13,19 @@ export default {
     {
       file: pkg.main,
       format: 'cjs',
-      sourcemap: true
+      sourcemap: false
     },
     {
       file: pkg.module,
       format: 'es',
-      sourcemap: true
+      sourcemap: false
     }
   ],
   plugins: [
     scss({
       name: 'mdz-styles.css',
       fileName: 'mdz-styles.css',
-      sourceMap: true,
+      sourceMap: false,
       failOnError: false
     }),
     external(),
@@ -35,7 +35,7 @@ export default {
     url(),
     babel({
       exclude: 'node_modules/**',
-      plugins: [ 'external-helpers' ]
+      plugins: ['external-helpers']
     }),
     resolve(),
     commonjs()

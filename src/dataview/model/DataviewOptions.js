@@ -27,7 +27,8 @@ class DataviewOptions {
      * @param {String} options.sorts.optionLabel sort dropdown optionLabel
      * @param {String} options.sorts.className sort dropdown className
      * @param {Object} options.sorts.style sort dropdown style
-     * @param {{label: String, value: Any, sorts: {sortOrder: Number, sortField: String}}[]} options.sorts.sortOptions
+     * @param {{label: String, value: Any, sorts: {sortOrder: Number,
+     * sortField: String}}[]} options.sorts.sortOptions
      *
      * @param {Object} options.templates
      * @param {{header: String, field: String, sortable: Boolean, sortField: String,
@@ -38,7 +39,8 @@ class DataviewOptions {
      *
      * @param {{xs: String, sm: String, lg: String, xl: String, xxl:String}} options.responsive
      *
-     * @param {{label:String, icon: String, severity: String, className: String, style: Object, onClick: Function, visible: Boolean, size: String}} options.add Add header button
+     * @param {{label:String, icon: String, severity: String, className: String, style: Object,
+     * onClick: Function, visible: Boolean, size: String}} options.add Add header button
      *
      * @param {Object} options.export
      * @param {Boolean} options.visible
@@ -66,11 +68,7 @@ class DataviewOptions {
     try {
       if (this.validate(options)) this.dispatch(options)
     } catch (e) {
-      /**
-             * @type {Error}
-             */
       const error = e
-      console.table(error)
       throw new Error(error.message)
     }
   }
@@ -918,7 +916,6 @@ class DataviewOptions {
      */
   dispatch(originalOptions) {
     const options = this.defaults(originalOptions)
-    console.log('options optimized', options)
     // *CONFIG
     this.type = options.type
     this.title = options.title

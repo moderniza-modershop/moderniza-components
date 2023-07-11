@@ -3,9 +3,9 @@
   "author": "lucas de Oliveira Neitzke",
   "license": "MIT",
   "name": "moderniza-components",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "private": false,
-  "type":"module",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lucas-neitzke-moderniza/moderniza-components.git"
@@ -18,12 +18,13 @@
   },
   "scripts": {
     "test": "cross-env CI=1 react-scripts test --env=jsdom",
-    "build": "rollup -c && npm run post-build",
+    "build": "npm run lint:fix && rollup -c && npm run post-build",
     "post-build": "node post-build.js",
     "start": "rollup -c -w",
     "prepublish": "npm run build",
     "predeploy": "cd example && npm install && npm run build",
-    "deploy": "gh-pages -d example/build"
+    "deploy": "gh-pages -d example/build",
+    "lint:fix": "eslint src/**/*.js --fix"
   },
   "peerDependencies": {
     "prop-types": "^15.0.0",
@@ -66,7 +67,8 @@
     "rollup-plugin-postcss": "^1.6.2",
     "rollup-plugin-scss": "^3.0.0",
     "rollup-plugin-url": "^1.4.0",
-    "sass": "^1.63.6"
+    "sass": "^1.63.6",
+    "xlsx": "^0.18.5"
   },
   "files": [
     "dist",

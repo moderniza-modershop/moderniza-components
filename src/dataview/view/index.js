@@ -38,20 +38,13 @@ const View = (props) => {
     return { title: col.header, dataKey: col.field }
   }) : []
 
+  // *LAYOUTS
   const [layout, setLayout] = useState(options.type)
   const [loading, setLoading] = useState(true)
-  const [title, setTitle] = useState(options.title || false)
+  const [title] = useState(options.title || false)
 
-  // ? REFACTORY: PAGINATION
-  const peerPageDefaultOptions = [
-    { label: 5, value: 5 },
-    { label: 10, value: 10 },
-    { label: 20, value: 20 },
-    { label: 30, value: 30 }
-  ]
-
+  // *PAGINATION
   const [peerPageOptions] = useState(options.pagination.peerPageOptions)
-
   const [page, setPage] = useState(0)
   const [first, setFirst] = useState(0)
   const [rows, setRows] = useState(options.pagination.peerPage || 5)
@@ -277,7 +270,7 @@ const View = (props) => {
             sortField={sortField}
             sortOrder={sortOrder}
           >
-            {templates.columns.map((col, i) => (
+            {templates.columns.map((col) => (
               <Column
                 key={col.field}
                 dataType={col.dataType}

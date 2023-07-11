@@ -1,4 +1,4 @@
-import { DataviewRequestEvent, DataviewRequestContent } from '../model'
+import { DataviewRequestEvent, DataviewRequestContent } from '../model/index'
 
 /**
  * Function that requests a async callback with state as parameter

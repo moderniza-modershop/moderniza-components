@@ -10,10 +10,8 @@ import { DataviewDeviceSize } from '../../controller'
  * @returns {JSX.Element}
  */
 const addButton = (addOptions, deviceSize) => {
-  console.log('testdevice', deviceSize)
 
   const getLabel = (value) => {
-    console.log('aqui', deviceSize)
     if (deviceSize.width <= 380) {
       return ''
     } else {

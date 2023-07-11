@@ -10,7 +10,7 @@ import View from './view'
 import { DataviewOptions } from './model'
 
 // *STYLES
-import dataviewCSS from './dataview.css'
+import './dataview.css'
 
 /**
  * Dataview component
@@ -20,7 +20,7 @@ import dataviewCSS from './dataview.css'
  */
 const Dataview = (props) => {
   return (
-    <div>
+    <div className='mdz-dataview'>
       <View options={props.options} />
     </div>
   )
