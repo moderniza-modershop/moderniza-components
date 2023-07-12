@@ -73,6 +73,5 @@
   "files": [
     "dist",
     "dist/*.css"
-  ],
-  "dependencies": {}
+  ]
 }

@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="999px" preserveAspectRatio="none" style="width:768px;height:999px;background:#0B58A8;" version="1.1" viewBox="0 0 768 999" width="768px" zoomAndPan="magnify"><defs/><g><!--MD5=[bdd093d563395dd36129062416f0eab9]
+cluster moderniza-components--><g id="cluster_moderniza-components"><path d="M13.5,12.1191 L307.5,12.1191 A3.75,3.75 0 0 1 310,14.6191 L317,44.8564 L750.5,44.8564 A2.5,2.5 0 0 1 753,47.3564 L753,989.6191 A2.5,2.5 0 0 1 750.5,992.1191 L13.5,992.1191 A2.5,2.5 0 0 1 11,989.6191 L11,14.6191 A2.5,2.5 0 0 1 13.5,12.1191 " fill="#0B58A8" style="stroke:#FFFFFF;stroke-width:1.0;"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="11" x2="317" y1="44.8564" y2="44.8564"/><text fill="#FFFFFF" font-family="Verdana" font-size="22" font-weight="bold" lengthAdjust="spacing" textLength="293" x="15" y="36.2373">moderniza-components</text></g><!--MD5=[c2e097ae13de58564d8e4c4350e73d85]
+cluster Dataview--><g id="cluster_Dataview"><rect fill="#0B58A8" height="258" rx="2.5" ry="2.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="298" x="204" y="65.1191"/><rect fill="#0B58A8" height="10" style="stroke:#FFFFFF;stroke-width:1.0;" width="15" x="482" y="70.1191"/><rect fill="#0B58A8" height="2" style="stroke:#FFFFFF;stroke-width:1.0;" width="4" x="480" y="72.1191"/><rect fill="#0B58A8" height="2" style="stroke:#FFFFFF;stroke-width:1.0;" width="4" x="480" y="76.1191"/><text fill="#FFFFFF" font-family="Verdana" font-size="22" font-weight="bold" lengthAdjust="spacing" textLength="117" x="294.5" y="100.2373">Dataview</text></g><!--MD5=[2b784147fbd295d737d5809ee223691a]
+cluster paginator--><g id="cluster_paginator"><rect fill="#0B58A8" height="124" rx="2.5" ry="2.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="380" x="257" y="836.1191"/><rect fill="#0B58A8" height="10" style="stroke:#FFFFFF;stroke-width:1.0;" width="15" x="617" y="841.1191"/><rect fill="#0B58A8" height="2" style="stroke:#FFFFFF;stroke-width:1.0;" width="4" x="615" y="843.1191"/><rect fill="#0B58A8" height="2" style="stroke:#FFFFFF;stroke-width:1.0;" width="4" x="615" y="847.1191"/><text fill="#FFFFFF" font-family="Verdana" font-size="22" font-weight="bold" lengthAdjust="spacing" textLength="120" x="387" y="871.2373">paginator</text></g><!--MD5=[6eb34f7db6e07baf632e49b56d5156d3]
+entity PrimeReactDatatable--><g id="elem_PrimeReactDatatable"><rect fill="#0B58A8" height="47.0146" rx="2.5" ry="2.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="184" x="395" y="551.1191"/><rect fill="#0B58A8" height="10" style="stroke:#FFFFFF;stroke-width:1.0;" width="15" x="559" y="556.1191"/><rect fill="#0B58A8" height="2" style="stroke:#FFFFFF;stroke-width:1.0;" width="4" x="557" y="558.1191"/><rect fill="#0B58A8" height="2" style="stroke:#FFFFFF;stroke-width:1.0;" width="4" x="557" y="562.1191"/><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="144" x="410" y="585.1943">PrimeReactDatatable</text></g><!--MD5=[24d4214586e1ae56d3e154ce54abdc18]
+entity PrimeReactDataview--><g id="elem_PrimeReactDataview"><rect fill="#0B58A8" height="47.0146" rx="2.5" ry="2.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="180" x="180" y="551.1191"/><rect fill="#0B58A8" height="10" style="stroke:#FFFFFF;stroke-width:1.0;" width="15" x="340" y="556.1191"/><rect fill="#0B58A8" height="2" style="stroke:#FFFFFF;stroke-width:1.0;" width="4" x="338" y="558.1191"/><rect fill="#0B58A8" height="2" style="stroke:#FFFFFF;stroke-width:1.0;" width="4" x="338" y="562.1191"/><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="140" x="195" y="585.1943">PrimeReactDataview</text></g><!--MD5=[6488dc6ceb0760e31103c0fb38b85085]
+entity layout--><g id="elem_layout"><polygon fill="#0B58A8" points="319,380.6191,297.5,367.1191,254.5,367.1191,233,380.6191,254.5,394.1191,297.5,394.1191,319,380.6191" style="stroke:#FFFFFF;stroke-width:1.0;"/><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="43" x="254.5" y="386.1943">layout</text></g><!--MD5=[a4f2d62bb4fccc8ef4c9f67a1d937bcd]
+entity responsive--><g id="elem_responsive"><polygon fill="#0B58A8" points="506,380.6191,468,367.1191,392,367.1191,354,380.6191,392,394.1191,468,394.1191,506,380.6191" style="stroke:#FFFFFF;stroke-width:1.0;"/><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="76" x="392" y="386.1943">responsive</text></g><!--MD5=[6a8dee2804e2518456c89a1d133c3ec2]
+entity grid--><g id="elem_grid"><rect fill="#0B58A8" height="37.0146" rx="2.5" ry="2.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="47" x="325.5" y="454.1191"/><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="27" x="335.5" y="478.1943">grid</text></g><!--MD5=[1a9b3ce6b05045b91178d8f4231a8390]
+entity table--><g id="elem_table"><rect fill="#0B58A8" height="37.0146" rx="2.5" ry="2.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="54" x="408" y="454.1191"/><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="34" x="418" y="478.1943">table</text></g><!--MD5=[e4d82bda88e552a72016f1ec85699593]
+entity list--><g id="elem_list"><rect fill="#0B58A8" height="37.0146" rx="2.5" ry="2.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="40" x="250" y="454.1191"/><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="20" x="260" y="478.1943">list</text></g><!--MD5=[a5a8cf87f0abf75390394ee2a59c7549]
+entity addButton--><g id="elem_addButton"><rect fill="#0B58A8" height="47.0146" rx="2.5" ry="2.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="115" x="268.5" y="658.1191"/><rect fill="#0B58A8" height="10" style="stroke:#FFFFFF;stroke-width:1.0;" width="15" x="363.5" y="663.1191"/><rect fill="#0B58A8" height="2" style="stroke:#FFFFFF;stroke-width:1.0;" width="4" x="361.5" y="665.1191"/><rect fill="#0B58A8" height="2" style="stroke:#FFFFFF;stroke-width:1.0;" width="4" x="361.5" y="669.1191"/><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="75" x="283.5" y="692.1943">addButton</text></g><!--MD5=[f50a9991c9bc1b15b162b4ad45bf0101]
+entity sortButton--><g id="elem_sortButton"><rect fill="#0B58A8" height="47.0146" rx="2.5" ry="2.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="118" x="27" y="765.1191"/><rect fill="#0B58A8" height="10" style="stroke:#FFFFFF;stroke-width:1.0;" width="15" x="125" y="770.1191"/><rect fill="#0B58A8" height="2" style="stroke:#FFFFFF;stroke-width:1.0;" width="4" x="123" y="772.1191"/><rect fill="#0B58A8" height="2" style="stroke:#FFFFFF;stroke-width:1.0;" width="4" x="123" y="776.1191"/><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="78" x="42" y="799.1943">sortButton</text></g><!--MD5=[91ec9bd0bcc96c818fb5402d62f63b9c]
+entity exportButton--><g id="elem_exportButton"><rect fill="#0B58A8" height="47.0146" rx="2.5" ry="2.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="136" x="419" y="658.1191"/><rect fill="#0B58A8" height="10" style="stroke:#FFFFFF;stroke-width:1.0;" width="15" x="535" y="663.1191"/><rect fill="#0B58A8" height="2" style="stroke:#FFFFFF;stroke-width:1.0;" width="4" x="533" y="665.1191"/><rect fill="#0B58A8" height="2" style="stroke:#FFFFFF;stroke-width:1.0;" width="4" x="533" y="669.1191"/><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="96" x="434" y="692.1943">exportButton</text></g><!--MD5=[6017ceff63d160e2c0a48b8255555db3]
+entity searchbar--><g id="elem_searchbar"><rect fill="#0B58A8" height="47.0146" rx="2.5" ry="2.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="109" x="590.5" y="658.1191"/><rect fill="#0B58A8" height="10" style="stroke:#FFFFFF;stroke-width:1.0;" width="15" x="679.5" y="663.1191"/><rect fill="#0B58A8" height="2" style="stroke:#FFFFFF;stroke-width:1.0;" width="4" x="677.5" y="665.1191"/><rect fill="#0B58A8" height="2" style="stroke:#FFFFFF;stroke-width:1.0;" width="4" x="677.5" y="669.1191"/><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="69" x="605.5" y="692.1943">searchbar</text></g><!--MD5=[59990eb60020c1c1de5aa701ebbf12d2]
+entity layoutButton--><g id="elem_layoutButton"><rect fill="#0B58A8" height="47.0146" rx="2.5" ry="2.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="132" x="101" y="658.1191"/><rect fill="#0B58A8" height="10" style="stroke:#FFFFFF;stroke-width:1.0;" width="15" x="213" y="663.1191"/><rect fill="#0B58A8" height="2" style="stroke:#FFFFFF;stroke-width:1.0;" width="4" x="211" y="665.1191"/><rect fill="#0B58A8" height="2" style="stroke:#FFFFFF;stroke-width:1.0;" width="4" x="211" y="669.1191"/><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="92" x="116" y="692.1943">layoutButton</text></g><rect fill="#0B58A8" height="189.1318" style="stroke:#FFFFFF;stroke-width:1.0;" width="249" x="228.5" y="114.1191"/><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="118" x="294" y="130.1943">DataviewOptions</text><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="318.5" x2="318.5" y1="135.1338" y2="303.251"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="228.5" x2="477.5" y1="135.1338" y2="135.1338"/><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="43" x="233.5" y="151.209">layout</text><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="117" x="323.5" y="151.209">'grid'|'list'|'table'</text><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="228.5" x2="477.5" y1="156.1484" y2="156.1484"/><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="76" x="233.5" y="172.2236">responsive</text><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="350.5" x2="350.5" y1="156.1484" y2="282.2363"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="318.5" x2="477.5" y1="156.1484" y2="156.1484"/><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="17" x="323.5" y="172.2236">xs</text><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="117" x="355.5" y="172.2236">'grid'|'list'|'table'</text><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="318.5" x2="477.5" y1="177.1631" y2="177.1631"/><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="21" x="323.5" y="193.2383">sm</text><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="117" x="355.5" y="193.2383">'grid'|'list'|'table'</text><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="318.5" x2="477.5" y1="198.1777" y2="198.1777"/><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="22" x="323.5" y="214.2529">md</text><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="117" x="355.5" y="214.2529">'grid'|'list'|'table'</text><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="318.5" x2="477.5" y1="219.1924" y2="219.1924"/><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="12" x="323.5" y="235.2676">lg</text><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="117" x="355.5" y="235.2676">'grid'|'list'|'table'</text><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="318.5" x2="477.5" y1="240.207" y2="240.207"/><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="12" x="323.5" y="256.2822">xl</text><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="117" x="355.5" y="256.2822">'grid'|'list'|'table'</text><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="318.5" x2="477.5" y1="261.2217" y2="261.2217"/><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="21" x="323.5" y="277.2969">xxl</text><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="117" x="355.5" y="277.2969">'grid'|'list'|'table'</text><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="228.5" x2="477.5" y1="282.2363" y2="282.2363"/><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="80" x="233.5" y="298.3115">options[...]</text><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="27" x="323.5" y="298.3115">[...]</text><!--MD5=[f81ea6cbbf5d0a28ae824da23b570a2e]
+entity paginatorLeft--><g id="elem_paginatorLeft"><rect fill="#0B58A8" height="47.0146" rx="2.5" ry="2.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="134" x="479" y="889.1191"/><rect fill="#0B58A8" height="10" style="stroke:#FFFFFF;stroke-width:1.0;" width="15" x="593" y="894.1191"/><rect fill="#0B58A8" height="2" style="stroke:#FFFFFF;stroke-width:1.0;" width="4" x="591" y="896.1191"/><rect fill="#0B58A8" height="2" style="stroke:#FFFFFF;stroke-width:1.0;" width="4" x="591" y="900.1191"/><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="94" x="494" y="923.1943">paginatorLeft</text></g><!--MD5=[5a3e9438531110c06b4f52d7aff6c6f7]
+entity paginatorRight--><g id="elem_paginatorRight"><rect fill="#0B58A8" height="47.0146" rx="2.5" ry="2.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="144" x="300" y="889.1191"/><rect fill="#0B58A8" height="10" style="stroke:#FFFFFF;stroke-width:1.0;" width="15" x="424" y="894.1191"/><rect fill="#0B58A8" height="2" style="stroke:#FFFFFF;stroke-width:1.0;" width="4" x="422" y="896.1191"/><rect fill="#0B58A8" height="2" style="stroke:#FFFFFF;stroke-width:1.0;" width="4" x="422" y="900.1191"/><text fill="#FFFFFF" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="104" x="315" y="923.1943">paginatorRight</text></g><!--MD5=[abafa26a6d5a065e26097e6ab93d87b7]
+link DataviewOptions to responsive--><g id="link_DataviewOptions_responsive"><path codeLine="43" d="M397.35,307.5191 C406.87,328.5591 415.91,348.5191 422.05,362.0791 " fill="none" id="DataviewOptions-to-responsive" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#FFFFFF" points="424.18,366.7691,424.1229,356.9204,422.1228,362.2119,416.8313,360.2119,424.18,366.7691" style="stroke:#FFFFFF;stroke-width:1.0;"/></g><!--MD5=[71a341416067c3030b22f90212ed3095]
+link DataviewOptions to layout--><g id="link_DataviewOptions_layout"><path codeLine="44" d="M308.65,307.5191 C299.13,328.5591 290.09,348.5191 283.95,362.0791 " fill="none" id="DataviewOptions-to-layout" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#FFFFFF" points="281.82,366.7691,289.1687,360.2119,283.8772,362.2119,281.8771,356.9204,281.82,366.7691" style="stroke:#FFFFFF;stroke-width:1.0;"/></g><!--MD5=[992a9006942be66c9f2aac98d39940b6]
+link layout to grid--><g id="link_layout_grid"><path codeLine="46" d="M286.15,394.1291 C298.77,409.6891 320.37,436.3191 334.67,453.9491 " fill="none" id="layout-grid" style="stroke:#FFFFFF;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--MD5=[37610ea0f897011f0b7919067d881588]
+link layout to table--><g id="link_layout_table"><path codeLine="47" d="M298.11,394.1291 C326.78,410.3591 376.77,438.6591 407.76,456.1991 " fill="none" id="layout-table" style="stroke:#FFFFFF;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--MD5=[11e7bd7074c54baf0f814ad300470850]
+link layout to list--><g id="link_layout_list"><path codeLine="48" d="M275.17,394.1291 C274.13,409.6891 272.35,436.3191 271.18,453.9491 " fill="none" id="layout-list" style="stroke:#FFFFFF;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--MD5=[66aa36eac677a5d93495d85a668b8b01]
+link responsive to grid--><g id="link_responsive_grid"><path codeLine="50" d="M418.74,394.1291 C404.74,409.6891 380.77,436.3191 364.9,453.9491 " fill="none" id="responsive-grid" style="stroke:#FFFFFF;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--MD5=[8150598316670bb36a4484793f891ebb]
+link responsive to table--><g id="link_responsive_table"><path codeLine="51" d="M430.7,394.1291 C431.56,409.6891 433.04,436.3191 434.02,453.9491 " fill="none" id="responsive-table" style="stroke:#FFFFFF;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--MD5=[ffe9a39a7b7a06afaa6f95bb66c2ef91]
+link responsive to list--><g id="link_responsive_list"><path codeLine="52" d="M407.75,394.1291 C376.5,411.7191 320.06,443.4591 290.04,460.3491 " fill="none" id="responsive-list" style="stroke:#FFFFFF;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--MD5=[ed2d4fc9aefff316c9ac6299fbc935fd]
+link list to PrimeReactDataview--><g id="link_list_PrimeReactDataview"><path codeLine="54" d="M270,491.4991 C270,506.5691 270,528.3891 270,545.7491 " fill="none" id="list-to-PrimeReactDataview" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#FFFFFF" points="270,550.9791,274,541.9791,270,545.9791,266,541.9791,270,550.9791" style="stroke:#FFFFFF;stroke-width:1.0;"/></g><!--MD5=[c6a37178f83644145a71277ac0fbedd4]
+link grid to PrimeReactDataview--><g id="link_grid_PrimeReactDataview"><path codeLine="55" d="M334.88,491.4991 C322.77,506.8291 305.14,529.1391 291.31,546.6391 " fill="none" id="grid-to-PrimeReactDataview" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#FFFFFF" points="287.88,550.9791,296.5952,546.3917,290.9773,547.054,290.315,541.436,287.88,550.9791" style="stroke:#FFFFFF;stroke-width:1.0;"/></g><!--MD5=[66e8a762d7a8ae3ab2f0964818f21fb4]
+link table to PrimeReactDatatable--><g id="link_table_PrimeReactDatatable"><path codeLine="56" d="M444.3,491.4991 C452.2,506.6991 463.68,528.7691 472.74,546.1991 " fill="none" id="table-to-PrimeReactDatatable" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#FFFFFF" points="475.23,550.9791,474.6317,541.1485,472.9255,546.5419,467.5321,544.8357,475.23,550.9791" style="stroke:#FFFFFF;stroke-width:1.0;"/></g><!--MD5=[ddec3fd91ee0bc436b8bcff1ff519519]
+link PrimeReactDatatable to searchbar--><g id="link_PrimeReactDatatable_searchbar"><path codeLine="58" d="M520.89,598.1491 C546.01,614.8391 580.27,637.5991 606.43,654.9891 " fill="none" id="PrimeReactDatatable-to-searchbar" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#FFFFFF" points="610.89,657.9491,605.6005,649.6412,606.7232,655.1856,601.1788,656.3082,610.89,657.9491" style="stroke:#FFFFFF;stroke-width:1.0;"/></g><!--MD5=[ab4d3c49b18b92a629449b8e8f37d419]
+link PrimeReactDatatable to addButton--><g id="link_PrimeReactDatatable_addButton"><path codeLine="59" d="M452.46,598.1491 C426.76,614.8991 391.67,637.7891 364.97,655.2091 " fill="none" id="PrimeReactDatatable-to-addButton" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#FFFFFF" points="360.76,657.9491,370.4863,656.4003,364.9529,655.2252,366.128,649.6918,360.76,657.9491" style="stroke:#FFFFFF;stroke-width:1.0;"/></g><!--MD5=[84f580f04e577ba70798cff0a3546f04]
+link PrimeReactDatatable to layoutButton--><g id="link_PrimeReactDatatable_layoutButton"><path codeLine="60" d="M418.35,598.1491 C365.14,615.6091 291.65,639.7191 237.88,657.3591 " fill="none" id="PrimeReactDatatable-to-layoutButton" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#FFFFFF" points="233.07,658.9391,242.8687,659.9322,237.8205,657.3795,240.3732,652.3313,233.07,658.9391" style="stroke:#FFFFFF;stroke-width:1.0;"/></g><!--MD5=[daa678949775a51a7aa0f1190ef6834a]
+link PrimeReactDatatable to exportButton--><g id="link_PrimeReactDatatable_exportButton"><path codeLine="61" d="M487,598.1491 C487,614.0891 487,635.5891 487,652.6291 " fill="none" id="PrimeReactDatatable-to-exportButton" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#FFFFFF" points="487,657.7691,491,648.7691,487,652.7691,483,648.7691,487,657.7691" style="stroke:#FFFFFF;stroke-width:1.0;"/></g><!--MD5=[6765ed87a8fad76cec00808c421ac93a]
+link PrimeReactDatatable to paginator--><g id="link_PrimeReactDatatable_paginator"><path codeLine="62" d="M579.02,592.1591 C661,611.0591 761.63,647.0891 717,705.1191 C595.61,862.9591 420.88,675.5191 284,820.1191 C280.4863,823.8304 277.5495,828.0137 275.101,832.4966 C274.4889,833.6174 273.9073,834.7569 273.3548,835.9124 " fill="none" id="PrimeReactDatatable-to-paginator" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#FFFFFF" points="273.3548,835.9124,280.8458,829.5182,275.5116,831.4015,273.6283,826.0673,273.3548,835.9124" style="stroke:#FFFFFF;stroke-width:1.0;"/></g><!--MD5=[f47021bc21dada211cb16ab1a8369d51]
+link PrimeReactDataview to searchbar--><g id="link_PrimeReactDataview_searchbar"><path codeLine="64" d="M356.11,598.1591 C416.88,614.2791 500.13,636.8191 573,658.1191 C577.07,659.3091 581.25,660.5591 585.47,661.8291 " fill="none" id="PrimeReactDataview-to-searchbar" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#FFFFFF" points="590.42,663.3291,582.9577,656.9015,585.6328,661.8858,580.6485,664.5609,590.42,663.3291" style="stroke:#FFFFFF;stroke-width:1.0;"/></g><!--MD5=[d4a2d9f881d914227fdf7e9212ea5ce1]
+link PrimeReactDataview to sortButton--><g id="link_PrimeReactDataview_sortButton"><path codeLine="65" d="M179.99,586.3991 C134.81,596.8591 83.88,617.4891 56,658.1191 C34.8,689.0091 52.55,732.7891 68.37,760.6891 " fill="none" id="PrimeReactDataview-to-sortButton" style="stroke:#FFFFFF;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#FFFFFF" points="70.89,765.0291,69.8143,755.2392,68.3724,760.7092,62.9024,759.2673,70.89,765.0291" style="stroke:#FFFFFF;stroke-width:1.0;"/></g><!--MD5=[3d6238cddc7b925d68a478b2f8605535]
+link PrimeReactDataview to addButton--><g id="link_PrimeReactDataview_addButton"><path codeLine="66" d="M282.01,598.1491 C290.59,614.2291 302.18,635.9591 311.31,653.0691 " fill="none" id="PrimeReactDataview-to-addButton" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#FFFFFF" points="313.81,657.7691,313.0859,647.9469,311.4489,653.3617,306.0341,651.7247,313.81,657.7691" style="stroke:#FFFFFF;stroke-width:1.0;"/></g><!--MD5=[1cac7443b284500f47ea0c945dec8e82]
+link PrimeReactDataview to layoutButton--><g id="link_PrimeReactDataview_layoutButton"><path codeLine="67" d="M247.9,598.1491 C231.86,614.4991 210.08,636.6991 193.17,653.9491 " fill="none" id="PrimeReactDataview-to-layoutButton" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#FFFFFF" points="189.41,657.7691,198.5736,654.1596,192.9169,654.2052,192.8713,648.5485,189.41,657.7691" style="stroke:#FFFFFF;stroke-width:1.0;"/></g><!--MD5=[d1c52a3e8fa3c1cd4f44b734fecf2d1e]
+link PrimeReactDataview to exportButton--><g id="link_PrimeReactDataview_exportButton"><path codeLine="68" d="M316.55,598.1491 C351.47,615.0391 399.27,638.1691 435.36,655.6291 " fill="none" id="PrimeReactDataview-to-exportButton" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#FFFFFF" points="440.15,657.9491,433.7827,650.4353,435.6469,655.7762,430.306,657.6404,440.15,657.9491" style="stroke:#FFFFFF;stroke-width:1.0;"/></g><!--MD5=[df1857f19094c8e56a8f9eddf4ba366a]
+link PrimeReactDataview to paginator--><g id="link_PrimeReactDataview_paginator"><path codeLine="69" d="M179.64,593.2391 C143.53,605.1891 105.48,625.0991 84,658.1191 C72.61,675.6291 74.71,686.4091 84,705.1191 C103.6,744.6091 132.48,733.3091 163,765.1191 C190.035,793.2941 215.1675,829.2241 233.7213,858.4504 C242.9981,873.0635 250.6303,886.0007 256.0333,895.4546 C256.2021,895.75 256.3688,896.0421 256.5333,896.3307 C256.6155,896.4749 256.6972,896.6184 256.7783,896.7609 " fill="none" id="PrimeReactDataview-to-paginator" style="stroke:#FFFFFF;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#FFFFFF" points="256.7783,896.7609,255.8028,886.9605,254.305,892.4155,248.8501,890.9177,256.7783,896.7609" style="stroke:#FFFFFF;stroke-width:1.0;"/></g><!--MD5=[bbac2c29a2638a5d6912e524191ad40c]
+@startuml dataviewDiagram
+' Muda o tema
+!theme amiga
+' Permite mixar tipos diferentes
+allowmixing
+
+package moderniza-components{
+    
+    component Dataview{
+        json DataviewOptions {
+            "layout":"'grid'|'list'|'table'",
+            "responsive":{
+                "xs":"'grid'|'list'|'table'",
+                "sm":"'grid'|'list'|'table'",
+                "md":"'grid'|'list'|'table'",
+                "lg":"'grid'|'list'|'table'",
+                "xl":"'grid'|'list'|'table'",
+                "xxl":"'grid'|'list'|'table'"
+            },
+            "options[...]":"[...]"
+        }
+    }
+
+    component PrimeReactDatatable
+    component PrimeReactDataview
+
+    hexagon layout
+    hexagon responsive
+
+    rectangle grid
+    rectangle table
+    rectangle list
+
+    component addButton
+    component sortButton
+    component exportButton
+    component searchbar
+    component layoutButton
+    component paginator{
+        component paginatorLeft
+        component paginatorRight
+    }
+
+    DataviewOptions -down-> responsive
+    DataviewOptions -down-> layout
+
+    layout .. grid
+    layout .. table
+    layout .. list
+
+    responsive .. grid
+    responsive .. table
+    responsive .. list
+
+    list - -> PrimeReactDataview
+    grid - -> PrimeReactDataview
+    table - -> PrimeReactDatatable
+
+    PrimeReactDatatable - -> searchbar
+    PrimeReactDatatable - -> addButton
+    PrimeReactDatatable - -> layoutButton
+    PrimeReactDatatable - -> exportButton
+    PrimeReactDatatable - -> paginator
+
+    PrimeReactDataview - -> searchbar
+    PrimeReactDataview .- -> sortButton
+    PrimeReactDataview - -> addButton
+    PrimeReactDataview - -> layoutButton
+    PrimeReactDataview - -> exportButton
+    PrimeReactDataview ..- -> paginator
+
+}
+
+@enduml
+
+@startuml dataviewDiagram
+
+
+
+
+
+
+<style>
+  root {
+    BackgroundColor #0B58A8
+    FontColor #FFFFFF
+    FontName Verdana
+    HyperLinkColor #FDA325
+    LineColor #FFFFFF
+    LineThickness 1
+    Margin 5
+  }
+  caption {
+    LineThickness 0
+  }
+  footer {
+    LineThickness 0
+  }
+  groupHeader {
+    BackgroundColor #FFFFFF
+    FontColor #0B58A8
+    FontStyle bold
+  }
+  header {
+    LineThickness 0
+  }
+  node {
+    MaximumWidth 300
+  }
+  referenceHeader {
+    BackgroundColor #FFFFFF
+    FontColor #0B58A8
+    FontStyle bold
+  }
+  separator {
+    BackgroundColor #FFFFFF
+    FontColor #0B58A8
+    FontStyle bold
+  }
+  title {
+    FontSize 22
+    LineThickness 0
+  }
+</style>
+
+skinparam ArrowLollipopColor #FFFFFF
+skinparam BackgroundColor #0B58A8
+skinparam DefaultFontName Verdana
+skinparam DefaultMonospacedFontName Courier
+skinparam LifelineStrategy nosolid
+skinparam ParticipantPadding 10
+skinparam SequenceLifeLineBorderColor #FFFFFF
+skinparam Shadowing false
+skinparam UseBetaStyle true
+
+skinparam Activity {
+  BackgroundColor #0B58A8
+  BarColor #FFFFFF
+  BorderColor #FFFFFF
+  FontColor #FFFFFF
+  FontName Verdana
+}
+skinparam Boundary {
+  FontColor #FFFFFF
+}
+skinparam Box {
+  Padding 5
+}
+skinparam CircledCharacter {
+  FontColor #0B58A8
+  FontName Courier
+  Radius 9
+}
+skinparam Class {
+  BackgroundColor #0B58A8
+  BorderColor #FFFFFF
+  FontColor #FFFFFF
+  FontName Verdana
+}
+skinparam ClassAttribute {
+  FontColor #FFFFFF
+  FontName Verdana
+}
+skinparam ClassStereotype {
+  FontColor #FFFFFF
+  FontName Verdana
+}
+skinparam Footer {
+  FontColor #FFFFFF
+  FontName Verdana
+}
+skinparam Header {
+  FontColor #FFFFFF
+  FontName Verdana
+}
+skinparam Hyperlink {
+  Color #FDA325
+}
+skinparam IconPackage {
+  Color #FFFFFF
+  BackgroundColor #0B58A8
+}
+skinparam IconPrivate {
+  Color #FFFFFF
+  BackgroundColor #0B58A8
+}
+skinparam IconProtected {
+  Color #FFFFFF
+  BackgroundColor #0B58A8
+}
+skinparam IconPublic {
+  Color #FFFFFF
+  BackgroundColor #0B58A8
+}
+skinparam Note {
+  FontColor #FFFFFF
+  FontName Verdana
+}
+skinparam Object {
+  BorderColor #FFFFFF
+}
+skinparam Package {
+  BorderColor #FFFFFF
+  FontColor #FFFFFF
+  FontName Verdana
+}
+skinparam State {
+  BackgroundColor #0B58A8
+  BorderColor #FFFFFF
+}
+skinparam StereotypeA {
+  BackgroundColor #FFFFFF
+  BorderColor #FFFFFF
+}
+skinparam StereotypeC {
+  BackgroundColor #FFFFFF
+  BorderColor #FFFFFF
+}
+skinparam StereotypeE {
+  BackgroundColor #FFFFFF
+  BorderColor #FFFFFF
+}
+skinparam StereotypeI {
+  BackgroundColor #FFFFFF
+  BorderColor #FFFFFF
+}
+skinparam StereotypeN {
+  BackgroundColor #FFFFFF
+  BorderColor #FFFFFF
+}
+skinparam UseCaseStereoType {
+  FontColor #FFFFFF
+  FontName Verdana
+}
+allowmixing
+
+package moderniza-components{
+    
+    component Dataview{
+        json DataviewOptions {
+            "layout":"'grid'|'list'|'table'",
+            "responsive":{
+                "xs":"'grid'|'list'|'table'",
+                "sm":"'grid'|'list'|'table'",
+                "md":"'grid'|'list'|'table'",
+                "lg":"'grid'|'list'|'table'",
+                "xl":"'grid'|'list'|'table'",
+                "xxl":"'grid'|'list'|'table'"
+            },
+            "options[...]":"[...]"
+        }
+    }
+
+    component PrimeReactDatatable
+    component PrimeReactDataview
+
+    hexagon layout
+    hexagon responsive
+
+    rectangle grid
+    rectangle table
+    rectangle list
+
+    component addButton
+    component sortButton
+    component exportButton
+    component searchbar
+    component layoutButton
+    component paginator{
+        component paginatorLeft
+        component paginatorRight
+    }
+
+    DataviewOptions -down-> responsive
+    DataviewOptions -down-> layout
+
+    layout .. grid
+    layout .. table
+    layout .. list
+
+    responsive .. grid
+    responsive .. table
+    responsive .. list
+
+    list - -> PrimeReactDataview
+    grid - -> PrimeReactDataview
+    table - -> PrimeReactDatatable
+
+    PrimeReactDatatable - -> searchbar
+    PrimeReactDatatable - -> addButton
+    PrimeReactDatatable - -> layoutButton
+    PrimeReactDatatable - -> exportButton
+    PrimeReactDatatable - -> paginator
+
+    PrimeReactDataview - -> searchbar
+    PrimeReactDataview .- -> sortButton
+    PrimeReactDataview - -> addButton
+    PrimeReactDataview - -> layoutButton
+    PrimeReactDataview - -> exportButton
+    PrimeReactDataview ..- -> paginator
+
+}
+
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 14:01:30 BRT 2022)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: pt
+Country: BR
+--></g></svg>
