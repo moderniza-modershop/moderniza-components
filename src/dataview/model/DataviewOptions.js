@@ -51,11 +51,11 @@ class DataviewOptions {
      * @param {String} options.export.label custom export button label
      * @param {String[]} options.export.extensions extensions to export, supported: ('xlsx', 'pdf', 'csv')
      * @param {{type: String, className: String, size: String, severity: String, label: String,
-     * icon: String, style: String}} options.export.xlsx custom xlsx export button
+     * icon: String, style: Object}} options.export.xlsx custom xlsx export button
      * @param {{type: String, className: String, size: String, severity: String, label: String,
-     * icon: String, style: String}} options.export.pdf custom pdf export button
+     * icon: String, style: Object}} options.export.pdf custom pdf export button
      * @param {{type: String, className: String, size: String, severity: String, label: String,
-     * icon: String, style: String}} options.export.csv custom csv export button
+     * icon: String, style: Object}} options.export.csv custom csv export button
      *
      * @param {DataviewRequest} options.onRequest callback to execute when component requests
      * @param {Function} options.onPageChange callback to execute when the page change
