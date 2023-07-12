@@ -1,6 +1,4 @@
 @startuml dataviewDiagram
-' Muda o tema
-!theme amiga
 ' Permite mixar tipos diferentes
 allowmixing
 
