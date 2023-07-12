@@ -48,9 +48,21 @@ const exempleUseTwo = () =>{
 
 ## Opções (options)
 
-| Nome  | Tipo  | Descrição                                    | Valores possíveis | Padrão |
-| ----- | ----- | -------------------------------------------- | ----------------- | ------ |
-| value | any[] | Lista de objetos a serem exibidos na tabela. | -                 | -      |
+| Nome  | Tipo  | Descrição | Valores possíveis | Padrão |
+| ----- | ----- | --------- | ----------------- | ------ |
+| type | `String` | Tipo de visualização | `'grid'`, `'list'`, `'table'` | --- |
+| height | `String` | Altura do componente | --- | `75vh` |
+| pagination | `Object` | Objeto de paginação | --- | --- |
+| pagination.page | `Number` | Página atual | --- | --- |
+| pagination.peerPage | `Number` | Numéro de resultados por página | --- | --- |
+| pagination.peerPageOptions | `Number[]` | Opções de quantidade por página | --- | `[5, 10, 20, 30]` |
+| filters | `Object[]` | Lista de filtros do datatable | --- | --- |
+| filters[].value | `String` | Valor do filtro | --- | --- |
+| filters[].matchMode | `String` | Matchmode do filtro | --- | --- |
+| filters[].operator | `String` | Operator do filtro | --- | --- |
+| filters[].contraints | `Object` | Contraints do filtro | --- | --- |
+| filters[].contraints[].value | `String` | Valor do filtro contraints | --- | --- |
+| filters[].contraints[].matchMode | `String` | Matchmode do filtro contraints | --- | --- |
 
 ## Diagrama
 
