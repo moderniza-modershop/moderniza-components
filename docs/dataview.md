@@ -2,11 +2,11 @@
 
 [[Retornar]](../README.md)
 
-Componente dinâmico criado através dos componentes do primereact **Dataview** e **Datatable**.
+Componente dinâmico criado através dos componentes do primereact **Dataview** e **Datatable**
 
 ## Utilização
 
-Para você utilizar o componente é necessário passar um objeto com as instruções iniciais do componente. Através desse objeto ele é configurado e executado.
+Para você utilizar o componente é necessário passar um objeto com as instruções iniciais do componente. Através desse objeto ele é configurado e executado
 
 **Exemplo 01:**
 Utilização rápida
@@ -26,7 +26,7 @@ const exempleUseOne = () =>{
 ```
 
 **Exemplo 02:**
-Utilização com validação do options
+Utilização com validação do options. A validação acontece dentro do componente porém pode ser feita fora dele também
 
 ```jsx
 import {Dataview, DataviewOptions} from 'moderniza-components'
@@ -36,22 +36,21 @@ const exempleUseTwo = () =>{
         const options = new DataviewOptions({
             // options...
         })
-
-        return (
-            <Dataview options={options}/>
-        )
     }catch(e){
-        console.log('Ocorreu um erro ao validar options: ', e.message)
+        console.log('Ocorreu um erro ao validar options')
     }
 }
 ```
 
 ## Opções (options)
 
+Veja abaixo as opções disponíveis para o componente
+
 | Nome  | Tipo  | Descrição | Valores possíveis | Padrão |
 | ----- | ----- | --------- | ----------------- | ------ |
 | type | `String` | Tipo de visualização | `'grid'`, `'list'`, `'table'` | --- |
 | height | `String` | Altura do componente | --- | `75vh` |
+| title | `String|Boolean` | Altura do componente | --- | `75vh` |
 | pagination | `Object` | Objeto de paginação | --- | --- |
 | pagination.page | `Number` | Página atual | --- | --- |
 | pagination.peerPage | `Number` | Numéro de resultados por página | --- | --- |
@@ -63,6 +62,23 @@ const exempleUseTwo = () =>{
 | filters[].contraints | `Object` | Contraints do filtro | --- | --- |
 | filters[].contraints[].value | `String` | Valor do filtro contraints | --- | --- |
 | filters[].contraints[].matchMode | `String` | Matchmode do filtro contraints | --- | --- |
+| sorts | `Object` | Objeto de ordenação | --- | --- |
+| sorts | --- | --- | --- | --- |
+| sorts.sortField | `String` | Campo a ser ordenado | --- | --- |
+| sorts.sortOrder | `Number` | Ordenação (1: ASC, -1: DESC) | `-1`, `1` | --- |
+| sorts.sortOptions | `Object[]` | Opções de ordenação | --- | --- |
+| sorts.sortOptions[].label | `String` | Nome da opção de ordenação | --- | --- |
+| sorts.sortOptions[].value | `String` | Valor da opção de ordenação | --- | --- |
+| sorts.sortOptions[].sorts | `Object` | Instrução de ordenação | --- | --- |
+| sorts.sortOptions[].sorts.sortField | `String` | Campo a ser ordenado | --- | --- |
+| sorts.sortOptions[].sorts.sortOrder | `Number` | Ordenação (1: ASC, -1: DESC) | `-1`, `1` | --- |
+| templates | --- | --- | --- | --- |
+| responsive | --- | --- | --- | --- |
+| add | --- | --- | --- | --- |
+| export | --- | --- | --- | --- |
+
+
+
 
 ## Diagrama
 

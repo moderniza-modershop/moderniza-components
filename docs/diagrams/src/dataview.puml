@@ -34,7 +34,7 @@ package moderniza-components{
     component exportButton
     component searchbar
     component layoutButton
-    component paginator{
+    component PrimeReactPaginator{
         component paginatorLeft
         component paginatorRight
     }
@@ -58,14 +58,14 @@ package moderniza-components{
     PrimeReactDatatable --> addButton
     PrimeReactDatatable --> layoutButton
     PrimeReactDatatable --> exportButton
-    PrimeReactDatatable --> paginator
+    PrimeReactDatatable --> PrimeReactPaginator
 
     PrimeReactDataview --> searchbar
     PrimeReactDataview .--> sortButton
     PrimeReactDataview --> addButton
     PrimeReactDataview --> layoutButton
     PrimeReactDataview --> exportButton
-    PrimeReactDataview ..--> paginator
+    PrimeReactDataview ..--> PrimeReactPaginator
 
 }
 

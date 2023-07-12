@@ -43,7 +43,7 @@ class DataviewOptions {
      * onClick: Function, visible: Boolean, size: String}} options.add Add header button
      *
      * @param {Object} options.export
-     * @param {Boolean} options.visible
+     * @param {Boolean} options.export.visible
      * @param {String} options.export.type custom export button type
      * @param {String} options.export.size custom export button size
      * @param {String} options.export.severity custom export button severity
