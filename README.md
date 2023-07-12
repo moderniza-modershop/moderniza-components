@@ -5,7 +5,7 @@ Repositório de componentes da moderniza.
 
 ## Documentação
 
-[Documentação de componentes](/documentation/index.md)
+[Documentação de componentes](/docs/index.md)
 
 
 ### Melhorias

@@ -1,6 +1,6 @@
 # Dumb
 
-[[Retornar]](../documentation/index.md)
+[[Retornar]](../README.md)
 
 Componente de exemplo padrão
 

@@ -1,6 +1,6 @@
 # Dataview
 
-[[Retornar]](../documentation/index.md)
+[[Retornar]](../README.md)
 
 Componente dinâmico criado através dos componentes do primereact **Dataview** e **Datatable**.
 
