@@ -8,11 +8,15 @@ Componente dinâmico criado através dos componentes do primereact **Dataview** 
 
 - [x] Valores padrões passados dentro do `DataviewOptions`
 - [x] Terminar exemplo prático
-- [ ] Ajustar diagrama: adicionar estrutura do (view)
 - [ ] Documentar a utilização dos filtros
 - [ ] Ajustar as opções para iniciar apenas com o filtro `filters.global`
 - [ ] Ajustar as opções para iniciar sem o `sorts`
+
+## BACKLOG
+
+- [ ] Ajustar diagrama: adicionar estrutura do (view)
 - [ ] Adicionar a funcionalidade do `height` responsivo
+- [ ] Adicionar a funcionalidade do `pagination.infinite`, scroll infinito.
 
 ## Utilização
 
