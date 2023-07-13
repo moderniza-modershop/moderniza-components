@@ -641,7 +641,7 @@ class DataviewOptions {
       className: '',
       placeholder: 'Ordenar resultados',
       optionLabel: 'label',
-      style: { minWidth: '100%' }
+      style: {}
     }
 
     const defaultPeerPageOptions = [5, 10, 20, 30, 40, 50]

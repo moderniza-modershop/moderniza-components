@@ -2,26 +2,31 @@
 
 [[Retornar]](../README.md)
 
-## TODO:
-
-O que ainda falta documentar:
-
-- [ ] Valores padrões passados dentro do `DataviewOptions`
-- [ ] Terminar exemplo prático
-- [ ] Ajustar diagrama: adicionar estrutura do (view)
-
-
 Componente dinâmico criado através dos componentes do primereact **Dataview** e **Datatable**
+
+## TODO
+
+- [x] Valores padrões passados dentro do `DataviewOptions`
+- [x] Terminar exemplo prático
+- [ ] Ajustar diagrama: adicionar estrutura do (view)
+- [ ] Documentar a utilização dos filtros
+- [ ] Ajustar as opções para iniciar apenas com o filtro `filters.global`
+- [ ] Ajustar as opções para iniciar sem o `sorts`
+- [ ] Adicionar a funcionalidade do `height` responsivo
 
 ## Utilização
 
 Para você utilizar o componente é necessário passar um objeto com as instruções iniciais do componente. Através desse objeto ele é configurado e executado
 
-**Exemplo:**
+**Exemplo de iniciação:**
 
 ```jsx
+// Moderniza
 import 'moderniza-components/dist/index.css'
 import { Dataview } from 'moderniza-components'
+
+// Primereact API
+import { FilterMatchMode, FilterOperator } from 'primereact/api'
 
 const exempleUseOne = () =>{
     const options = {
@@ -31,6 +36,194 @@ const exempleUseOne = () =>{
     return (
         <Dataview options={options}/>
     )
+}
+```
+
+### Adicionando template de colunas (tabela)
+
+```jsx
+const columns = [
+    {
+        header: 'Id',
+        field: 'id',
+        sortable: true,
+        sortField: 'id',
+        filter: true,
+        filterField: 'id',
+        filterElement: (options) => {
+            return <InputText value={options.value} onChange={() => options.filterCallback(options.value, options.index)} />
+        },
+        body: (row) => {
+            return <span className='text-2xl font-semibold'>{row.id}</span>
+        }
+    },
+    {
+        header: 'Title',
+        field: 'title',
+        sortable: true,
+        sortField: 'title',
+        body: (row) => {
+            return <span className='text-2xl font-semibold'>{row.title}</span>
+        }
+    },
+    {
+        header: 'Score',
+        field: '_score',
+        dataType: 'numeric',
+        sortable: true,
+        sortField: '_score',
+        filter: true,
+        filterField: '_score',
+        filterElement: (options) => {
+            return <InputNumber value={options.value} onChange={() => options.filterCallback(options.value, options.index)} />
+        },
+        body: (row) => {
+            return <span className='text-2xl font-semibold'>{row._score}</span>
+        }
+    }
+]
+```
+
+### Adicionando template de blocos (grid)
+
+```jsx
+const grid = (row) => {
+    return (
+        <Col xs='12' md='6' lg='4' className='p-1'>
+            <Card className='mb-0'>
+                <CardBody>
+                    <CardTitle tag='h5'>{row.title}</CardTitle>
+                    <CardSubtitle
+                        className='mb-0 text-muted'
+                        tag='h6'
+                    >{row.api_model}</CardSubtitle>
+                </CardBody>
+                <img src={'https://picsum.photos/200'} alt={row.title} />
+                <CardBody>
+                    <CardText>Score: {row._score}</CardText>
+                </CardBody>
+            </Card>
+        </Col>
+    )
+}
+```
+
+### Adicionando template de lista (list)
+
+```jsx
+const list = (row) => {
+    return (
+        <Card className='mb-0 p-1'>
+            <Row>
+                <Col xs='auto' className='my-auto'>
+                    <img className='w-9 shadow-2 rounded-circle' src={'https://picsum.photos/200'} alt={row.title} style={{ height: '50px' }} />
+                </Col>
+                <Col className='my-auto'>
+                    <h2>Title</h2>
+                    <p>{row.title}</p>
+                </Col>
+                <Col className='my-auto'>
+                    <h2>Score</h2>
+                    <p>{row._score}</p>
+                </Col>
+            </Row>
+        </Card>
+    )
+}
+```
+
+### Configuração completa
+
+```jsx
+
+const options = {
+    title: 'Artistas',
+    type: 'table',
+    height: 'calc(100vh - 130px)',
+    templates: {
+        columns,
+        list,
+        grid
+    },
+    pagination: {
+        page: 0,
+        peerPage: 30
+    },
+    filters: {
+        global: { value: 'Jose', matchMode: FilterMatchMode.CONTAINS },
+        id: { operator: FilterOperator.OR, constraints: [{ value: '', matchMode: FilterMatchMode.EQUALS }] },
+        _score: { operator: FilterOperator.AND, constraints: [{ value: '', matchMode: FilterMatchMode.GREATER_THAN }] }
+    },
+    sorts: {
+        sortField: 'title',
+        sortOrder: 1,
+        sortOptions: [
+            {
+                label: 'Menor score',
+                value: 'score_ascending',
+                sorts: {
+                    sortOrder: 1,
+                    sortField: '_score'
+                }
+            },
+            {
+                label: 'Maior score',
+                value: 'score_descending',
+                sorts: {
+                    sortOrder: -1,
+                    sortField: '_score'
+                }
+            }
+        ]
+    },
+    export: {
+        extensions: ['xlsx', 'pdf', 'csv'],
+        fileName: 'artists'
+    },
+    responsive: {
+        xs: 'grid',
+        sm: 'grid',
+        md: 'list',
+        lg: 'list',
+        xl: 'table',
+        xxl: 'table'
+    },
+    /**
+     * Função que será executada toda vez que 
+     * alguma mudança ocorrer no componente
+     * 
+     * @param {{pagination: {page: Number, peerPage: Number},
+     * sorts:{sortField: String, sortOrder: Number},
+     * filters: {value: String, operator: Object,
+     * matchMode: String, constraints: {value: String,
+     * matchMode: String}}[]}} event
+     * @returns {Promise<{content: Array, total: Number}>}
+     */
+    onRequest: async (event) => {
+        // async Axios, async Fetch...
+        const request = await getData(event)
+
+        // Array de resultados
+        const content = request.data.data
+
+        // Quantidade total de resultados
+        const total = request.data.pagination.total
+
+        return {
+            content,
+            total
+        }
+
+    },
+    onPageChange: (ev, index) => {
+        console.log('onPageChangeExternal', ev, index)
+    },
+    onSortChange: (ev) => {
+        console.log('onSortChangeExternal', ev)
+    },
+    onFilterChange: (ev) => {
+        console.log('onFilterChangeExternal', ev)
+    }
 }
 ```
 
@@ -56,11 +249,11 @@ Veja abaixo as opções disponíveis para o componente
 | filters.contraints.matchMode | `String` | Matchmode do filtro contraints | --- | --- |
 | sorts | `Object` | Objeto de configuração da ordenação | --- | --- |
 | sorts | --- | --- | --- | --- |
-| sorts.visible | `Boolean` | Visibilidade do botão | --- | --- |
-| sorts.placeholder | `String` | Texto do dropdown de ordenação | --- | --- |
-| sorts.optionLabel | `String` | Chave do campo que representa o texto da opção | --- | --- |
-| sorts.className | `String` | Classe CSS | --- | --- |
-| sorts.style | `Object` | Style do dropdown | --- | --- |
+| sorts.visible | `Boolean` | Visibilidade do botão | --- | `true` |
+| sorts.placeholder | `String` | Texto do dropdown de ordenação | --- | `'Ordenar resultados'` |
+| sorts.optionLabel | `String` | Chave do campo que representa o texto da opção | --- | `'label'` |
+| sorts.className | `String` | Classe CSS | --- | `''` |
+| sorts.style | `Object` | Style do dropdown | --- | `{}` |
 | sorts.sortField | `String` | Campo a ser ordenado | --- | --- |
 | sorts.sortOrder | `Number` | Ordenação (1: ASC, -1: DESC) | `-1`, `1` | --- |
 | sorts.sortOptions | `Object[]` | Opções de ordenação | --- | --- |
@@ -88,48 +281,50 @@ Veja abaixo as opções disponíveis para o componente
 | responsive.lg | `String` | Tipo de visualização`type` | `'grid'`, `'list'`, `'table'` | --- |
 | responsive.xl | `String` | Tipo de visualização`type` | `'grid'`, `'list'`, `'table'` | --- |
 | responsive.xxl | `String` | Tipo de visualização`type` | `'grid'`, `'list'`, `'table'` | --- |
-| add | `Object` | Objeto de configuração do botão 'novo' | --- | --- |
-| add.label | `String` | Texto do botão | --- | --- |
-| add.icon | `String` | Icone do botão | --- | --- |
-| add.severity | `String` | Severidade do botão | `'success'`, `'help'`, `'warning'`, `'secondary'`, `'info'`, `'danger'` | ---- |
-| add.className | `String` | Classe CSS do botão | --- | --- |
-| add.style | `Object` | Style do botão | --- | --- |
+| add | `Object` | Objeto de configuração de nova entrada | --- | --- |
+| add.label | `String` | Texto do botão | --- | `'Novo'` |
+| add.icon | `String` | Icone do botão | --- | `'pi pi-plus'` |
+| add.severity | `String` | Severidade do botão | `'success'`, `'help'`, `'warning'`, `'secondary'`, `'info'`, `'danger'` | `'primary'` |
+| add.className | `String` | Classe CSS do botão | --- | `''` |
+| add.style | `Object` | Style do botão | --- | `{}` |
 | add.onClick | `Function(event)` | Função ao clicar no botão | --- | --- |
-| add.visible | `Boolean` | Visibilidade do botão | --- | --- |
-| add.size | `String` | Tamanho do botão | `'small'`, `'large'` | --- |
-| export | `Object` | Objeto de configuração do botão 'exportar' | --- | --- |
-| export.visible | `Boolean` | Visibilidade do botão | --- | --- |
-| export.type | `String` | Tipo de exportação | `'csv'`, `'xlsx'`, `'pdf'` | --- |
-| export.size | `String` | Tamanho do botão | `'small'`, `'large'` | --- |
-| export.severity | `String` | Severidade do botão | `'success'`, `'help'`, `'warning'`, `'secondary'`, `'info'`, `'danger'` | ---- |
-| export.icon | `String` | Icone do botão | --- | --- |
-| export.label | `String` | Texto do botão | --- | --- |
+| add.visible | `Boolean` | Visibilidade do botão | --- | `'true'` |
+| add.size | `String` | Tamanho do botão | `'small'`, `'large'` | `'small'` |
+| export | `Object` | Objeto de configuração de exportar | --- | --- |
+| export.visible | `Boolean` | Visibilidade do botão | --- | `true` |
+| export.type | `String` | Tipo o botão | --- | `'button'` |
+| export.size | `String` | Tamanho do botão | `'small'`, `'large'` | `'small'` |
+| export.severity | `String` | Severidade do botão | `'success'`, `'help'`, `'warning'`, `'secondary'`, `'info'`, `'danger'` | `'success'` |
+| export.icon | `String` | Icone do botão | --- | `'pi pi-file-export'` |
+| export.label | `String` | Texto do botão | --- | `'Exportar'` |
+| export.style | `Object` | Style do botão | --- | `{}` |
+| export.fileName | `Object` | Nome do arquivo a ser exportado sem extensão | --- | --- |
 | export.extensions | `String[]` | Extensões que poderão ser exportadas | `'csv'`, `'xlsx'`, `'pdf'` | --- |
-| export.xlsx | `Objeto` | Objeto de configuração do botão 'exportar planilha' | --- | --- |
-| export.xlsx.type | `String` | Tipo do botão |  `"button"`, `"submit"`, `"reset"`, `undefined` | --- |
-| export.xlsx.className | `String` | Classe CSS do botão | --- | --- |
-| export.xlsx.size | `String` | Tamanho do botão | `'small'`, `'large'` | --- |
-| export.xlsx.severity | `String` | Severidade do botão | `'success'`, `'help'`, `'warning'`, `'secondary'`, `'info'`, `'danger'` | ---- |
-| export.xlsx.label | `String` | Texto do botão | --- | --- |
-| export.xlsx.icon | `String` | Icone do botão | --- | --- |
-| export.xlsx.style | `Object` | Style do botão | --- | --- |
-| export.pdf | `Objeto` | Objeto de configuração do botão 'exportar documento' | --- | --- |
-| export.pdf.type | `String` | Tipo do botão |  `"button"`, `"submit"`, `"reset"`, `undefined` | --- |
-| export.pdf.className | `String` | Classe CSS do botão | --- | --- |
-| export.pdf.size | `String` | Tamanho do botão | `'small'`, `'large'` | --- |
-| export.pdf.severity | `String` | Severidade do botão | `'success'`, `'help'`, `'warning'`, `'secondary'`, `'info'`, `'danger'` | ---- |
-| export.pdf.label | `String` | Texto do botão | --- | --- |
-| export.pdf.icon | `String` | Icone do botão | --- | --- |
-| export.pdf.style | `Object` | Style do botão | --- | --- |
-| export.csv | `Objeto` | Objeto de configuração do botão 'exportar arquivo' | --- | --- |
-| export.csv.type | `String` | Tipo do botão |  `"button"`, `"submit"`, `"reset"`, `undefined` | --- |
-| export.csv.className | `String` | Classe CSS do botão | --- | --- |
-| export.csv.size | `String` | Tamanho do botão | `'small'`, `'large'` | --- |
-| export.csv.severity | `String` | Severidade do botão | `'success'`, `'help'`, `'warning'`, `'secondary'`, `'info'`, `'danger'` | ---- |
-| export.csv.label | `String` | Texto do botão | --- | --- |
-| export.csv.icon | `String` | Icone do botão | --- | --- |
-| export.csv.style | `Object` | Style do botão | --- | --- |
+| export.xlsx | '`Object` | Objeto de configuração do botão exportar planilha | --- | --- |
+| export.xlsx.type | `String` | Tipo do botão |  `'button'`, `'submit'`, `'reset'`, `undefined` | `'button'` |
+| export.xlsx.className | `String` | Classe CSS do botão | --- | `''` |
+| export.xlsx.size | `String` | Tamanho do botão | `'small'`, `'large'` | `'small'` |
+| export.xlsx.severity | `String` | Severidade do botão | `'success'`, `'help'`, `'warning'`, `'secondary'`, `'info'`, `'danger'` | `'success'` |
+| export.xlsx.label | `String` | Texto do botão | --- | `'Planilha (.xlsx)'` |
+| export.xlsx.icon | `String` | Icone do botão | --- | `'pi pi-file-excel'` |
+| export.xlsx.style | `Object` | Style do botão | --- | `{}` |
+| export.pdf | '`Object` | Objeto de configuração do botão exportar documento | --- | --- |
+| export.pdf.type | `String` | Tipo do botão |  `'button'`, `'submit'`, `'reset'`, `undefined` | `'button'` |
+| export.pdf.className | `String` | Classe CSS do botão | --- | `''` |
+| export.pdf.size | `String` | Tamanho do botão | `'small'`, `'large'` | `'small'` |
+| export.pdf.severity | `String` | Severidade do botão | `'success'`, `'help'`, `'warning'`, `'secondary'`, `'info'`, `'danger'` | `'primary'` |
+| export.pdf.label | `String` | Texto do botão | --- | `'Documento (.pdf)'` |
+| export.pdf.icon | `String` | Icone do botão | --- | `'pi pi-file-pdf'` |
+| export.pdf.style | `Object` | Style do botão | --- | `{}` |
+| export.csv | '`Object` | Objeto de configuração do botão exportar CSV | --- | --- |
+| export.csv.type | `String` | Tipo do botão |  `'button'`, `'submit'`, `'reset'`, `undefined` | `'button'` |
+| export.csv.className | `String` | Classe CSS do botão | --- | `''` |
+| export.csv.size | `String` | Tamanho do botão | `'small'`, `'large'` | `'small'` |
+| export.csv.severity | `String` | Severidade do botão | `'success'`, `'help'`, `'warning'`, `'secondary'`, `'info'`, `'danger'` | `'secondary'` |
+| export.csv.label | `String` | Texto do botão | --- | `'Arquivo (.csv)'` |
+| export.csv.icon | `String` | Icone do botão | --- | `'pi pi-file'` |
+| export.csv.style | `Object` | Style do botão | --- | `{}` |
 
 ## Diagrama de fluxo
- 
-![imagem do diagrama](/docs/diagrams/out/dataview/dataviewDiagram.svg)
+
+<img src="/docs/diagrams/out/dataview/dataviewDiagram.svg" width="100%">
