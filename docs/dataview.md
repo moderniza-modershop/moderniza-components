@@ -192,7 +192,11 @@ const options = {
      * Função que será executada toda vez que 
      * alguma mudança ocorrer no componente
      * 
-     * @param {{pagination: {page: Number, peerPage: Number}, sorts:{sortField: String, sortOrder: Number}, filters: {value: String, operator: Object, matchMode: String, constraints: {value: String, matchMode: String}}[]}} event
+     * @param {{pagination: {page: Number, peerPage: Number},
+     * sorts:{sortField: String, sortOrder: Number},
+     * filters: {value: String, operator: Object,
+     * matchMode: String, constraints: {value: String,
+     * matchMode: String}}[]}} event
      * @returns {Promise<{content: Array, total: Number}>}
      */
     onRequest: async (event) => {
