@@ -248,7 +248,6 @@ Veja abaixo as opções disponíveis para o componente
 | filters.contraints.value | `String` | Valor do filtro contraints | --- | --- |
 | filters.contraints.matchMode | `String` | Matchmode do filtro contraints | --- | --- |
 | sorts | `Object` | Objeto de configuração da ordenação | --- | --- |
-| sorts | --- | --- | --- | --- |
 | sorts.visible | `Boolean` | Visibilidade do botão | --- | `true` |
 | sorts.placeholder | `String` | Texto do dropdown de ordenação | --- | `'Ordenar resultados'` |
 | sorts.optionLabel | `String` | Chave do campo que representa o texto da opção | --- | `'label'` |
@@ -300,7 +299,7 @@ Veja abaixo as opções disponíveis para o componente
 | export.style | `Object` | Style do botão | --- | `{}` |
 | export.fileName | `Object` | Nome do arquivo a ser exportado sem extensão | --- | --- |
 | export.extensions | `String[]` | Extensões que poderão ser exportadas | `'csv'`, `'xlsx'`, `'pdf'` | --- |
-| export.xlsx | '`Object` | Objeto de configuração do botão exportar planilha | --- | --- |
+| export.xlsx | `Object` | Objeto de configuração do botão exportar planilha | --- | --- |
 | export.xlsx.type | `String` | Tipo do botão |  `'button'`, `'submit'`, `'reset'`, `undefined` | `'button'` |
 | export.xlsx.className | `String` | Classe CSS do botão | --- | `''` |
 | export.xlsx.size | `String` | Tamanho do botão | `'small'`, `'large'` | `'small'` |
@@ -308,7 +307,7 @@ Veja abaixo as opções disponíveis para o componente
 | export.xlsx.label | `String` | Texto do botão | --- | `'Planilha (.xlsx)'` |
 | export.xlsx.icon | `String` | Icone do botão | --- | `'pi pi-file-excel'` |
 | export.xlsx.style | `Object` | Style do botão | --- | `{}` |
-| export.pdf | '`Object` | Objeto de configuração do botão exportar documento | --- | --- |
+| export.pdf | `Object` | Objeto de configuração do botão exportar documento | --- | --- |
 | export.pdf.type | `String` | Tipo do botão |  `'button'`, `'submit'`, `'reset'`, `undefined` | `'button'` |
 | export.pdf.className | `String` | Classe CSS do botão | --- | `''` |
 | export.pdf.size | `String` | Tamanho do botão | `'small'`, `'large'` | `'small'` |
@@ -316,7 +315,7 @@ Veja abaixo as opções disponíveis para o componente
 | export.pdf.label | `String` | Texto do botão | --- | `'Documento (.pdf)'` |
 | export.pdf.icon | `String` | Icone do botão | --- | `'pi pi-file-pdf'` |
 | export.pdf.style | `Object` | Style do botão | --- | `{}` |
-| export.csv | '`Object` | Objeto de configuração do botão exportar CSV | --- | --- |
+| export.csv | `Object` | Objeto de configuração do botão exportar CSV | --- | --- |
 | export.csv.type | `String` | Tipo do botão |  `'button'`, `'submit'`, `'reset'`, `undefined` | `'button'` |
 | export.csv.className | `String` | Classe CSS do botão | --- | `''` |
 | export.csv.size | `String` | Tamanho do botão | `'small'`, `'large'` | `'small'` |
