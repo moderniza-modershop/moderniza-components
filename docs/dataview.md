@@ -8,6 +8,7 @@ Componente dinâmico criado através dos componentes do primereact **Dataview** 
 
 - [x] Valores padrões passados dentro do `DataviewOptions`
 - [x] Terminar exemplo prático
+- [ ] Documentar defaults do pagination
 - [ ] Documentar a utilização dos filtros
 - [ ] Ajustar as opções para iniciar apenas com o filtro `filters.global`
 - [ ] Ajustar as opções para iniciar sem o `sorts`

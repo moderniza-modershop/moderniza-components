@@ -646,6 +646,13 @@ class DataviewOptions {
 
     const defaultPeerPageOptions = [5, 10, 20, 30, 40, 50]
 
+    const defaultPagination = {
+      visible: true,
+      page: 1,
+      peerPage: 10,
+      peerPageOptions: defaultPeerPageOptions
+    }
+
     const defaultExport = {
       visible: true,
       type: 'button',
@@ -733,6 +740,20 @@ class DataviewOptions {
       if (!options.pagination.peerPageOptions) {
         options.pagination.peerPageOptions = defaultPeerPageOptions
       }
+      // *DEFAULT PAGINATION VISIBLE
+      if (!options.pagination.visible) {
+        options.pagination.visible = defaultPagination.visible
+      }
+      // *DEFAULT PAGINATION PAGE
+      if (!options.pagination.page) {
+        options.pagination.page = defaultPagination.page
+      }
+      // *DEFAULT PAGINATION PEER PAGE
+      if (!options.pagination.peerPage) {
+        options.pagination.peerPage = defaultPagination.peerPage
+      }
+    } else {
+      options.pagination = defaultPagination
     }
 
     // *DEFAULT ADD BUTTON
