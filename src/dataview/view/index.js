@@ -59,7 +59,7 @@ const View = (props) => {
   const [filters, setFilters] = useState(options.filters || [])
 
   // *GLOBAL FILTER
-  const [globalFilterValue, setGlobalFilterValue] = useState(options.filters.global.value || '')
+  const [globalFilterValue, setGlobalFilterValue] = useState(options.filters[options.search.filter].value || '')
 
   // *DATAVIEW RESULTS
   const [results, setResults] = useState([])
@@ -128,7 +128,7 @@ const View = (props) => {
   // *START EFFECT
   useEffect(() => {
     freshComponent()
-  }, [page, sortField, sortOrder, rows])
+  }, [page, sortField, sortOrder, rows, filters])
 
   // *SORT CALLBACK
   const onSortChange = (e) => {
@@ -216,7 +216,8 @@ const View = (props) => {
               undefined,
               options.sorts,
               options.add,
-              lastDeviceSize
+              lastDeviceSize,
+              options.search
             )}
             footer={footer(
               first,
@@ -248,7 +249,8 @@ const View = (props) => {
               exportColumns,
               options.sorts,
               options.add,
-              lastDeviceSize
+              lastDeviceSize,
+              options.search
             )}
             value={results}
             filters={filters}
@@ -278,6 +280,7 @@ const View = (props) => {
                 filter={col.filter}
                 filterField={col.filterField}
                 filterElement={col.filterElement}
+                filterFunction={col.filterFunction}
                 sortable={col.sortable}
                 sortField={col.sortField}
                 header={col.header}

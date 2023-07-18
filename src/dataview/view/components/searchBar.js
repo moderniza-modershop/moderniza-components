@@ -7,10 +7,11 @@ import { InputText } from 'primereact/inputtext'
  * @param {Boolean} loading
  * @param {String} globalFilterValue
  * @param {Function} onGlobalFilterChange
+ * @param {{label:String, filter: String}} searchOptions
  *
  * @returns {JSX.Element}
  */
-const searchBar = (loading, globalFilterValue, onGlobalFilterChange) => {
+const searchBar = (loading, globalFilterValue, onGlobalFilterChange, searchOptions) => {
   return (
     <span className='p-input-icon-left'
       style={{
@@ -21,7 +22,7 @@ const searchBar = (loading, globalFilterValue, onGlobalFilterChange) => {
         disabled={loading}
         value={globalFilterValue}
         onChange={onGlobalFilterChange}
-        placeholder='Pesquise por qualquer campo...'
+        placeholder={searchOptions.label}
         style={{
           width: '100%'
         }}

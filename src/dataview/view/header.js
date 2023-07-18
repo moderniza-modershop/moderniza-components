@@ -18,10 +18,11 @@ import { Col, Row } from 'reactstrap'
  * @param {Array|Function} resultsOrOnSortChange
  * @param {Array} exportColumns
  * @param {{width: Number, height: Number }} deviceSize
+ * @param {{label:String, filter: String}} searchOptions
  *
  * @returns {JSX.Element}
  */
-const header = (title, loading, layout, onChangeLayout, globalFilterValue, onGlobalFilterChange, optionsExport, dataTableRefOrSorts, exportOverPanelRefOrSortKey, resultsOrOnSortChange, exportColumns, sortOptions, addOptions, deviceSize) => {
+const header = (title, loading, layout, onChangeLayout, globalFilterValue, onGlobalFilterChange, optionsExport, dataTableRefOrSorts, exportOverPanelRefOrSortKey, resultsOrOnSortChange, exportColumns, sortOptions, addOptions, deviceSize, searchOptions) => {
   return (
     <Row className='m-0'>
       <Col xs='12' lg='' className='mb-1 mb-lg-auto my-auto'>
@@ -37,7 +38,7 @@ const header = (title, loading, layout, onChangeLayout, globalFilterValue, onGlo
           </Col>
           <Col xs='' sm='8' lg='auto' className='my-auto pe-0'>
             {
-              searchBar(loading, globalFilterValue, onGlobalFilterChange)
+              searchBar(loading, globalFilterValue, onGlobalFilterChange, searchOptions)
             }
           </Col>
         </Row>

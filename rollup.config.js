@@ -23,8 +23,6 @@ export default {
   ],
   plugins: [
     scss({
-      name: 'mdz-styles.css',
-      fileName: 'mdz-styles.css',
       sourceMap: false,
       failOnError: false
     }),
