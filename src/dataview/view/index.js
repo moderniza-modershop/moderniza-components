@@ -116,8 +116,8 @@ const View = (props) => {
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
       if (options.filters) {
-        if (filters.global.value !== globalFilterValue) {
-          filters.global.value = globalFilterValue
+        if (options.filters[options.search.filter].value !== globalFilterValue) {
+          options.filters[options.search.filter].value = globalFilterValue
           freshComponent()
         }
       }
@@ -256,7 +256,7 @@ const View = (props) => {
             filters={filters}
             exportFilename={!options.export ? '' : options.export.fileName}
             globalFilterFields={getGlobalFiltersFields()}
-            filterDisplay='menu'
+            filterDisplay={options.filterDisplay || 'row'}
             footer={footer(
               first,
               rows,
@@ -275,13 +275,16 @@ const View = (props) => {
             {templates.columns.map((col) => (
               <Column
                 key={col.field}
-                dataType={col.dataType}
+                dataType={col.dataType || undefined}
                 field={col.field}
-                filter={col.filter}
+                filter={col.filter || false}
                 filterField={col.filterField}
-                filterElement={col.filterElement}
-                filterFunction={col.filterFunction}
-                sortable={col.sortable}
+                filterElement={col.filterElement || undefined}
+                filterFunction={col.filterFunction || undefined}
+                showFilterOperator={col.showFilterOperator || false}
+                showFilterMatchModes={col.showFilterMatchModes || false}
+                showAddButton={col.showAddButton || false}
+                sortable={col.sortable || false}
                 sortField={col.sortField}
                 header={col.header}
                 body={col.body}

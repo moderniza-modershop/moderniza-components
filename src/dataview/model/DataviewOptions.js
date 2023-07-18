@@ -9,6 +9,7 @@ class DataviewOptions {
      * @param {Object} options
      * @param {String} options.type default: 'table'
      * @param {String} options.height sets the component height
+     * @param {String} options.filterDisplay menu or row
      * @param {String|Boolean} options.title default: false
      *
      * @param {Object} options.pagination
@@ -34,7 +35,7 @@ class DataviewOptions {
      *
      * @param {Object} options.templates
      * @param {{header: String, field: String, sortable: Boolean, sortField: String,
-     * filter: Boolean, filterField: String, filterElement: Function, filterFunction: function,
+     * filter: Boolean, filterField: String, filterElement: Function, filterFunction: function, showFilterOperator: Boolean, showFilterMatchModes: Boolean, showAddButton: Boolean
      * body: Function}[]} options.templates.columns columns template
      * @param {Function} options.templates.grid grid template
      * @param {Function} options.templates.list list template
@@ -951,6 +952,7 @@ class DataviewOptions {
     this.add = options.add
     this.export = options.export
     this.search = options.search
+    this.filterDisplay = options.filterDisplay
     // *CALLBACKS
     this.onRequest = options.onRequest
     this.onPageChange = options.onPageChange
