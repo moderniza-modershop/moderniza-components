@@ -23,8 +23,8 @@ export default {
   ],
   plugins: [
     scss({
-      sourceMap: false,
-      failOnError: false
+      sourceMap: true,
+      failOnError: true
     }),
     external(),
     postcss({

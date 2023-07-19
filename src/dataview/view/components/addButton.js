@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useRef } from 'react'
 import { Button } from 'primereact/button'
-import { DataviewDeviceSize } from '../../controller'
 
 /**
  * Add header button

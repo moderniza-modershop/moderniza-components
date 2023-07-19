@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { DataviewRequest } from '../controller'
+import DataviewRequest from '../controller/DataviewRequest'
 
 /**
  * Dataview configuration
@@ -17,10 +17,9 @@ class DataviewOptions {
      * @param {Number} options.pagination.peerPage default: 5
      * @param {Number[]} options.pagination.peerPageOptions default: array (5,10,20,30)
      * 
-     * @param {{label:String, filter: String}} options.search search input
+     * @param {{label:String, value: String}} options.search search input
      *
-     * @param {{value: String|Null, operator: Object, matchMode: String, constraints: {
-     * value: String|Null, matchMode: String}}[]} options.filters primereact datatable api filters
+     * @param {{value: String|Null, operator: Object, matchMode: String, constraints: {value: String|Null, matchMode: String}[]}[]} options.filters primereact datatable api filters
      *
      * @param {Object} options.sorts
      * @param {Boolean} options.sorts.visible
@@ -30,20 +29,16 @@ class DataviewOptions {
      * @param {String} options.sorts.optionLabel sort dropdown optionLabel
      * @param {String} options.sorts.className sort dropdown className
      * @param {Object} options.sorts.style sort dropdown style
-     * @param {{label: String, value: Any, sorts: {sortOrder: Number,
-     * sortField: String}}[]} options.sorts.sortOptions
+     * @param {{label: String, value: Any, sorts: {sortOrder: Number, sortField: String}}[]} options.sorts.sortOptions
      *
      * @param {Object} options.templates
-     * @param {{header: String, field: String, sortable: Boolean, sortField: String,
-     * filter: Boolean, filterField: String, filterElement: Function, filterFunction: function, showFilterOperator: Boolean, showFilterMatchModes: Boolean, showAddButton: Boolean
-     * body: Function}[]} options.templates.columns columns template
+     * @param {{header: String, headerStyle: Object, headerClassName: String, field: String, sortable: Boolean, sortField: String, filter: Boolean, filterField: String, filterElement: Function, filterFunction: function, showFilterOperator: Boolean, showFilterMatchModes: Boolean, showAddButton: Boolean, body: Function, bodyStyle: Object, bodyClassName: String}[]} options.templates.columns columns template
      * @param {Function} options.templates.grid grid template
      * @param {Function} options.templates.list list template
      *
      * @param {{xs: String, sm: String, lg: String, xl: String, xxl:String}} options.responsive
      *
-     * @param {{label:String, icon: String, severity: String, className: String, style: Object,
-     * onClick: Function, visible: Boolean, size: String}} options.add Add header button
+     * @param {{label:String, icon: String, severity: String, className: String, style: Object, onClick: Function, visible: Boolean, size: String}} options.add Add header button
      *
      * @param {Object} options.export
      * @param {Boolean} options.export.visible
@@ -53,12 +48,9 @@ class DataviewOptions {
      * @param {String} options.export.icon custom export button icon
      * @param {String} options.export.label custom export button label
      * @param {String[]} options.export.extensions extensions to export, supported: ('xlsx', 'pdf', 'csv')
-     * @param {{type: String, className: String, size: String, severity: String, label: String,
-     * icon: String, style: Object}} options.export.xlsx custom xlsx export button
-     * @param {{type: String, className: String, size: String, severity: String, label: String,
-     * icon: String, style: Object}} options.export.pdf custom pdf export button
-     * @param {{type: String, className: String, size: String, severity: String, label: String,
-     * icon: String, style: Object}} options.export.csv custom csv export button
+     * @param {{type: String, className: String, size: String, severity: String, label: String, icon: String, style: Object}} options.export.xlsx custom xlsx export button
+     * @param {{type: String, className: String, size: String, severity: String, label: String, icon: String, style: Object}} options.export.pdf custom pdf export button
+     * @param {{type: String, className: String, size: String, severity: String, label: String, icon: String, style: Object}} options.export.csv custom csv export button
      *
      * @param {DataviewRequest} options.onRequest callback to execute when component requests
      * @param {Function} options.onPageChange callback to execute when the page change
@@ -131,7 +123,7 @@ class DataviewOptions {
         }
       })
     }
-    // ?filters (optional)
+    // ?filters (optional) - Removido validação dos filtros temporariamente
     // if (options.filters) {
     //   // *filters
     //   if (typeof options.filters !== 'object') {
@@ -644,7 +636,7 @@ class DataviewOptions {
       className: '',
       placeholder: 'Ordenar resultados',
       optionLabel: 'label',
-      style: {}
+      style: { width: '100%' }
     }
 
     const defaultPeerPageOptions = [5, 10, 20, 30, 40, 50]

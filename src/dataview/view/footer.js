@@ -1,8 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import { Paginator } from 'primereact/paginator'
-import paginatorLeft from './components/paginatorLeft'
-import paginatorRight from './components/paginatorRight'
+import { paginatorLeft, paginatorRight } from './components'
 
 /**
  * Dataview footer view

@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 import View from './view'
 
 // *Models
-import { DataviewOptions } from './model'
+import DataviewOptions from './model/DataviewOptions'
 
 // *STYLES
 import './dataview.css'

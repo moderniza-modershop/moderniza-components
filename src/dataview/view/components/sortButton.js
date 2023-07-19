@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useRef } from 'react'
 import { Dropdown } from 'primereact/dropdown'
-import { DataviewDeviceSize } from '../../controller'
 
 /**
  * Dataview header sort button

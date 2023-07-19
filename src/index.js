@@ -1,24 +1,14 @@
 // !MAIN EXPORT FILE
 // *Dataview
-import {
-  DataviewRequestContent,
-  DataviewOptions,
-  DataviewRequestEvent
-} from './dataview/model/'
-import Dataview from './dataview/'
-
+import Dataview from './dataview'
+// *models
+import DataviewOptions from './dataview/model/DataviewOptions'
+import DataviewRequestEvent from './dataview/model/DataviewRequestEvent'
+import DataviewRequestContent from './dataview/model/DataviewRequestContent'
 // *Dumb (base)
-import Dumb from './dumb/'
+import Dumb from './dumb'
 
 export {
-  DataviewRequestContent,
-  DataviewOptions,
-  DataviewRequestEvent,
-  Dataview,
-  Dumb
-}
-
-export default {
   DataviewRequestContent,
   DataviewOptions,
   DataviewRequestEvent,

@@ -4,9 +4,14 @@ import { Column } from 'primereact/column'
 import { DataView } from 'primereact/dataview'
 import PropTypes from 'prop-types'
 
-// *MVC
-import { DataviewRequest, DataviewDeviceSize, DataviewResponsive } from '../controller'
-import { DataviewRequestEvent, DataviewOptions } from '../model'
+// *Controllers
+import DataviewRequest from '../controller/DataviewRequest'
+import DataviewDeviceSize from '../controller/DataviewDeviceSize'
+import DataviewResponsive from '../controller/DataviewResponsive'
+
+// *Models
+import DataviewOptions from '../model/DataviewOptions'
+import DataviewRequestEvent from '../model/DataviewRequestEvent'
 
 // *HEADER
 import { header } from './header.js'
@@ -22,9 +27,9 @@ import { footer } from './footer.js'
  */
 const View = (props) => {
   /**
-     * Component options
-     * @type {DataviewOptions}
-     */
+   * Component options
+   * @type {DataviewOptions}
+   */
   const options = props.options.build ? props.options : new DataviewOptions(props.options)
   console.log('options', options)
   const templates = options.templates
@@ -59,7 +64,7 @@ const View = (props) => {
   const [filters, setFilters] = useState(options.filters || [])
 
   // *GLOBAL FILTER
-  const [globalFilterValue, setGlobalFilterValue] = useState(options.filters[options.search.filter].value || '')
+  const [globalFilterValue, setGlobalFilterValue] = useState(options.search.value || '')
 
   // *DATAVIEW RESULTS
   const [results, setResults] = useState([])
@@ -67,6 +72,7 @@ const View = (props) => {
   // *RESPONSIVE
   const lastDeviceSize = DataviewDeviceSize()
   const [deviceSize, setDeviceSize] = useState(lastDeviceSize)
+
   useEffect(() => {
     // console.log('lastDeviceSize', lastDeviceSize)
     if (typeof lastDeviceSize.width === 'number' &&
@@ -92,6 +98,9 @@ const View = (props) => {
     const request = await DataviewRequest(
       options.onRequest,
       new DataviewRequestEvent({
+        search: {
+          value: globalFilterValue
+        },
         pagination: {
           page,
           peerPage: rows
@@ -115,12 +124,7 @@ const View = (props) => {
   // *EFFECT TO SEARCH WHEN USER STOPS TYPING
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
-      if (options.filters) {
-        if (options.filters[options.search.filter].value !== globalFilterValue) {
-          options.filters[options.search.filter].value = globalFilterValue
-          freshComponent()
-        }
-      }
+      if (options.search && options.search.value !== globalFilterValue) freshComponent()
     }, 3000)
     return () => clearTimeout(delayDebounceFn)
   }, [globalFilterValue])
@@ -132,7 +136,6 @@ const View = (props) => {
 
   // *SORT CALLBACK
   const onSortChange = (e) => {
-    // console.log('event dela', e)
     if (options.onSortChange) options.onSortChange(e)
     if (e.sortKey) setSortKey(e.sortKey)
     setSortField(e.sortField)
@@ -142,26 +145,31 @@ const View = (props) => {
   // *PAGE CALLBACK
   const onPageChange = (e, index) => {
     if (e.page !== page) {
-      if (options.onPageChange) options.onPageChange(e, index)
       setPage(e.page)
       setFirst(e.first)
       setRows(e.rows)
+      if (options.onPageChange) options.onPageChange(e, index)
     }
   }
 
   //* FILTER CALLBACK
   const onFilterChange = (e) => {
+    if (e.filters) setFilters(e.filters)
     if (options.onFilterChange) options.onFilterChange(e)
   }
 
   // *GLOBAL FILTER CALLBACK
+  // const onGlobalFilterChange = (e) => {
+  //   const value = e.target.value
+  //   let _filters = {}
+  //   _filters = { ...filters }
+  //   setGlobalFilterValue(value)
+  //   setFilters(_filters)
+  //   setGlobalFilterValue(value)
+  // }
+
   const onGlobalFilterChange = (e) => {
-    const value = e.target.value
-    let _filters = {}
-    _filters = { ...filters }
-    setGlobalFilterValue(value)
-    setFilters(_filters)
-    setGlobalFilterValue(value)
+    setGlobalFilterValue(e.target.value)
   }
 
   // *LAYOUT CALLBACK
@@ -287,7 +295,11 @@ const View = (props) => {
                 sortable={col.sortable || false}
                 sortField={col.sortField}
                 header={col.header}
+                headerStyle={col.headerStyle || {}}
+                headerClassName={col.headerClassName || ''}
                 body={col.body}
+                bodyStyle={col.bodyStyle || {}}
+                bodyClassName={col.bodyClassName || ''}
               />
             ))}
           </DataTable>
