@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import { exportButton, layoutButton, searchBar, sortButton, addButton } from './components'
+import { exportButton, layoutButton, searchBar, sortButton, addButton, refreshButton } from './components'
 import { Col, Row } from 'reactstrap'
 
 /**
@@ -19,10 +19,12 @@ import { Col, Row } from 'reactstrap'
  * @param {Array} exportColumns
  * @param {{width: Number, height: Number }} deviceSize
  * @param {{label:String, filter: String}} searchOptions
+ * @param {Function} onRefresh
+ * @param {Object} refreshOptions
  *
  * @returns {JSX.Element}
  */
-const header = (title, loading, layout, onChangeLayout, globalFilterValue, onGlobalFilterChange, optionsExport, dataTableRefOrSorts, exportOverPanelRefOrSortKey, resultsOrOnSortChange, exportColumns, sortOptions, addOptions, deviceSize, searchOptions) => {
+const header = (title, loading, layout, onChangeLayout, globalFilterValue, onGlobalFilterChange, optionsExport, dataTableRefOrSorts, exportOverPanelRefOrSortKey, resultsOrOnSortChange, exportColumns, sortOptions, addOptions, deviceSize, searchOptions, onRefresh, refreshOptions) => {
   return (
     <Row className='m-0'>
       <Col xs='12' lg='' className='mb-1 mb-lg-auto my-auto'>
@@ -63,9 +65,20 @@ const header = (title, loading, layout, onChangeLayout, globalFilterValue, onGlo
               </Col>
             ) : ''
           }
+          {
+            deviceSize.width > 575.98 ?
+              (
+                <Col className='col-auto pe-0 my-auto'>
+                  {
+                    layoutButton(layout, onChangeLayout, deviceSize)
+                  }
+                </Col>
+              )
+              : ''
+          }
           <Col className='col-auto pe-0 my-auto'>
             {
-              layoutButton(layout, onChangeLayout, deviceSize)
+              refreshButton(onRefresh, refreshOptions)
             }
           </Col>
           {

@@ -7,6 +7,7 @@ import { Button } from 'primereact/button'
  *
  * @param {String} layout
  * @param {Function} callback
+ * @param {Object} deviceSize
  *
  * @returns {JSX.Element}
  */
@@ -21,7 +22,7 @@ const layoutButton = (layout, callback, deviceSize) => {
     <div className='p-buttonset'>
       {
         items.map((item, index) => {
-          if (!(item.value === 'table' && deviceSize.width < 575.98)) {
+          if (!(item.value === 'table' && deviceSize.width < 767.98)) {
             return (
               <Button
                 key={index}

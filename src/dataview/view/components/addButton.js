@@ -5,7 +5,7 @@ import { Button } from 'primereact/button'
 /**
  * Add header button
  *
-* @param {{label:String, icon: String, severity: String, className: String, style: Object, onClick: Function, size: String}} addOptions
+* @param {{label:String, icon: String, severity: String, className: String, style: Object, onClick: Function, size: String, type: String}} addOptions
  * @returns {JSX.Element}
  */
 const addButton = (addOptions, deviceSize) => {
@@ -20,6 +20,7 @@ const addButton = (addOptions, deviceSize) => {
 
   return (
     <Button
+      type={addOptions.type}
       label={getLabel(addOptions.label)}
       icon={addOptions.icon}
       size={addOptions.size}

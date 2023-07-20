@@ -2,22 +2,19 @@
 
 [[Retornar]](../README.md)
 
-Componente dinâmico criado através dos componentes do primereact **Dataview** e **Datatable**
+Componente dinâmico criado através dos componentes do *Primereact* **Dataview** e **Datatable**
 
 ## TODO
 
-- [x] Valores padrões passados dentro do `DataviewOptions`
-- [x] Terminar exemplo prático
-- [ ] Documentar defaults do pagination
-- [ ] Documentar a utilização dos filtros
-- [ ] Ajustar as opções para iniciar apenas com o filtro `filters.global`
-- [ ] Ajustar as opções para iniciar sem o `sorts`
-
-## BACKLOG
-
-- [ ] Ajustar diagrama: adicionar estrutura do (view)
+- [x] Botão refresh
+- [x] Opção frozenColumn do `datatable`
+- [ ] Opção frozenRow do `datatable`
+- [ ] Opção selecionar todos do `datatable`
+- [ ] Opção skeleton do `datatable`
+- [ ] Opção expandable do `datatable`  
 - [ ] Adicionar a funcionalidade do `height` responsivo
-- [ ] Adicionar a funcionalidade do `pagination.infinite`, scroll infinito.
+- [ ] Adicionar a funcionalidade do `pagination.infinite`, scroll infinito (Virtual Scroller)
+- [ ] Documentar a utilização dos `filters` e `fitlerDisplay`
 
 ## Utilização
 

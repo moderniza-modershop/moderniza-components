@@ -74,14 +74,11 @@ const View = (props) => {
   const [deviceSize, setDeviceSize] = useState(lastDeviceSize)
 
   useEffect(() => {
-    // console.log('lastDeviceSize', lastDeviceSize)
     if (typeof lastDeviceSize.width === 'number' &&
       typeof lastDeviceSize.height === 'number' &&
       options.responsive) {
-      // console.log('passei aqui')
       setDeviceSize(lastDeviceSize)
       DataviewResponsive((viewportLayout) => {
-        // console.log('viewportLayout', viewportLayout)
         if (layout !== viewportLayout) {
           setLayout(viewportLayout)
         }
@@ -132,24 +129,22 @@ const View = (props) => {
   // *START EFFECT
   useEffect(() => {
     freshComponent()
-  }, [page, sortField, sortOrder, rows, filters])
+  }, [page, sortField, sortKey, sortOrder, rows, filters])
 
   // *SORT CALLBACK
   const onSortChange = (e) => {
     if (options.onSortChange) options.onSortChange(e)
     if (e.sortKey) setSortKey(e.sortKey)
-    setSortField(e.sortField)
-    setSortOrder(e.sortOrder)
+    if (e.sortField) setSortField(e.sortField)
+    if (e.sortOrder) setSortOrder(e.sortOrder)
   }
 
   // *PAGE CALLBACK
   const onPageChange = (e, index) => {
-    if (e.page !== page) {
-      setPage(e.page)
-      setFirst(e.first)
-      setRows(e.rows)
-      if (options.onPageChange) options.onPageChange(e, index)
-    }
+    if (e.page) setPage(e.page)
+    if (e.first) setFirst(e.first)
+    if (e.rows) setRows()
+    if (options.onPageChange) options.onPageChange(e, index)
   }
 
   //* FILTER CALLBACK
@@ -158,15 +153,9 @@ const View = (props) => {
     if (options.onFilterChange) options.onFilterChange(e)
   }
 
-  // *GLOBAL FILTER CALLBACK
-  // const onGlobalFilterChange = (e) => {
-  //   const value = e.target.value
-  //   let _filters = {}
-  //   _filters = { ...filters }
-  //   setGlobalFilterValue(value)
-  //   setFilters(_filters)
-  //   setGlobalFilterValue(value)
-  // }
+  const onRefresh = () => {
+    freshComponent()
+  }
 
   const onGlobalFilterChange = (e) => {
     setGlobalFilterValue(e.target.value)
@@ -225,7 +214,9 @@ const View = (props) => {
               options.sorts,
               options.add,
               lastDeviceSize,
-              options.search
+              options.search,
+              onRefresh,
+              options.refresh
             )}
             footer={footer(
               first,
@@ -240,6 +231,7 @@ const View = (props) => {
           />
         ) : (
           <DataTable
+            size={options.size || 'normal'}
             className='mdz-datatable-component'
             ref={dataTableRef}
             loading={loading}
@@ -258,7 +250,9 @@ const View = (props) => {
               options.sorts,
               options.add,
               lastDeviceSize,
-              options.search
+              options.search,
+              onRefresh,
+              options.refresh
             )}
             value={results}
             filters={filters}
@@ -289,6 +283,7 @@ const View = (props) => {
                 filterField={col.filterField}
                 filterElement={col.filterElement || undefined}
                 filterFunction={col.filterFunction || undefined}
+                frozen={col.frozen || false}
                 showFilterOperator={col.showFilterOperator || false}
                 showFilterMatchModes={col.showFilterMatchModes || false}
                 showAddButton={col.showAddButton || false}

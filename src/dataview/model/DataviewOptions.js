@@ -9,6 +9,7 @@ class DataviewOptions {
      * @param {Object} options
      * @param {String} options.type default: 'table'
      * @param {String} options.height sets the component height
+     * @param {String} options.size size of datatable
      * @param {String} options.filterDisplay menu or row
      * @param {String|Boolean} options.title default: false
      *
@@ -18,6 +19,7 @@ class DataviewOptions {
      * @param {Number[]} options.pagination.peerPageOptions default: array (5,10,20,30)
      * 
      * @param {{label:String, value: String}} options.search search input
+     * @param {{visible: Boolean, type: String, className: String, size: String, severity: String, label: String, icon: String, style: Object, raised: Boolean, rounded: Boolean, outlined: Boolean}} options.refresh refresh button
      *
      * @param {{value: String|Null, operator: Object, matchMode: String, constraints: {value: String|Null, matchMode: String}[]}[]} options.filters primereact datatable api filters
      *
@@ -32,7 +34,7 @@ class DataviewOptions {
      * @param {{label: String, value: Any, sorts: {sortOrder: Number, sortField: String}}[]} options.sorts.sortOptions
      *
      * @param {Object} options.templates
-     * @param {{header: String, headerStyle: Object, headerClassName: String, field: String, sortable: Boolean, sortField: String, filter: Boolean, filterField: String, filterElement: Function, filterFunction: function, showFilterOperator: Boolean, showFilterMatchModes: Boolean, showAddButton: Boolean, body: Function, bodyStyle: Object, bodyClassName: String}[]} options.templates.columns columns template
+     * @param {{header: String, headerStyle: Object, headerClassName: String, field: String, sortable: Boolean, sortField: String, filter: Boolean, filterField: String, filterElement: Function, filterFunction: function, showFilterOperator: Boolean, showFilterMatchModes: Boolean, showAddButton: Boolean, body: Function, bodyStyle: Object, bodyClassName: String, frozen: Boolean}[]} options.templates.columns columns template
      * @param {Function} options.templates.grid grid template
      * @param {Function} options.templates.list list template
      *
@@ -668,7 +670,7 @@ class DataviewOptions {
         severity: 'secondary',
         label: 'Arquivo (.csv)',
         icon: 'pi pi-file',
-        style: { minWidth: '160px' }
+        style: { width: '175px' }
       },
       pdf: {
         type: 'button',
@@ -677,7 +679,7 @@ class DataviewOptions {
         severity: 'primary',
         label: 'Documento (.pdf)',
         icon: 'pi pi-file-pdf',
-        style: { minWidth: '160px' }
+        style: { width: '175px' }
       },
       xlsx: {
         type: 'button',
@@ -686,18 +688,33 @@ class DataviewOptions {
         severity: 'success',
         label: 'Planilha (.xlsx)',
         icon: 'pi pi-file-excel',
-        style: { minWidth: '160px' }
+        style: { width: '175px' }
       }
     }
 
     const defaultAddButton = {
       visible: true,
+      type: 'button',
       label: 'Novo',
       icon: 'pi pi-plus',
       size: 'small',
       severity: 'primary',
       className: '',
       style: {}
+    }
+
+    const defaultRefreshButton = {
+      visible: true,
+      type: 'button',
+      className: '',
+      size: 'small',
+      severity: 'info',
+      label: '',
+      icon: 'pi pi-refresh',
+      style: {},
+      rounded: true,
+      raised: true,
+      outlined: false
     }
 
     // *DEFAULT HEIGHT
@@ -922,6 +939,47 @@ class DataviewOptions {
       } else {
         options.export.xlsx = defaultExportButtons.xlsx
       }
+      // *DEFAULT REFRESH
+      if (options.refresh) {
+        // *export.refresh.type
+        if (!options.refresh.type) {
+          options.refresh.type = defaultRefreshButton.type
+        }
+        // *export.refresh.className
+        if (!options.refresh.className) {
+          options.refresh.className = defaultRefreshButton.className
+        }
+        // *export.refresh.size
+        if (!options.refresh.size) {
+          options.refresh.size = defaultRefreshButton.size
+        }
+        // *export.refresh.severity
+        if (!options.refresh.severity) {
+          options.refresh.severity = defaultRefreshButton.severity
+        }
+        // *export.refresh.label
+        if (!options.refresh.label) {
+          options.refresh.label = defaultRefreshButton.label
+        }
+        // *export.refresh.icon
+        if (!options.refresh.icon) {
+          options.refresh.icon = defaultRefreshButton.icon
+        }
+        // *export.refresh.style
+        if (!options.refresh.style) {
+          options.refresh.style = defaultRefreshButton.style
+        }
+        // *export.refresh.rounded
+        if (!options.refresh.rounded) {
+          options.refresh.rounded = defaultRefreshButton.rounded
+        }
+        // *export.refresh.raised
+        if (!options.refresh.raised) {
+          options.refresh.raised = defaultRefreshButton.raised
+        }
+      } else {
+        options.refresh = defaultRefreshButton
+      }
     }
     return options
   }
@@ -944,6 +1002,8 @@ class DataviewOptions {
     this.add = options.add
     this.export = options.export
     this.search = options.search
+    this.refresh = options.refresh
+    this.size = options.size
     this.filterDisplay = options.filterDisplay
     // *CALLBACKS
     this.onRequest = options.onRequest
