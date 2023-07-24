@@ -65,6 +65,7 @@ const View = (props) => {
 
   // *GLOBAL FILTER
   const [globalFilterValue, setGlobalFilterValue] = useState(options.search.value || '')
+  const [lastSearch, setLastSearch] = useState('')
 
   // *DATAVIEW RESULTS
   const [results, setResults] = useState([])
@@ -115,13 +116,14 @@ const View = (props) => {
       setTotalRecords(request.total)
     }
 
+    setLastSearch(globalFilterValue)
     setLoading(false)
   }
 
   // *EFFECT TO SEARCH WHEN USER STOPS TYPING
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
-      if (options.search && options.search.value !== globalFilterValue) freshComponent()
+      if (lastSearch !== globalFilterValue) freshComponent()
     }, 3000)
     return () => clearTimeout(delayDebounceFn)
   }, [globalFilterValue])
@@ -143,7 +145,7 @@ const View = (props) => {
   const onPageChange = (e, index) => {
     if (e.page) setPage(e.page)
     if (e.first) setFirst(e.first)
-    if (e.rows) setRows()
+    if (e.rows) setRows(e.rows)
     if (options.onPageChange) options.onPageChange(e, index)
   }
 
@@ -154,6 +156,7 @@ const View = (props) => {
   }
 
   const onRefresh = () => {
+    setPage(0)
     freshComponent()
   }
 
@@ -274,9 +277,9 @@ const View = (props) => {
             sortField={sortField}
             sortOrder={sortOrder}
           >
-            {templates.columns.map((col) => (
+            {templates.columns.map((col, index) => (
               <Column
-                key={col.field}
+                key={index}
                 dataType={col.dataType || undefined}
                 field={col.field}
                 filter={col.filter || false}
