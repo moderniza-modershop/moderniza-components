@@ -24,8 +24,9 @@ Algumas funcionalidade podem não estar inclusas no projeto. Então verifique a 
 ## Instalação da livraria
 
 1. Execute o comando ```npm install moderniza-components@latest``` para instalar a livraria
-2. Importe os estilos da moderniza `import 'moderniza-components/dist/index.css'`
-3. **Tenha instalado no respositório que receberá o moderniza-components**:
+2. Em algumas versões mais antigas do Node e NPM é necessário utilizar o parametro `--legacy-peer-deps` para normalizar a arvore de dependencias.
+3. Importe os estilos da moderniza `import 'moderniza-components/dist/index.css'`
+4. **Tenha instalado no respositório que receberá o moderniza-components**:
 
    - "reactstrap": "9.0.1" <- (package.json)
    - "primeicons": "^6.0.1" <- (package.json)
@@ -52,6 +53,15 @@ import "primereact/resources/themes/lara-light-indigo/theme.css" // tema prime r
 // Moderniza components abaixo
 import 'moderniza-components/dist/index.css' // CSS
 import { Dataview, Dumb } from 'moderniza-components' // Componentes
+```
+
+## Executando em modo pre-visualização
+Abra dois terminais, um deles para o bundle e o outro para a visualização.
+
+
+```bash
+npm start #terminal (1)
+npm run preview #terminal (2)
 ```
 
 ## Estrutura dos componentes

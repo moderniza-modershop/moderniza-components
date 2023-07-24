@@ -3,7 +3,7 @@
   "author": "lucas de Oliveira Neitzke",
   "license": "MIT",
   "name": "moderniza-components",
-  "version": "0.5.2",
+  "version": "0.6.9",
   "private": false,
   "type": "module",
   "repository": {
@@ -17,24 +17,23 @@
     "npm": ">=5"
   },
   "scripts": {
-    "test": "cross-env CI=1 react-scripts test --env=jsdom",
+    "postinstall": "cd preview && npm install",
     "build": "npm run lint:fix && rollup -c && npm run post-build",
     "post-build": "node post-build.js",
+    "preview": "cd preview && npm run dev",
     "start": "rollup -c -w",
-    "prepublish": "npm run build",
-    "predeploy": "cd example && npm install && npm run build",
-    "deploy": "gh-pages -d example/build",
     "lint:fix": "eslint src/**/*.js --fix"
   },
   "peerDependencies": {
     "prop-types": "^15.0.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "^18.0.0 || ^17.0.0 || ^16.0.0 || ^15.0.0",
+    "react-dom": "^18.0.0 || ^17.0.0 | ^16.0.0 || ^15.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.5",
     "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
@@ -49,7 +48,6 @@
     "eslint-plugin-react": "^7.10.0",
     "eslint-plugin-standard": "^3.1.0",
     "file-saver": "^2.0.5",
-    "gh-pages": "^1.2.0",
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.5.29",
     "minify": "^10.2.0",
@@ -72,6 +70,6 @@
   },
   "files": [
     "dist",
-    "dist/*.css"
+    "css"
   ]
 }

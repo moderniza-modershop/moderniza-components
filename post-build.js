@@ -1,1 +1,1 @@
-// TODO:minify CSS
+// TODO: minify (css/*.css) and (dist/*.css)
