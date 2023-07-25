@@ -328,4 +328,4 @@ Veja abaixo as opções disponíveis para o componente
 
 ## Diagrama de fluxo
 
-<img src="/docs/diagrams/out/dataview/dataviewDiagram.svg" width="100%">
+[![Foo](/docs/diagrams/out/dataview/dataviewDiagram.svg)](/docs/diagrams/src/dataview.puml)

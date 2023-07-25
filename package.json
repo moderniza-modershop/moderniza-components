@@ -3,7 +3,7 @@
   "author": "lucas de Oliveira Neitzke",
   "license": "MIT",
   "name": "moderniza-components",
-  "version": "0.7.2",
+  "version": "0.7.5",
   "private": false,
   "type": "module",
   "repository": {
@@ -69,6 +69,9 @@
   },
   "files": [
     "dist",
-    "css"
+    "dist/*.js",
+    "dist/*.css",
+    "css",
+    "css/*.css"
   ]
 }
