@@ -4,7 +4,7 @@ import Spa from "./spa"
 // * Components
 import Dumb from "./components/dumb"
 import Dataview from "./components/dataview"
-import Treeview from "./components/treeview"
+import Treeview from "./components/treeviewcall"
 
 // * CSS
 import "bootstrap/dist/css/bootstrap.min.css" // Bootstrap

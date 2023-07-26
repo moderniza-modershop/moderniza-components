@@ -9,5 +9,6 @@ import DataviewRequestContent from "./dataview/model/DataviewRequestContent"
 import Dumb from "./dumb"
 // TreeView
 import TreeView from "./treeview"
+import TreeCall from "./call"
 
-export { DataviewRequestContent, DataviewOptions, DataviewRequestEvent, Dataview, Dumb, TreeView }
+export { DataviewRequestContent, DataviewOptions, DataviewRequestEvent, Dataview, Dumb, TreeView, TreeCall }
