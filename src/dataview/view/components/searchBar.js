@@ -1,5 +1,5 @@
-import React from 'react'
-import { InputText } from 'primereact/inputtext'
+import React from "react"
+import { InputText } from "primereact/inputtext"
 
 /**
  * Dataview header search bar
@@ -13,18 +13,20 @@ import { InputText } from 'primereact/inputtext'
  */
 const searchBar = (loading, globalFilterValue, onGlobalFilterChange, searchOptions) => {
   return (
-    <span className='p-input-icon-left'
+    <span
+      className="p-input-icon-left"
       style={{
-        width: '100%'
-      }}>
-      <i className='pi pi-search' />
+        width: "100%"
+      }}
+    >
+      <i className="pi pi-search" />
       <InputText
         disabled={loading}
         value={globalFilterValue}
         onChange={onGlobalFilterChange}
         placeholder={searchOptions.label}
         style={{
-          width: '100%'
+          width: "100%"
         }}
       />
     </span>
