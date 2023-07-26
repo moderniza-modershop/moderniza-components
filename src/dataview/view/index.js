@@ -31,7 +31,7 @@ const View = (props) => {
    * @type {DataviewOptions}
    */
   const options = props.options.build ? props.options : new DataviewOptions(props.options)
-  console.log('options', options)
+  // console.log('options', options)
   const templates = options.templates
 
   // *REFERENCES
@@ -65,7 +65,7 @@ const View = (props) => {
 
   // *GLOBAL FILTER
   const [globalFilterValue, setGlobalFilterValue] = useState(options.search.value || '')
-  const [lastSearch, setLastSearch] = useState('')
+  const [lastSearch, setLastSearch] = useState(options.search.value || '')
 
   // *DATAVIEW RESULTS
   const [results, setResults] = useState([])
@@ -89,6 +89,7 @@ const View = (props) => {
 
   // *FRESH THE COMPONENT
   const freshComponent = async () => {
+    // console.log('fresh component')
     setLoading(true)
     setResults([])
     setTotalRecords(0)
@@ -123,6 +124,7 @@ const View = (props) => {
   // *EFFECT TO SEARCH WHEN USER STOPS TYPING
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
+      // console.log('delay')
       if (lastSearch !== globalFilterValue) freshComponent()
     }, 3000)
     return () => clearTimeout(delayDebounceFn)
@@ -130,9 +132,10 @@ const View = (props) => {
 
   // *START EFFECT
   useEffect(() => {
+    // console.log('principal effect')
     freshComponent()
   }, [page, sortField, sortKey, sortOrder, rows, filters])
-
+  
   // *SORT CALLBACK
   const onSortChange = (e) => {
     if (options.onSortChange) options.onSortChange(e)
@@ -157,7 +160,8 @@ const View = (props) => {
 
   const onRefresh = () => {
     setPage(0)
-    freshComponent()
+    setFirst(0)
+    setRows(rows)
   }
 
   const onGlobalFilterChange = (e) => {
@@ -171,6 +175,7 @@ const View = (props) => {
 
   // *PEERPAGE CALLBACK
   const onChangePeerPageCallback = (e) => {
+    setPage(0)
     setFirst(0)
     setRows(e.value)
   }

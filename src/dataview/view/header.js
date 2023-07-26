@@ -29,16 +29,18 @@ const header = (title, loading, layout, onChangeLayout, globalFilterValue, onGlo
     <Row className='m-0'>
       <Col xs='12' lg='' className='mb-1 mb-lg-auto my-auto'>
         <Row>
-          <Col xs='auto' sm='' className='my-auto ps-0'>
-            {
-              title ? (
-                <div className='flex'>
-                  <h4 className='m-0'>{title}</h4>
-                </div>
-              ) : ''
-            }
-          </Col>
-          <Col xs='' sm='8' lg='auto' className='my-auto pe-0'>
+          {
+            title ?
+              (
+                <Col className='my-auto ps-0 me-auto'>
+                  <div className='flex'>
+                    <h4 className='m-0'>{title}</h4>
+                  </div>
+                </Col>
+              )
+              : ''
+          }
+          <Col xs='' sm={title ? '' : '12'} lg='' xl='auto' className={title ? 'my-auto pe-0' : 'my-auto pe-0 ps-0'}>
             {
               searchBar(loading, globalFilterValue, onGlobalFilterChange, searchOptions)
             }

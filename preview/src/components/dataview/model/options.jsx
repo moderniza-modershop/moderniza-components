@@ -6,7 +6,7 @@ import columns from '../view/layouts/table'
 import { FilterOperator, FilterMatchMode } from 'primereact/api'
 
 export default {
-    title: 'Artistas',
+    title: false,
     type: 'list',
     height: 'calc(100vh - 95px)',
     filterDisplay: 'menu',
