@@ -17,7 +17,6 @@ const getData = async (event) => {
 
     try {
         const response = await axios.request(options)
-        // console.log('response', response)
         return response
     } catch (error) {
         throw new Error(error.message)

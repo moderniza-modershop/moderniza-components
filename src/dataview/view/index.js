@@ -31,7 +31,6 @@ const View = (props) => {
    * @type {DataviewOptions}
    */
   const options = props.options.build ? props.options : new DataviewOptions(props.options)
-  // console.log('options', options)
   const templates = options.templates
 
   // *REFERENCES
@@ -89,7 +88,6 @@ const View = (props) => {
 
   // *FRESH THE COMPONENT
   const freshComponent = async () => {
-    // console.log('fresh component')
     setLoading(true)
     setResults([])
     setTotalRecords(0)
@@ -124,31 +122,29 @@ const View = (props) => {
   // *EFFECT TO SEARCH WHEN USER STOPS TYPING
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
-      // console.log('delay')
       if (lastSearch !== globalFilterValue) freshComponent()
-    }, 3000)
+    }, 1500)
     return () => clearTimeout(delayDebounceFn)
   }, [globalFilterValue])
 
   // *START EFFECT
   useEffect(() => {
-    // console.log('principal effect')
     freshComponent()
   }, [page, sortField, sortKey, sortOrder, rows, filters])
-  
+
   // *SORT CALLBACK
   const onSortChange = (e) => {
+    setSortKey(e.sortKey)
+    setSortField(e.sortField)
+    setSortOrder(e.sortOrder)
     if (options.onSortChange) options.onSortChange(e)
-    if (e.sortKey) setSortKey(e.sortKey)
-    if (e.sortField) setSortField(e.sortField)
-    if (e.sortOrder) setSortOrder(e.sortOrder)
   }
 
   // *PAGE CALLBACK
   const onPageChange = (e, index) => {
-    if (e.page) setPage(e.page)
-    if (e.first) setFirst(e.first)
-    if (e.rows) setRows(e.rows)
+    setPage(e.page)
+    setFirst(e.first)
+    setRows(e.rows)
     if (options.onPageChange) options.onPageChange(e, index)
   }
 
@@ -159,9 +155,7 @@ const View = (props) => {
   }
 
   const onRefresh = () => {
-    setPage(0)
-    setFirst(0)
-    setRows(rows)
+    freshComponent()
   }
 
   const onGlobalFilterChange = (e) => {
@@ -190,14 +184,14 @@ const View = (props) => {
     return options.templates[actualLayout](row)
   }
 
+  const defaultEmpty = () => {
+    return (
+      <div>Nenhum resultado foi encontrado.</div>
+    )
+  }
+
   return (
-    <div>
-      {/* {
-                console.log('sortField', sortField, 'sortOrder', sortOrder)
-            }
-            {
-                console.log('sortKey', sortKey, 'layout', layout, 'device', deviceSize, 'results', results, 'first', first, 'rows', rows, 'total', totalRecords, 'options', options)
-            } */}
+    <React.Fragment>
       {
         layout === 'grid' || layout === 'list' ? (
           <DataView
@@ -241,6 +235,8 @@ const View = (props) => {
           <DataTable
             size={options.size || 'normal'}
             className='mdz-datatable-component'
+            scrollable={options.scrollable || true}
+            emptyMessage={options.empty || defaultEmpty}
             ref={dataTableRef}
             loading={loading}
             header={header(
@@ -285,6 +281,7 @@ const View = (props) => {
             {templates.columns.map((col, index) => (
               <Column
                 key={index}
+                style={col.style || {}}
                 dataType={col.dataType || undefined}
                 field={col.field}
                 filter={col.filter || false}
@@ -311,7 +308,7 @@ const View = (props) => {
       {
         <style>{`.mdz-datatable-component, .mdz-dataview-component{height: ${options.height} !important;}`}</style>
       }
-    </div>
+    </React.Fragment>
   )
 }
 

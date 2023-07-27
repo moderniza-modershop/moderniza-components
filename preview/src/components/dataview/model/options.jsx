@@ -10,6 +10,7 @@ export default {
     type: 'list',
     height: 'calc(100vh - 95px)',
     filterDisplay: 'menu',
+    scrollable: true,
     templates: {
         columns,
         list,
@@ -17,12 +18,12 @@ export default {
     },
     pagination: {
         visible: true,
-        page: 0,
+        page: 1,
         peerPage: 5
     },
     search: {
         label: 'Pesquise pelo nome...',
-        value: 'Lucas'
+        value: ''
     },
     filters: {
         title: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
@@ -68,8 +69,16 @@ export default {
         const content = response.data.data
         const total = response.data.pagination.total
 
+        const newData = content.map((item) => {
+            return {
+                ...item,
+                price: Math.floor(Math.random() * 1000),
+                scale: Math.floor(Math.random() * 1000)
+            }
+        })
+
         return {
-            content,
+            content: newData,
             total
         }
 

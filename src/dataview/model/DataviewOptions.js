@@ -12,6 +12,8 @@ class DataviewOptions {
      * @param {String} options.size size of datatable
      * @param {String} options.filterDisplay menu or row
      * @param {String|Boolean} options.title default: false
+     * @param {Boolean} options.scrollble scroll horizontal and vertical
+     * @param {Function} options.empty when empty shows the element
      *
      * @param {Object} options.pagination
      * @param {Number} options.pagination.page default:0
@@ -34,7 +36,7 @@ class DataviewOptions {
      * @param {{label: String, value: Any, sorts: {sortOrder: Number, sortField: String}}[]} options.sorts.sortOptions
      *
      * @param {Object} options.templates
-     * @param {{header: String, headerStyle: Object, headerClassName: String, field: String, sortable: Boolean, sortField: String, filter: Boolean, filterField: String, filterElement: Function, filterFunction: function, showFilterOperator: Boolean, showFilterMatchModes: Boolean, showAddButton: Boolean, body: Function, bodyStyle: Object, bodyClassName: String, frozen: Boolean}[]} options.templates.columns columns template
+     * @param {{header: String, headerStyle: Object, headerClassName: String, field: String, sortable: Boolean, sortField: String, filter: Boolean, filterField: String, filterElement: Function, filterFunction: function, showFilterOperator: Boolean, showFilterMatchModes: Boolean, showAddButton: Boolean, body: Function, bodyStyle: Object, bodyClassName: String, frozen: Boolean, style: Object}[]} options.templates.columns columns template
      * @param {Function} options.templates.grid grid template
      * @param {Function} options.templates.list list template
      *
@@ -1005,6 +1007,8 @@ class DataviewOptions {
     this.refresh = options.refresh
     this.size = options.size
     this.filterDisplay = options.filterDisplay
+    this.scrollable = options.scrollable
+    this.empty = options.empty
     // *CALLBACKS
     this.onRequest = options.onRequest
     this.onPageChange = options.onPageChange

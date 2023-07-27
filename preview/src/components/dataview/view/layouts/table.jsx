@@ -3,6 +3,19 @@ import { InputNumber } from 'primereact/inputnumber'
 
 const columns = [
     {
+        header: 'Coluna fixa',
+        field: 'api_model',
+        sortable: false,
+        style: { width: '500px' },
+        frozen: true,
+        sortField: '',
+        filter: false,
+        filterField: '',
+        body: () => {
+            return <span className="text-2xl font-semibold">Valor fixado na esquerda, veja como é legal congelar um valor</span>
+        }
+    },
+    {
         header: 'Id',
         field: 'id',
         sortable: false,
@@ -11,6 +24,50 @@ const columns = [
         filterField: '',
         body: (row) => {
             return <span className="text-2xl font-semibold">{row.id}</span>
+        }
+    },
+    {
+        header: 'Id',
+        field: 'id',
+        sortable: false,
+        sortField: '',
+        filter: false,
+        filterField: '',
+        body: (row) => {
+            return <span className="text-2xl font-semibold">{row.id}</span>
+        }
+    },
+    {
+        header: 'Price',
+        field: 'price',
+        sortable: false,
+        sortField: '',
+        filter: false,
+        filterField: '',
+        body: (row) => {
+            return <span className="text-2xl font-semibold">{row.price}</span>
+        }
+    },
+    {
+        header: 'Discount',
+        field: 'price',
+        sortable: false,
+        sortField: '',
+        filter: false,
+        filterField: '',
+        body: (row) => {
+            return <span className="text-2xl font-semibold">{row.price}</span>
+        }
+    },
+    {
+        header: 'Scale',
+        field: 'scale',
+        sortable: false,
+        sortField: '',
+        filter: false,
+        filterField: '',
+        body: (row) => {
+            return <span className="text-2xl font-semibold">{row.scale}</span>
         }
     },
     {
