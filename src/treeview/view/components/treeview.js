@@ -2,44 +2,15 @@ import React, { useEffect, useState } from "react"
 
 import { Tree } from "primereact/tree"
 import { Header } from "./header"
+import { CardFooter, Col, Row } from "reactstrap"
+import { InputText } from "primereact/inputtext"
+import { Button } from "primereact/button"
 
-const TreeViewData = ({ tree, callback, search, setNodeSelected }) => {
+const TreeViewData = ({ title, tree, callback, setNodeSelected, setTypeViewList }) => {
   const [expandedKeys, setExpandedKeys] = useState({ 0: true, "0-0": true })
   const [nodes, setNodes] = useState([])
   const [nodeSelected, setSelectedKey] = useState()
-
-  useEffect(() => {
-    setNodes(onChangeTree(tree))
-  }, [tree])
-
-  const onChangeTree = (tree) => {
-    let list = []
-    if (tree.length > 0) {
-      list = tree.map((key) => roundedChildren(key))
-    }
-
-    return list
-  }
-
-  function roundedChildren(keys) {
-    let mount = mountTree(keys)
-
-    if (mount.children.length > 0) {
-      mount.children = mapKeys(mount.children)
-    }
-
-    return mount
-  }
-
-  function mapKeys(keys) {
-    return keys.map((key) => {
-      if (key.children.length > 0) {
-        return roundedChildren(key)
-      } else {
-        return mountTree(key)
-      }
-    })
-  }
+  const [search, setSearchInput] = useState(false)
 
   function mountTree(row) {
     return {
@@ -51,35 +22,84 @@ const TreeViewData = ({ tree, callback, search, setNodeSelected }) => {
     }
   }
 
-  const expandAll = () => {
-    let _expandedKeys = {}
+  function mapKeys(keys) {
+    return keys.map((key) => {
+      if (key.children.length > 0) {
+        // eslint-disable-next-line no-use-before-define
+        return roundedChildren(key)
+      } else {
+        return mountTree(key)
+      }
+    })
+  }
 
-    for (let node of nodes) {
-      expandNode(node, _expandedKeys)
+  function roundedChildren(keys) {
+    const mount = mountTree(keys)
+
+    if (mount.children.length > 0) {
+      mount.children = mapKeys(mount.children)
     }
 
-    setExpandedKeys(_expandedKeys)
+    return mount
+  }
+
+  const onChangeTree = (tree) => {
+    let list = []
+    if (tree.length > 0) {
+      list = tree.map((key) => roundedChildren(key))
+    }
+
+    return list
+  }
+
+  useEffect(() => {
+    setNodes(onChangeTree(tree))
+  }, [tree])
+
+  const expandNode = (node, _expandedKeys) => {
+    if (node.children && node.children.length) {
+      _expandedKeys[node.key] = true
+
+      for (const child of node.children) {
+        expandNode(child, _expandedKeys)
+      }
+    }
   }
 
   const collapseAll = () => {
     setExpandedKeys({})
   }
 
-  const expandNode = (node, _expandedKeys) => {
-    if (node.children && node.children.length) {
-      _expandedKeys[node.key] = true
+  const expandAll = () => {
+    const _expandedKeys = {}
 
-      for (let child of node.children) {
-        expandNode(child, _expandedKeys)
-      }
+    for (const node of nodes) {
+      expandNode(node, _expandedKeys)
     }
+
+    setExpandedKeys(_expandedKeys)
+  }
+
+  const searchInput = (value) => {
+    setSearchInput(value)
   }
 
   return (
-    <div>
-      <Header expandAll={expandAll} collapseAll={collapseAll} search={search} callback={callback} />
+    <div className="p-card">
+      <Header
+        title={title}
+        expandAll={expandAll}
+        collapseAll={collapseAll}
+        setSearch={searchInput}
+        callback={callback}
+        setTypeViewList={setTypeViewList}
+      />
+
       <Tree
         value={nodes}
+        filter={search}
+        filterMode="strict"
+        filterPlaceholder="Pesquisar..."
         selectionMode="checkbox"
         selectionKeys={nodeSelected}
         onSelectionChange={(e) => {
@@ -90,7 +110,7 @@ const TreeViewData = ({ tree, callback, search, setNodeSelected }) => {
         onDragDrop={(e) => setNodes(e.value)}
         expandedKeys={expandedKeys}
         onToggle={(e) => setExpandedKeys(e.value)}
-        className="w-full md:w-30rem"
+        className="w-full md:w-30rem pt-1 px-1"
       />
     </div>
   )

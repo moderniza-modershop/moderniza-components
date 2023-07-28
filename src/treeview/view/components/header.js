@@ -1,60 +1,90 @@
 /* eslint-disable no-unused-vars */
 import { InputText } from "primereact/inputtext"
-import React from "react"
+import React, { useState } from "react"
 import { Button } from "primereact/button"
 
-import { Card, Col, Row } from "reactstrap"
+import { Card, CardBody, CardTitle, Col, Row } from "reactstrap"
+import { isMobile } from "../../../utils"
 
-const Header = ({ expandAll, collapseAll, search, callback }) => {
+const Header = ({ expandAll, collapseAll, setSearch, callback, setTypeViewList }) => {
+  const [typeView, setTypeView] = useState()
+  const [searchInput, setSearchInput] = useState(false)
+
+  const mobile = isMobile()
+
   return (
     <Card>
-      <Row className="m-1 p-1 d-flex justify-content-between">
-        <Col xs="12" sm="12" lg="6" className="d-flex justify-content-start align-itens-center p-0">
-          <Col xs="12" sm="12" lg="12" className="my-auto ps-0">
-            <span
-              className="p-input-icon-left"
-              style={{
-                width: "100%"
-              }}
-            >
-              <i className="pi pi-search" />
-              <InputText
-                disabled={false}
-                onChange={(e) => {
-                  search(e.target.value)
+      <CardBody>
+        <Row className="mx-0 px-0 d-flex justify-content-between">
+          <Col xs="7" sm="7" lg="7" className="d-flex justify-content-start align-itens-center p-0 mt-lg-0 mt-1">
+            <div className="mx-1 mt-1">
+              <Button
+                type="button"
+                icon="pi pi-search"
+                size="small"
+                severity="primary"
+                outlined
+                onClick={() => {
+                  setSearchInput(!searchInput)
+                  setSearch(!searchInput)
                 }}
-                placeholder={"Pesquisar..."}
-                style={{
-                  width: "100%"
+              />
+            </div>
+            <div className="mx-1 mt-1">
+              <Button
+                type="button"
+                icon="pi pi-plus"
+                size="small"
+                severity="primary"
+                outlined
+                onClick={() => expandAll()}
+              />
+            </div>
+            <div className="mx-1 mt-1">
+              <Button
+                type="button"
+                icon="pi pi-minus"
+                size="small"
+                severity="secondary"
+                outlined
+                onClick={(e) => collapseAll()}
+              />
+            </div>
+          </Col>
+          <Col xs="5" sm="5" lg="3" className="d-flex justify-content-end align-itens-center p-0 mt-1">
+            <span className="p-buttonset mx-1 mt-1">
+              <Button
+                size="small"
+                severity="primary"
+                icon={"pi pi-list"}
+                outlined={typeView}
+                onClick={() => {
+                  setTypeViewList(true)
+                }}
+              />
+              <Button
+                size="small"
+                severity="primary"
+                icon={"pi pi-table"}
+                outlined={!typeView}
+                onClick={() => {
+                  setTypeViewList(false)
+                  setTypeView(false)
                 }}
               />
             </span>
           </Col>
-        </Col>
-        <Col xs="12" sm="12" lg="6" className="d-flex justify-content-end align-itens-center p-0 mt-lg-0 mt-1">
-          <div className="mx-1 mt-1">
+          <Col xs="12" sm="12" lg="2" className="d-flex justify-content-end align-itens-center p-0 mt-1">
             <Button
+              style={{ width: mobile ? "100%" : "80%" }}
               type="button"
-              icon="pi pi-plus"
-              size="small"
+              label="Novo"
               severity="primary"
-              outlined
-              onClick={() => expandAll()}
+              onClick={() => callback(true)}
             />
-          </div>
-          <div className="mx-1 mt-1">
-            <Button
-              type="button"
-              icon="pi pi-minus"
-              size="small"
-              severity="secondary"
-              outlined
-              onClick={(e) => collapseAll()}
-            />
-          </div>
-          <Button type="button" label="Novo" size={200} severity="primary" onClick={() => callback(true)} />
-        </Col>
-      </Row>
+          </Col>
+        </Row>
+      </CardBody>
     </Card>
   )
 }

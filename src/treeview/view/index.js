@@ -1,11 +1,30 @@
-import React from "react"
+import React, { useState } from "react"
 
 import TreeViewData from "./components/treeview"
+import TreeViewTable from "./components/treetable"
 
-const View = ({ tree, callback, search, setNodeSelected }) => {
+const View = ({ title, tree, callback, setNodeSelected }) => {
+  const [typeView, setTypeView] = useState(true)
+
   return (
     <div>
-      <TreeViewData tree={tree} callback={callback} search={search} setNodeSelected={setNodeSelected} />
+      {typeView ? (
+        <TreeViewData
+          title={title}
+          tree={tree}
+          callback={callback}
+          setNodeSelected={setNodeSelected}
+          setTypeViewList={setTypeView}
+        />
+      ) : (
+        <TreeViewTable
+          title={title}
+          tree={tree}
+          callback={callback}
+          setNodeSelected={setNodeSelected}
+          setTypeViewList={setTypeView}
+        />
+      )}
     </div>
   )
 }
