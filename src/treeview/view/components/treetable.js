@@ -9,7 +9,7 @@ import { Card, CardBody, Col, Row } from "reactstrap"
 import { InputSwitch } from "primereact/inputswitch"
 import { isMobile } from "../../../utils"
 
-export default function TemplateDemo({ tree, callback, setNodeSelected, setTypeViewList }) {
+export default function TemplateDemo({ tree, callback, setNodeSelected, setTypeViewList, setAddLevelKey, setEditKey }) {
   const [nodes, setNodes] = useState([])
   const [globalFilter, setGlobalFilter] = useState("")
   const [nodeSelected, setSelectedKey] = useState()
@@ -86,10 +86,37 @@ export default function TemplateDemo({ tree, callback, setNodeSelected, setTypeV
     )
   }
 
+  const actionEdit = (row) => {
+    return (
+      <div className="flex flex-wrap gap-2">
+        <Button
+          type="button"
+          size="small"
+          icon="pi pi-pencil"
+          severity="success"
+          rounded
+          onClick={() => {
+            setEditKey(row)
+          }}
+        ></Button>
+        <Button
+          type="button"
+          size="small"
+          icon="pi pi-plus"
+          rounded
+          onClick={() => {
+            setAddLevelKey(row)
+          }}
+        ></Button>
+      </div>
+    )
+  }
+
   const togglerTemplate = (node, options) => {
     if (!node) {
       return
     }
+    actionEdit(node)
 
     if (node.data.situation) {
       actionTemplate(node)
@@ -176,49 +203,6 @@ export default function TemplateDemo({ tree, callback, setNodeSelected, setTypeV
           </Row>
         </CardBody>
       </Card>
-      // <div className="p-card">
-      //   <div className="p-card-footer m-1 px-2 py-3">
-      //     <Row className="flex justify-content-between">
-      //       <Col>
-      //         <div className="flex justify-content-end">
-      //
-      //         </div>
-      //       </Col>
-      //       <Col className="d-flex justify-content-center px-1">
-      //         <div className="p-buttonset mx-1 mt-1">
-      //           <Button
-      //             size="small"
-      //             severity="primary"
-      //             outlined={!typeView}
-      //             icon={"pi pi-list"}
-      //             onClick={() => {
-      //               setTypeViewList(true)
-      //               setTypeView(true)
-      //             }}
-      //           />
-      //           <Button
-      //             size="small"
-      //             severity="primary"
-      //             icon={"pi pi-table"}
-      //             outlined={typeView}
-      //             onClick={() => {
-      //               setTypeViewList(false)
-      //             }}
-      //           />
-      //         </div>
-      //         <div className="me-1">
-      //           <Button
-      //             type="button"
-      //             label="Novo"
-      //             style={{ width: mobile ? "100%" : "80%" }}
-      //             severity="primary"
-      //             onClick={() => callback(true)}
-      //           />
-      //         </div>
-      //       </Col>
-      //     </Row>
-      //   </div>
-      // </div>
     )
   }
 
@@ -248,8 +232,10 @@ export default function TemplateDemo({ tree, callback, setNodeSelected, setTypeV
         expandedKeys={expandedKeys}
         onToggle={(e) => setExpandedKeys(e.value)}
         resizableColumns
-        showGridlines
+        // showGridlines
       >
+        <Column header="Editar Add" body={actionEdit} headerClassName="w-10rem" />
+
         {columns.map((col, i) => (
           <Column key={i} field={col.field} header={col.header} expander={col.expander} sortable />
         ))}

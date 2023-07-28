@@ -5,8 +5,7 @@ import TreeViewData from "../treeview"
 
 const TreeCall = () => {
   const [situation, setSituation] = useState(false)
-  const title = "Centro de Custo"
-  const typeView = false
+
   const tree = [
     {
       referencia: "1",
@@ -178,6 +177,12 @@ const TreeCall = () => {
       console.log("event selected", e)
       setSituation(e)
     },
+    addLevelKey: (e) => {
+      console.log("event addLevel", e)
+    },
+    editKey: (e) => {
+      console.log("event edit Key", e)
+    },
     tree
   }
 
@@ -185,12 +190,11 @@ const TreeCall = () => {
     <div>
       <TreeViewData
         props={{
-          typeView,
-          title,
           tree: opt.tree,
           callback: opt.callback,
-          search: opt.search,
-          nodeSelected: opt.nodeSelected
+          nodeSelected: opt.nodeSelected,
+          addLevelKey: opt.addLevelKey,
+          editKey: opt.editKey
         }}
       />
     </div>

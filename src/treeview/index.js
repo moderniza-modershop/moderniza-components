@@ -6,11 +6,11 @@ const TreeView = ({ props }) => {
   return (
     <div className="mdz-treeview">
       <View
-        typeView={props.typeView}
-        title={props.title}
         tree={props.tree}
         callback={props.callback}
         setNodeSelected={props.nodeSelected}
+        setAddLevelKey={props.addLevelKey}
+        setEditKey={props.editKey}
       />
     </div>
   )

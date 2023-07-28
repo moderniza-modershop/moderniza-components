@@ -6,7 +6,7 @@ import { CardFooter, Col, Row } from "reactstrap"
 import { InputText } from "primereact/inputtext"
 import { Button } from "primereact/button"
 
-const TreeViewData = ({ title, tree, callback, setNodeSelected, setTypeViewList }) => {
+const TreeViewData = ({ tree, callback, setNodeSelected, setTypeViewList }) => {
   const [expandedKeys, setExpandedKeys] = useState({ 0: true, "0-0": true })
   const [nodes, setNodes] = useState([])
   const [nodeSelected, setSelectedKey] = useState()
@@ -87,7 +87,6 @@ const TreeViewData = ({ title, tree, callback, setNodeSelected, setTypeViewList 
   return (
     <div className="p-card">
       <Header
-        title={title}
         expandAll={expandAll}
         collapseAll={collapseAll}
         setSearch={searchInput}
@@ -100,7 +99,7 @@ const TreeViewData = ({ title, tree, callback, setNodeSelected, setTypeViewList 
         filter={search}
         filterMode="strict"
         filterPlaceholder="Pesquisar..."
-        selectionMode="checkbox"
+        // selectionMode="checkbox"
         selectionKeys={nodeSelected}
         onSelectionChange={(e) => {
           setNodeSelected(e.value)
