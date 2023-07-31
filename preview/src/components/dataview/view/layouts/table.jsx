@@ -6,7 +6,7 @@ const columns = [
         header: 'Coluna fixa',
         field: 'api_model',
         sortable: false,
-        style: { width: '500px' },
+        style: { minWidth: '500px' },
         frozen: true,
         sortField: '',
         filter: false,
@@ -17,6 +17,7 @@ const columns = [
     },
     {
         header: 'Id',
+        style: { minWidth: '500px' },
         field: 'id',
         sortable: false,
         sortField: '',
@@ -28,6 +29,7 @@ const columns = [
     },
     {
         header: 'Id',
+        style: { minWidth: '500px' },
         field: 'id',
         sortable: false,
         sortField: '',
@@ -39,6 +41,7 @@ const columns = [
     },
     {
         header: 'Price',
+        style: { width: '500px' },
         field: 'price',
         sortable: false,
         sortField: '',

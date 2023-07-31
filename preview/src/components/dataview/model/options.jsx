@@ -72,8 +72,8 @@ export default {
         const newData = content.map((item) => {
             return {
                 ...item,
-                price: Math.floor(Math.random() * 1000),
-                scale: Math.floor(Math.random() * 1000)
+                price: Math.floor(Math.random() * 1000000000000),
+                scale: Math.floor(Math.random() * 1000000000000)
             }
         })
 

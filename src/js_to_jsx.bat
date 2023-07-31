@@ -1,0 +1,1 @@
+FOR /R %%x IN (*.js) DO ren "%%x" *.jsx

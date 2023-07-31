@@ -14,10 +14,10 @@ import DataviewOptions from '../model/DataviewOptions'
 import DataviewRequestEvent from '../model/DataviewRequestEvent'
 
 // *HEADER
-import { header } from './header.js'
+import { header } from './header'
 
 // *FOOTER
-import { footer } from './footer.js'
+import { footer } from './footer'
 
 /**
  * View component

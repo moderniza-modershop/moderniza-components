@@ -1,4 +1,4 @@
-import { Dumb } from "../../../../dist/index.es.js"
+import { Dumb } from "@moderniza-components"
 
 const DumbSample = () => {
   // return <button className="btn btn-primary">Dumb</button>
