@@ -3,7 +3,7 @@
   "author": "lucas de Oliveira Neitzke",
   "license": "MIT",
   "name": "moderniza-components",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "private": false,
   "type": "module",
   "repository": {
@@ -17,16 +17,16 @@
     "npm": ">=5"
   },
   "scripts": {
-    "prepare:build":"npm run jsx:to:js && npm run lint:fix",
+    "prepare:build": "npm run jsx:to:js && npm run lint:fix",
     "build": "npm run prepare:build && npm run build:bundle && npm run post:build",
     "build:bundle": "rollup -c",
     "post:build": "node post-build.js",
-    "prepare:preview":"npm run js:to:jsx && cd preview && npm run dev",
+    "prepare:preview": "npm run js:to:jsx && cd preview && npm run dev",
     "start": "npm run prepare:preview",
     "start:bundle": "rollup -c -w",
     "lint:fix": "eslint src/**/*.js --fix",
-    "jsx:to:js":"cd src && jsx_to_js.bat",
-    "js:to:jsx":"cd src && js_to_jsx.bat"
+    "jsx:to:js": "cd src && jsx_to_js.bat",
+    "js:to:jsx": "cd src && js_to_jsx.bat"
   },
   "peerDependencies": {
     "prop-types": "^15.0.0",

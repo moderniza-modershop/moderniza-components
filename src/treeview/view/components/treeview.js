@@ -110,6 +110,8 @@ const TreeViewData = ({ tree, callback, setNodeSelected, setTypeViewList }) => {
         expandedKeys={expandedKeys}
         onToggle={(e) => setExpandedKeys(e.value)}
         className="w-full md:w-30rem pt-1 px-1"
+        loading={!tree}
+        style={{ fontWeight: "bold", fontSize: "16px" }}
       />
     </div>
   )

@@ -21,6 +21,7 @@ export default function TemplateDemo({ tree, callback, setNodeSelected, setTypeV
   function mountTree(row) {
     return {
       key: row.referencia,
+      id: row.id,
       data: {
         icon: row.icon,
         name: row.descricao,
@@ -116,10 +117,11 @@ export default function TemplateDemo({ tree, callback, setNodeSelected, setTypeV
     if (!node) {
       return
     }
+
     actionEdit(node)
 
+    actionTemplate(node)
     if (node.data.situation) {
-      actionTemplate(node)
     }
 
     const expanded = options.expanded
@@ -145,30 +147,25 @@ export default function TemplateDemo({ tree, callback, setNodeSelected, setTypeV
     return (
       <Card>
         <CardBody>
-          <Row className="mx-0 px-0 d-flex justify-content-between">
-            <Col xs="12" sm="12" lg="8" className="p-0">
-              <div className="p-input-icon-left px-0">
+          <Row className="mx-0 px-0 d-flex justify-content-between my-auto">
+            <Col xs="12" sm="12" lg="8" className="p-0 my-auto">
+              <div className={mobile ? "p-input-icon-left px-0 my-auto w-100" : "p-input-icon-left px-0 my-auto w-80"}>
                 <i className="pi pi-search"></i>
-                <InputText
-                  className="w-100"
-                  type="search"
-                  onInput={(e) => setGlobalFilter(e.target.value)}
-                  placeholder="Pesquisar..."
-                />
+                <InputText type="search" onInput={(e) => setGlobalFilter(e.target.value)} placeholder="Pesquisar..." />
               </div>
             </Col>
-            <Col xs="12" sm="12" lg="4" className="d-flex justify-content-between align-itens-center p-0">
+            <Col xs="12" sm="12" lg="4" className="d-flex justify-content-between align-itens-center p-0 my-auto">
               <Col
                 xs="4"
                 sm="4"
                 lg="6"
                 className={
                   mobile
-                    ? "d-flex justify-content-start align-itens-center p-0 mt-1 pe-1"
-                    : "d-flex justify-content-end align-itens-center p-0 mt-1 pe-1"
+                    ? "d-flex justify-content-start align-itens-center p-0  pe-1 my-auto"
+                    : "d-flex justify-content-end align-itens-center p-0 pe-1 my-auto"
                 }
               >
-                <span className="p-buttonset px-0 mt-1">
+                <span className="p-buttonset px-0 my-auto">
                   <Button
                     size="small"
                     severity="primary"
@@ -190,7 +187,7 @@ export default function TemplateDemo({ tree, callback, setNodeSelected, setTypeV
                   />
                 </span>
               </Col>
-              <Col xs="8" sm="8" lg="6" className="d-flex justify-content-end align-itens-center p-0 mt-1">
+              <Col xs="8" sm="8" lg="6" className="d-flex justify-content-end align-itens-center p-0 my-auto">
                 <Button
                   style={{ width: mobile ? "100%" : "80%" }}
                   type="button"
@@ -213,6 +210,14 @@ export default function TemplateDemo({ tree, callback, setNodeSelected, setTypeV
   //   </div>
   // )
 
+  const message = () => {
+    return (
+      <Col className="d-flex justify-content-center">
+        <strong>Nenhum registro encontrado!</strong>
+      </Col>
+    )
+  }
+
   return (
     <div className="card">
       <TreeTable
@@ -232,12 +237,21 @@ export default function TemplateDemo({ tree, callback, setNodeSelected, setTypeV
         expandedKeys={expandedKeys}
         onToggle={(e) => setExpandedKeys(e.value)}
         resizableColumns
+        loading={!tree}
+        emptyMessage={message()}
         // showGridlines
       >
-        <Column header="Editar Add" body={actionEdit} headerClassName="w-10rem" />
+        <Column header="Editar/Adicionar" body={actionEdit} headerClassName="w-10rem" />
 
         {columns.map((col, i) => (
-          <Column key={i} field={col.field} header={col.header} expander={col.expander} sortable />
+          <Column
+            key={i}
+            field={col.field}
+            header={col.header}
+            expander={col.expander}
+            sortable
+            bodyStyle={{ fontWeight: "bolder", fontSize: "15px" }}
+          />
         ))}
         <Column header="Situação" body={actionTemplate} headerClassName="w-10rem" />
       </TreeTable>

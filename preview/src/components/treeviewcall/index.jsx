@@ -1,5 +1,4 @@
-import React from "react"
-import { TreeCall } from "../../../../dist/index.es.js"
+import { TreeCall } from "@moderniza-components"
 
 const TreeViewSampleCall = () => {
   // return <button className="btn btn-primary">Dumb</button>

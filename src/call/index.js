@@ -4,7 +4,10 @@ import TreeViewData from "../treeview"
 // *STYLES
 
 const TreeCall = () => {
-  const [situation, setSituation] = useState(false)
+  const [situation, setSituation] = useState(true)
+  const [situationOne, setSituationOne] = useState(false)
+  const [situationTwo, setSituationTwo] = useState(false)
+  const [situationThree, setSituationThree] = useState(true)
 
   const tree = [
     {
@@ -21,13 +24,14 @@ const TreeCall = () => {
       descricao: "PAI DOIS",
       observacao: "Parcial",
       icon: "pi pi-chevron-circle-right",
-      situacao: situation,
+      situacao: situationOne,
       tipo: "Entrada",
       children: [
         {
           referencia: "2-1",
           descricao: "FILHO UM ",
           observacao: "parcial-parcial",
+          situacao: situationTwo,
           icon: "pi pi-chevron-circle-right",
           children: [
             {
@@ -35,134 +39,13 @@ const TreeCall = () => {
               descricao: "NETO UM",
               observacao: "Custo",
               icon: "pi pi-chevron-circle-right",
-              situacao: situation,
-              tipo: "Entrada",
-              children: [
-                {
-                  referencia: "2-1-1-1",
-                  descricao: "BISNETO UM",
-                  observacao: "Custo",
-                  icon: "pi pi-chevron-circle-right",
-                  situacao: situation,
-                  tipo: "Entrada",
-                  children: [
-                    {
-                      referencia: "2-1-1-1-1",
-                      descricao: "TrisNeto UM",
-                      observacao: "Custo",
-                      icon: "pi pi-chevron-circle-right",
-                      situacao: situation,
-                      tipo: "Entrada",
-                      children: []
-                    }
-                  ]
-                },
-                {
-                  referencia: "2-1-1-2",
-                  descricao: "BISNETO DOIS",
-                  observacao: "Custo",
-                  icon: "pi pi-chevron-circle-right",
-                  situacao: situation,
-                  tipo: "Entrada",
-                  children: []
-                }
-              ]
-            },
-            {
-              referencia: "2-1-2",
-              descricao: "NETO DOIS",
-              observacao: "Custo",
-              icon: "pi pi-chevron-circle-right",
-              situacao: situation,
-              tipo: "Entrada",
-              children: []
-            }
-          ]
-        },
-        {
-          referencia: "2-2",
-          descricao: "FILHO DOIS",
-          observacao: "Custo",
-          icon: "pi pi-chevron-circle-right",
-          situacao: situation,
-          tipo: "Entrada",
-          children: []
-        }
-      ]
-    },
-    {
-      referencia: "3",
-      descricao: "PAI TRES",
-      observacao: "Custo",
-      icon: "pi pi-chevron-circle-right",
-      situacao: situation,
-      tipo: "Entrada",
-      children: [
-        {
-          referencia: "3-1",
-          descricao: "FILHO UM",
-          observacao: "Custo",
-          icon: "pi pi-chevron-circle-right",
-          situacao: situation,
-          tipo: "Entrada",
-          children: []
-        },
-        {
-          referencia: "3-2",
-          descricao: "FILHO DOIS",
-          observacao: "Custo",
-          icon: "pi pi-chevron-circle-right",
-          situacao: situation,
-          tipo: "Entrada",
-          children: []
-        },
-        {
-          referencia: "3-3",
-          descricao: "FILHO TRES",
-          observacao: "Custo",
-          icon: "pi pi-chevron-circle-right",
-          situacao: situation,
-          tipo: "Entrada",
-          children: []
-        },
-        {
-          referencia: "3-4",
-          descricao: "FILHO QUATRO",
-          observacao: "Custo",
-          icon: "pi pi-chevron-circle-right",
-          situacao: situation,
-          tipo: "Entrada",
-          children: [
-            {
-              referencia: "3-4-1",
-              descricao: "NETO UM",
-              observacao: "Custo",
-              icon: "pi pi-chevron-circle-right",
-              situacao: situation,
-              tipo: "Entrada",
-              children: []
-            },
-            {
-              referencia: "3-4-2",
-              descricao: "NETO DOIS",
-              observacao: "Custo",
-              icon: "pi pi-chevron-circle-right",
-              situacao: situation,
+              situacao: situationThree,
               tipo: "Entrada",
               children: []
             }
           ]
         }
       ]
-    },
-    {
-      referencia: "4",
-      descricao: "Pai Quatro",
-      observacao: "Custo",
-      icon: "pi pi-chevron-circle-right",
-      situacao: situation,
-      tipo: "Entrada",
-      children: []
     }
   ]
 
@@ -175,7 +58,21 @@ const TreeCall = () => {
     },
     nodeSelected: (e) => {
       console.log("event selected", e)
-      setSituation(e)
+
+      switch (e.key) {
+        case "1":
+          setSituation(e.data.situation)
+          break
+        case "2":
+          setSituationOne(e.data.situation)
+          break
+        case "2-1":
+          setSituationTwo(e.data.situation)
+          break
+        case "2-1-1":
+          setSituationThree(e.data.situation)
+          break
+      }
     },
     addLevelKey: (e) => {
       console.log("event addLevel", e)
