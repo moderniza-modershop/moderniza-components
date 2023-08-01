@@ -96,6 +96,7 @@ export default function TemplateDemo({ tree, callback, setNodeSelected, setTypeV
           icon="pi pi-pencil"
           severity="success"
           rounded
+          className="me-1"
           onClick={() => {
             setEditKey(row)
           }}
@@ -119,10 +120,7 @@ export default function TemplateDemo({ tree, callback, setNodeSelected, setTypeV
     }
 
     actionEdit(node)
-
     actionTemplate(node)
-    if (node.data.situation) {
-    }
 
     const expanded = options.expanded
     const iconClassName = classNames("p-treetable-toggler-icon pi pi-fw", {
@@ -142,19 +140,29 @@ export default function TemplateDemo({ tree, callback, setNodeSelected, setTypeV
       </button>
     )
   }
-
+  console.log("mobile", mobile)
   const getHeader = () => {
     return (
       <Card>
         <CardBody>
           <Row className="mx-0 px-0 d-flex justify-content-between my-auto">
             <Col xs="12" sm="12" lg="8" className="p-0 my-auto">
-              <div className={mobile ? "p-input-icon-left px-0 my-auto w-100" : "p-input-icon-left px-0 my-auto w-80"}>
+              <div className="p-input-icon-left px-0 my-auto w-100">
                 <i className="pi pi-search"></i>
-                <InputText type="search" onInput={(e) => setGlobalFilter(e.target.value)} placeholder="Pesquisar..." />
+                <InputText
+                  className="w-100"
+                  type="search"
+                  onInput={(e) => setGlobalFilter(e.target.value)}
+                  placeholder="Pesquisar..."
+                />
               </div>
             </Col>
-            <Col xs="12" sm="12" lg="4" className="d-flex justify-content-between align-itens-center p-0 my-auto">
+            <Col
+              xs="12"
+              sm="12"
+              lg="4"
+              className="d-flex justify-content-between align-itens-center p-0 mt-1 my-lg-auto"
+            >
               <Col
                 xs="4"
                 sm="4"
