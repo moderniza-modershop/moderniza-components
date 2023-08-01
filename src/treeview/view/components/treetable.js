@@ -140,7 +140,7 @@ export default function TemplateDemo({ tree, callback, setNodeSelected, setTypeV
       </button>
     )
   }
-  console.log("mobile", mobile)
+
   const getHeader = () => {
     return (
       <Card>

@@ -17,13 +17,12 @@ const Header = ({ expandAll, collapseAll, setSearch, callback, setTypeViewList }
       <CardBody>
         <Row className="mx-0 px-0 d-flex justify-content-between my-auto">
           <Col xs="7" sm="7" lg="7" className="d-flex justify-content-start align-itens-center p-0 my-auto">
-            <div className="me-1 my-auto">
+            <div className="ms-0 me-1 my-auto">
               <Button
                 type="button"
                 icon="pi pi-search"
                 size="small"
                 severity="primary"
-                outlined
                 onClick={() => {
                   setSearchInput(!searchInput)
                   setSearch(!searchInput)
