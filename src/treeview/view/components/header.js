@@ -17,7 +17,7 @@ const Header = ({ expandAll, collapseAll, setSearch, callback, setTypeViewList }
       <CardBody>
         <Row className="mx-0 px-0 d-flex justify-content-between my-auto">
           <Col xs="7" sm="7" lg="7" className="d-flex justify-content-start align-itens-center p-0 my-auto">
-            <div className="ms-0 me-1 my-auto">
+            <div>
               <Button
                 type="button"
                 icon="pi pi-search"
@@ -29,7 +29,7 @@ const Header = ({ expandAll, collapseAll, setSearch, callback, setTypeViewList }
                 }}
               />
             </div>
-            <div className="mx-1 my-auto">
+            <div className="mx-1">
               <Button
                 type="button"
                 icon="pi pi-plus"
@@ -39,7 +39,7 @@ const Header = ({ expandAll, collapseAll, setSearch, callback, setTypeViewList }
                 onClick={() => expandAll()}
               />
             </div>
-            <div className="mx-1 my-auto">
+            <div>
               <Button
                 type="button"
                 icon="pi pi-minus"
