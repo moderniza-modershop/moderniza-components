@@ -87,26 +87,29 @@ export default function TemplateDemo({ tree, callback, setNodeSelected, setTypeV
   const actionEdit = (row) => {
     return (
       <div className="flex flex-wrap gap-2">
-        <Button
-          type="button"
-          size="small"
-          icon="pi pi-pencil"
-          severity="success"
-          rounded
-          className="me-1"
-          onClick={() => {
-            setEditKey(row)
-          }}
-        />
-        <Button
-          type="button"
-          size="small"
-          icon="pi pi-plus"
-          rounded
-          onClick={() => {
-            setAddLevelKey(row)
-          }}
-        />
+        <span className="p-buttonset mx-1 my-auto">
+          <Button
+            type="button"
+            size="small"
+            icon="pi pi-pencil"
+            severity="primary"
+            outlined
+            // rounded
+            onClick={() => {
+              setEditKey(row)
+            }}
+          />
+          <Button
+            type="button"
+            size="small"
+            icon="pi pi-plus"
+            // outlined
+            // rounded
+            onClick={() => {
+              setAddLevelKey(row)
+            }}
+          />
+        </span>
       </div>
     )
   }
@@ -120,8 +123,8 @@ export default function TemplateDemo({ tree, callback, setNodeSelected, setTypeV
     actionTemplate(node)
 
     const expanded = options.expanded
-    const iconClassName = classNames("p-treetable-toggler-icon pi pi-fw", {
-      "pi-caret-right": !expanded,
+    const iconClassName = classNames("p-treetable-toggler-icon pi pi-fw text-primary", {
+      "pi-caret-right ": !expanded,
       "pi-caret-down": expanded
     })
 
