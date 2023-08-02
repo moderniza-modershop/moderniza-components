@@ -59,3 +59,23 @@
         height: calc(100% - 215px) !important;
     }
 }
+
+.mdz-datatable-component .p-datatable .p-datatable-header {
+    position: relative !important;
+    height: auto !important;
+    top: unset !important;
+    padding: 1rem 1rem !important;
+}
+
+.mdz-datatable-component .p-datatable .p-datatable-wrapper {
+    position: relative !important;
+    height: auto !important;
+    top: unset !important;
+}
+
+.mdz-datatable-component .p-datatable .p-datatable-footer {
+    position: relative !important;
+    height: auto !important;
+    bottom: unset !important;
+    padding: 1rem 1rem !important;
+}

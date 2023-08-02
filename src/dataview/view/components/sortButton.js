@@ -1,18 +1,16 @@
-/* eslint-disable no-unused-vars */
-import React, { useState, useEffect, useRef } from 'react'
+import React from 'react'
 import { Dropdown } from 'primereact/dropdown'
 
 /**
  * Dataview header sort button
  *
  * @param {Object} sorts
- * @param {String} sortKey
+ * @param {String} sortBus
  * @param {Function} onSortChange
  *
  * @returns {JSX.Element}
  */
-const sortButton = (sorts, sortKey, onSortChange, deviceSize) => {
-  console.log('device sort', deviceSize)
+const sortButton = (sorts, sortBus, onSortChange, deviceSize) => {
 
   const getLabel = (value) => {
     if (deviceSize.width <= 480) {
@@ -22,16 +20,10 @@ const sortButton = (sorts, sortKey, onSortChange, deviceSize) => {
     }
   }
 
-  /**
-     *
-     * @param {*} value
-     * @param {Array} sortOptions
-     */
   const getState = (value, sortOptions) => {
     const sortTest = sortOptions.filter((item) => {
       return item.value === value
     })[0]
-    // console.log('sortTest', sortTest)
     return sortTest
   }
 
@@ -46,10 +38,20 @@ const sortButton = (sorts, sortKey, onSortChange, deviceSize) => {
     return options
   }
 
+  const getValue = () => {
+    let res = null
+    sorts.sortOptions.forEach((sort) => {
+      if (sort.sorts.sortField === sortBus.sortField && sort.sorts.sortOrder === sortBus.sortOrder) {
+        res = sort.value
+      }
+    })
+    return res
+  }
+
   return (
     <Dropdown
       options={getOptions(sorts.sortOptions)}
-      value={sortKey}
+      value={getValue()}
       placeholder={getLabel(sorts.placeholder)}
       optionLabel={sorts.optionLabel}
       className={sorts.className}
@@ -59,7 +61,7 @@ const sortButton = (sorts, sortKey, onSortChange, deviceSize) => {
         onSortChange({
           sortField: actualState.sorts.sortField,
           sortOrder: actualState.sorts.sortOrder,
-          sortKey: e.value
+          sortBus: e.value
         })
       }}
     />

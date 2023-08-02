@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import DataviewRequest from '../controller/DataviewRequest'
 
 /**
@@ -13,7 +12,8 @@ class DataviewOptions {
      * @param {String} options.filterDisplay menu or row
      * @param {String|Boolean} options.title default: false
      * @param {Boolean} options.scrollble scroll horizontal and vertical
-     * @param {Function} options.empty when empty shows the element
+     * @param {String} options.dataKey id of data
+     * @param {{expander: Function, frozen: Boolean}} options.expand
      *
      * @param {Object} options.pagination
      * @param {Number} options.pagination.page default:0
@@ -39,6 +39,8 @@ class DataviewOptions {
      * @param {{header: String, headerStyle: Object, headerClassName: String, field: String, sortable: Boolean, sortField: String, filter: Boolean, filterField: String, filterElement: Function, filterFunction: function, showFilterOperator: Boolean, showFilterMatchModes: Boolean, showAddButton: Boolean, body: Function, bodyStyle: Object, bodyClassName: String, frozen: Boolean, style: Object}[]} options.templates.columns columns template
      * @param {Function} options.templates.grid grid template
      * @param {Function} options.templates.list list template
+     * @param {Function} options.templates.expand expanded template
+     * @param {Function} options.templates.empty empty template
      *
      * @param {{xs: String, sm: String, lg: String, xl: String, xxl:String}} options.responsive
      *
@@ -60,6 +62,8 @@ class DataviewOptions {
      * @param {Function} options.onPageChange callback to execute when the page change
      * @param {Function} options.onSortChange callback to execute when the sort change
      * @param {Function} options.onFilterChange callback to execute when the filter change
+     * @param {Function} options.onRowExpand callback to execute when a row expand
+     * @param {Function} options.onRowCollapse callback to execute when a row collapse
      *
      * @param {Boolean} options.build flag
      */
@@ -73,13 +77,12 @@ class DataviewOptions {
   }
 
   /**
-     * Validate Dataview options
-     *
-     * @param {DataviewOptions} options
-     * @returns {Boolean}
-     */
+   * Validate Dataview options
+   *
+   * @param {DataviewOptions} options
+   * @returns {Boolean}
+   */
   validate(options) {
-    // console.log('options', options)
     const supportedLayouts = ['grid', 'list', 'table']
     const supportedExtensions = ['csv', 'xlsx', 'pdf']
 
@@ -127,55 +130,6 @@ class DataviewOptions {
         }
       })
     }
-    // ?filters (optional) - Removido validação dos filtros temporariamente
-    // if (options.filters) {
-    //   // *filters
-    //   if (typeof options.filters !== 'object') {
-    //     throw new Error('[options.filters] must be typeof object')
-    //   }
-    //   // *filters.filter
-    //   Object.keys(options.filters).map((key, index) => {
-    //     const filter = options.filters[key]
-
-    //     // ?filters.value (value+matchMode) (optional)
-    //     if (filter.value && filter.matchMode) {
-    //       if (typeof filter.value !== 'string') {
-    //         throw new Error(`[options.filters[${index}].value] must be typeof string`)
-    //       }
-
-    //       if (!(typeof filter.matchMode === 'string' || typeof filter.matchMode === 'function')) {
-    //         throw new Error(`[options.filters[${index}].matchMode] must be typeof string`)
-    //       }
-    //     } else if (filter.constraints && filter.operator) {
-    //       // ?filters.filter.operator (operator+constraints)(optional)
-    //       if (typeof filter.operator !== 'string') {
-    //         throw new Error(`[options.filters[${index}].operator] must be typeof string`)
-    //       }
-    //       if (!(filter.constraints instanceof Array)) {
-    //         throw new Error(`[options.filters[${index}].constraints] must be typeof array`)
-    //       }
-    //       // *filters.filter.constraints[]
-    //       filter.constraints.forEach((constraint) => {
-    //         // *filters.filter.constraints[item].value
-    //         if (constraint.value) {
-    //           if (typeof constraint.value !== 'string') {
-    //             throw new Error(`[options.filters[${index}].constraints.value] must be typeof string`)
-    //           }
-    //         }
-    //         // *filters.filter.constraints[item].matchMode
-    //         if (constraint.matchMode) {
-    //           if (typeof constraint.matchMode !== 'string') {
-    //             throw new Error(`[options.filters[${index}].constraints.matchMode] must be typeof string`)
-    //           }
-    //         }
-    //       })
-    //     } else {
-    //       throw new Error(`[options.filters[${index}]] unknow filter combination
-    //                  (supported: {operator,constraints} or {value,matchMode})`)
-    //     }
-    //   })
-    // }
-
     // ?sorts (optional)
     if (options.sorts) {
       // *sorts
@@ -629,11 +583,11 @@ class DataviewOptions {
   }
 
   /**
-     * Mixs the current options with defaults
-     *
-     * @param {DataviewOptions} options
-     * @returns {DataviewOptions}
-     */
+   * Mixs the current options with defaults
+   *
+   * @param {DataviewOptions} options
+   * @returns {DataviewOptions}
+   */
   defaults(options) {
     const defaultSort = {
       visible: true,
@@ -987,9 +941,9 @@ class DataviewOptions {
   }
 
   /**
-     * Dispatch the values
-     * @param {DataviewOptions} originalOptions
-     */
+   * Dispatch the values
+   * @param {DataviewOptions} originalOptions
+   */
   dispatch(originalOptions) {
     const options = this.defaults(originalOptions)
     // *CONFIG
@@ -1008,12 +962,15 @@ class DataviewOptions {
     this.size = options.size
     this.filterDisplay = options.filterDisplay
     this.scrollable = options.scrollable
-    this.empty = options.empty
+    this.dataKey = options.dataKey
+    this.expand = options.expand
     // *CALLBACKS
     this.onRequest = options.onRequest
     this.onPageChange = options.onPageChange
     this.onSortChange = options.onSortChange
     this.onFilterChange = options.onFilterChange
+    this.onRowExpand = options.onRowExpand
+    this.onRowCollapse = options.onRowCollapse
     // !FLAG: only for read
     this.build = true
   }

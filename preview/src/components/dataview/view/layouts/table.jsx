@@ -16,27 +16,27 @@ const columns = [
         }
     },
     {
-        header: 'Id',
-        style: { minWidth: '500px' },
+        header: 'Titulo',
+        style: { minWidth: '150px' },
         field: 'id',
         sortable: false,
         sortField: '',
         filter: false,
         filterField: '',
-        body: (row) => {
-            return <span className="text-2xl font-semibold">{row.id}</span>
+        body: () => {
+            return <span className="text-2xl font-semibold">Um texto</span>
         }
     },
     {
-        header: 'Id',
-        style: { minWidth: '500px' },
+        header: 'Descrição',
+        style: { minWidth: '400px' },
         field: 'id',
         sortable: false,
         sortField: '',
         filter: false,
         filterField: '',
-        body: (row) => {
-            return <span className="text-2xl font-semibold">{row.id}</span>
+        body: () => {
+            return <span className="text-2xl font-semibold">Um texto um pouco maior para ocupar espaço</span>
         }
     },
     {

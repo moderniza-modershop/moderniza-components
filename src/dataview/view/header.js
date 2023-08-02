@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import { exportButton, layoutButton, searchBar, sortButton, addButton, refreshButton } from './components'
+import { exportButton, layoutButton, searchBar, sortButton, addButton, refreshButton, expandButton } from './components'
 import { Col, Row } from 'reactstrap'
 
 /**
@@ -21,10 +21,13 @@ import { Col, Row } from 'reactstrap'
  * @param {{label:String, filter: String}} searchOptions
  * @param {Function} onRefresh
  * @param {Object} refreshOptions
+ * @param {Function} onExpandAll
+ * @param {Function} onCollapseAll
+ * @param {Object} expandOptions
  *
  * @returns {JSX.Element}
  */
-const header = (title, loading, layout, onChangeLayout, globalFilterValue, onGlobalFilterChange, optionsExport, dataTableRefOrSorts, exportOverPanelRefOrSortKey, resultsOrOnSortChange, exportColumns, sortOptions, addOptions, deviceSize, searchOptions, onRefresh, refreshOptions) => {
+const header = (title, loading, layout, onChangeLayout, globalFilterValue, onGlobalFilterChange, optionsExport, dataTableRefOrSorts, exportOverPanelRefOrSortKey, resultsOrOnSortChange, exportColumns, sortOptions, addOptions, deviceSize, searchOptions, onRefresh, refreshOptions, onExpandAll, onCollapseAll, expandOptions) => {
   return (
     <Row className='m-0'>
       <Col xs='12' lg='' className='mb-1 mb-lg-auto my-auto'>
@@ -67,6 +70,20 @@ const header = (title, loading, layout, onChangeLayout, globalFilterValue, onGlo
               </Col>
             ) : ''
           }
+          <Col className='col-auto pe-0 my-auto'>
+            {
+              refreshButton(onRefresh, refreshOptions)
+            }
+          </Col>
+          {
+            layout === 'table' && expandOptions ? (
+              <Col className='col-auto pe-0 my-auto'>
+                {
+                  expandButton(onExpandAll, onCollapseAll, expandOptions)
+                }
+              </Col>
+            ) : ''
+          }
           {
             deviceSize.width > 575.98 ?
               (
@@ -78,11 +95,6 @@ const header = (title, loading, layout, onChangeLayout, globalFilterValue, onGlo
               )
               : ''
           }
-          <Col className='col-auto pe-0 my-auto'>
-            {
-              refreshButton(onRefresh, refreshOptions)
-            }
-          </Col>
           {
             addOptions.visible ? (
               <Col className='col-auto pe-0 my-auto'>

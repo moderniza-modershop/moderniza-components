@@ -2,6 +2,7 @@ import getData from '../controller/getData'
 import list from '../view/layouts/list'
 import grid from '../view/layouts/grid'
 import columns from '../view/layouts/table'
+import expand from '../view/layouts/expand'
 
 import { FilterOperator, FilterMatchMode } from 'primereact/api'
 
@@ -11,10 +12,19 @@ export default {
     height: 'calc(100vh - 95px)',
     filterDisplay: 'menu',
     scrollable: true,
+    dataKey: "id",
+    expand: {
+        expander: (row) => {
+            // mostra apenas o expand se o ID for impar
+            return row.id % 2 == 0
+        },
+        frozen: true
+    },
     templates: {
         columns,
         list,
-        grid
+        grid,
+        expand
     },
     pagination: {
         visible: true,
@@ -35,7 +45,7 @@ export default {
         sortOrder: 1,
         sortOptions: [
             {
-                label: 'Menor score',
+                label: 'Score ascendente',
                 value: 'score_ascending',
                 sorts: {
                     sortOrder: 1,
@@ -43,7 +53,7 @@ export default {
                 }
             },
             {
-                label: 'Maior score',
+                label: 'Score descendente',
                 value: 'score_descending',
                 sorts: {
                     sortOrder: -1,
@@ -91,5 +101,11 @@ export default {
     },
     onFilterChange: (ev) => {
         console.log('onFilterChangeExternal', ev)
+    },
+    onRowExpand: (ev) => {
+        console.log('onRowExpandExternal', ev);
+    },
+    onRowCollapse: (ev) => {
+        console.log('onRowCollapseExternal', ev);
     }
 }

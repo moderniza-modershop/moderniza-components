@@ -6,6 +6,7 @@ import addButton from './addButton'
 import paginatorLeft from './paginatorLeft'
 import paginatorRight from './paginatorRight'
 import refreshButton from './refreshButton'
+import expandButton from './expandButton'
 
 export {
   exportButton,
@@ -15,5 +16,6 @@ export {
   addButton,
   paginatorLeft,
   paginatorRight,
-  refreshButton
+  refreshButton,
+  expandButton
 }

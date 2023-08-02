@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useRef } from 'react'
 import { DataTable } from 'primereact/datatable'
 import { Column } from 'primereact/column'
@@ -58,6 +59,11 @@ const View = (props) => {
   const [sortKey, setSortKey] = useState('')
   const [sortField, setSortField] = useState(options.sorts.sortField || null)
   const [sortOrder, setSortOrder] = useState(options.sorts.sortOrder || 1)
+  const [sortBus, setSortBus] = useState({
+    sortKey,
+    sortField,
+    sortOrder
+  })
 
   // * FILTERS
   const [filters, setFilters] = useState(options.filters || [])
@@ -73,6 +79,9 @@ const View = (props) => {
   const lastDeviceSize = DataviewDeviceSize()
   const [deviceSize, setDeviceSize] = useState(lastDeviceSize)
 
+  // *EXPAND
+  const [expandedRows, setExpandedRows] = useState(null)
+
   useEffect(() => {
     if (typeof lastDeviceSize.width === 'number' &&
       typeof lastDeviceSize.height === 'number' &&
@@ -87,7 +96,7 @@ const View = (props) => {
   }, [lastDeviceSize])
 
   // *FRESH THE COMPONENT
-  const freshComponent = async () => {
+  const freshComponent = async (_page) => {
     setLoading(true)
     setResults([])
     setTotalRecords(0)
@@ -99,7 +108,7 @@ const View = (props) => {
           value: globalFilterValue
         },
         pagination: {
-          page,
+          page: _page ? _page : page,
           peerPage: rows
         },
         sorts: {
@@ -137,6 +146,11 @@ const View = (props) => {
     setSortKey(e.sortKey)
     setSortField(e.sortField)
     setSortOrder(e.sortOrder)
+    setSortBus({
+      sortKey: e.sortKey,
+      sortField: e.sortField,
+      sortOrder: e.sortOrder
+    })
     if (options.onSortChange) options.onSortChange(e)
   }
 
@@ -154,10 +168,14 @@ const View = (props) => {
     if (options.onFilterChange) options.onFilterChange(e)
   }
 
+  // *REFRESH THE RESULTS
   const onRefresh = () => {
-    freshComponent()
+    setPage(0)
+    setFirst(0)
+    setRows(rows)
   }
 
+  // *GLOBAL FILTER CHANGE
   const onGlobalFilterChange = (e) => {
     setGlobalFilterValue(e.target.value)
   }
@@ -178,6 +196,29 @@ const View = (props) => {
     return Object.keys(filters).filter(function (item) {
       return item !== 'global'
     })
+  }
+
+  const onRowExpand = (event) => {
+    if (options.onRowExpand) options.onRowExpand(event)
+    if (options.onRowCollapse) options.onRowCollapse(event)
+  }
+
+  const onRowCollapse = (event) => {
+
+  }
+
+  const onExpandAll = () => {
+    const _expandedRows = {}
+    results.forEach((r) => {
+      if (options.expand.expander(r)) {
+        _expandedRows[`${r[options.dataKey]}`] = true
+      }
+    })
+    setExpandedRows(_expandedRows)
+  }
+
+  const onCollapseAll = () => {
+    setExpandedRows(null)
   }
 
   const itemTemplate = (row, actualLayout) => {
@@ -210,7 +251,7 @@ const View = (props) => {
               onGlobalFilterChange,
               options.export,
               options.sorts,
-              sortKey,
+              sortBus,
               onSortChange,
               undefined,
               options.sorts,
@@ -218,7 +259,10 @@ const View = (props) => {
               lastDeviceSize,
               options.search,
               onRefresh,
-              options.refresh
+              options.refresh,
+              onExpandAll,
+              onCollapseAll,
+              options.expand
             )}
             footer={footer(
               first,
@@ -233,10 +277,16 @@ const View = (props) => {
           />
         ) : (
           <DataTable
+            expandedRows={expandedRows}
+            onRowToggle={(e) => setExpandedRows(e.data)}
+            onRowExpand={onRowExpand}
+            onRowCollapse={onRowCollapse}
+            rowExpansionTemplate={templates.expand || <></>}
+            dataKey={options.dataKey || 'id'}
             size={options.size || 'normal'}
             className='mdz-datatable-component'
             scrollable={options.scrollable || true}
-            emptyMessage={options.empty || defaultEmpty}
+            emptyMessage={templates.empty || defaultEmpty}
             ref={dataTableRef}
             loading={loading}
             header={header(
@@ -256,7 +306,10 @@ const View = (props) => {
               lastDeviceSize,
               options.search,
               onRefresh,
-              options.refresh
+              options.refresh,
+              onExpandAll,
+              onCollapseAll,
+              options.expand
             )}
             value={results}
             filters={filters}
@@ -278,6 +331,14 @@ const View = (props) => {
             sortField={sortField}
             sortOrder={sortOrder}
           >
+            {
+              options.expand ? (
+                <Column
+                  expander={options.expand.expander}
+                  frozen={options.expand.frozen}
+                />
+              ) : ''
+            }
             {templates.columns.map((col, index) => (
               <Column
                 key={index}
