@@ -7,7 +7,6 @@ import { classNames } from "primereact/utils"
 import { InputText } from "primereact/inputtext"
 import { Card, CardBody, Col, Row } from "reactstrap"
 import { InputSwitch } from "primereact/inputswitch"
-import { isMobile } from "../../../utils"
 
 export default function TemplateDemo({ tree, callback, setNodeSelected, setTypeViewList, setAddLevelKey, setEditKey }) {
   const [nodes, setNodes] = useState([])
@@ -15,8 +14,6 @@ export default function TemplateDemo({ tree, callback, setNodeSelected, setTypeV
   const [nodeSelected, setSelectedKey] = useState()
   const [typeView, setTypeView] = useState(false)
   const [expandedKeys, setExpandedKeys] = useState({ 0: true, "0-0": true })
-
-  const mobile = isMobile()
 
   function mountTree(row) {
     return {
@@ -146,38 +143,24 @@ export default function TemplateDemo({ tree, callback, setNodeSelected, setTypeV
       <Card>
         <CardBody>
           <Row className="mx-0 px-0 d-flex justify-content-between my-auto">
-            <Col xs="12" sm="12" lg="8" className="p-0 my-auto">
-              <div className="p-input-icon-left px-0 my-auto w-100">
-                <i className="pi pi-search"></i>
-                <InputText
-                  className="w-100"
-                  type="search"
-                  onInput={(e) => setGlobalFilter(e.target.value)}
-                  placeholder="Pesquisar..."
-                />
-              </div>
-            </Col>
-            <Col
-              xs="12"
-              sm="12"
-              lg="4"
-              className="d-flex justify-content-between align-itens-center p-0 mt-1 my-lg-auto"
-            >
-              <Col
-                xs="4"
-                sm="4"
-                lg="6"
-                className={
-                  mobile
-                    ? "d-flex justify-content-start align-itens-center p-0  pe-1 my-auto"
-                    : "d-flex justify-content-end align-itens-center p-0 pe-1 my-auto"
-                }
-              >
+            <Col xs="12" sm="12" lg="11" className="d-flex justify-content-between align-itens-center p-0 my-auto">
+              <Col xs="8" sm="8" lg="8" className="d-flex justify-content-start align-itens-center p-0 my-auto">
+                <div className="p-input-icon-left px-0 my-auto w-100">
+                  <i className="pi pi-search"></i>
+                  <InputText
+                    className="w-100"
+                    type="search"
+                    onInput={(e) => setGlobalFilter(e.target.value)}
+                    placeholder="Pesquisar..."
+                  />
+                </div>
+              </Col>
+              <Col xs="4" sm="4" lg="4" className="d-flex justify-content-end align-itens-center p-0 my-auto">
                 <span className="p-buttonset px-0 my-auto">
                   <Button
                     size="small"
                     severity="primary"
-                    icon={"pi pi-list"}
+                    icon={"pi pi-bars"}
                     outlined={!typeView}
                     onClick={() => {
                       setTypeViewList(true)
@@ -188,6 +171,7 @@ export default function TemplateDemo({ tree, callback, setNodeSelected, setTypeV
                     severity="primary"
                     icon={"pi pi-table"}
                     outlined={typeView}
+                    className="me-1"
                     onClick={() => {
                       setTypeViewList(false)
                       setTypeView(false)
@@ -195,15 +179,18 @@ export default function TemplateDemo({ tree, callback, setNodeSelected, setTypeV
                   />
                 </span>
               </Col>
-              <Col xs="8" sm="8" lg="6" className="d-flex justify-content-end align-itens-center p-0 my-auto">
-                <Button
-                  style={{ width: mobile ? "100%" : "80%" }}
-                  type="button"
-                  label="Novo"
-                  severity="primary"
-                  onClick={() => callback(true)}
-                />
-              </Col>
+            </Col>
+            <Col xs="12" sm="12" lg="1" className="d-flex justify-content-end align-itens-center p-0 my-auto">
+              <Button
+                style={{ width: "100%" }}
+                type="button"
+                size="small"
+                label="Novo"
+                icon={"pi pi-plus"}
+                severity="primary"
+                className="mt-lg-0 mt-1"
+                onClick={() => callback(true)}
+              />
             </Col>
           </Row>
         </CardBody>
@@ -249,7 +236,7 @@ export default function TemplateDemo({ tree, callback, setNodeSelected, setTypeV
         emptyMessage={message()}
         // showGridlines
       >
-        <Column header="Editar/Adicionar" body={actionEdit} headerClassName="w-10rem" />
+        <Column header="Editar/Adicionar" body={actionEdit} headerClassName="w-10rem" style={{ width: "120px" }} />
 
         {columns.map((col, i) => (
           <Column
@@ -259,9 +246,10 @@ export default function TemplateDemo({ tree, callback, setNodeSelected, setTypeV
             expander={col.expander}
             sortable
             bodyStyle={{ fontWeight: "bolder", fontSize: "15px" }}
+            style={{ width: i === 0 ? "150px" : "300px" }}
           />
         ))}
-        <Column header="Situação" body={actionTemplate} headerClassName="w-10rem" />
+        <Column header="Situação" body={actionTemplate} headerClassName="w-10rem" style={{ width: "80px" }} />
       </TreeTable>
     </div>
   )

@@ -14,7 +14,7 @@ const TreeCall = () => {
       referencia: "1",
       descricao: "PAI UM",
       observacao: "Custo",
-      icon: "pi pi-chevron-circle-right",
+      icon: "pi pi-check-circle",
       situacao: situation,
       tipo: "Entrada",
       children: []
@@ -23,7 +23,7 @@ const TreeCall = () => {
       referencia: "2",
       descricao: "PAI DOIS",
       observacao: "Parcial",
-      icon: "pi pi-chevron-circle-right",
+      icon: "pi pi-check-circle",
       situacao: situationOne,
       tipo: "Entrada",
       children: [
@@ -32,13 +32,13 @@ const TreeCall = () => {
           descricao: "FILHO UM ",
           observacao: "parcial-parcial",
           situacao: situationTwo,
-          icon: "pi pi-chevron-circle-right",
+          icon: "pi pi-check-circle",
           children: [
             {
               referencia: "2-1-1",
               descricao: "NETO UM",
               observacao: "Custo",
-              icon: "pi pi-chevron-circle-right",
+              icon: "pi pi-check-circle",
               situacao: situationThree,
               tipo: "Entrada",
               children: []
