@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@moderniza-components': path.resolve(__dirname, '../src'),
+      '@moderniza-components': path.resolve(__dirname, '../lib'),
     },
   }
 })

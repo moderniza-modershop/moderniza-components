@@ -24,9 +24,9 @@
     "prepare:preview": "npm run js:to:jsx && cd preview && npm run dev",
     "start": "npm run prepare:preview",
     "start:bundle": "rollup -c -w",
-    "lint:fix": "eslint src/**/*.js --fix",
-    "jsx:to:js": "cd src && jsx_to_js.bat",
-    "js:to:jsx": "cd src && js_to_jsx.bat"
+    "lint:fix": "eslint lib/**/*.js --fix",
+    "jsx:to:js": "cd lib && jsx_to_js.bat",
+    "js:to:jsx": "cd lib && js_to_jsx.bat"
   },
   "peerDependencies": {
     "prop-types": "^15.0.0",

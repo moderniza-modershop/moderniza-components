@@ -11,7 +11,7 @@ import "bootstrap/dist/css/bootstrap.min.css" // Bootstrap
 import "primereact/resources/primereact.min.css" // Primereact
 import "primeicons/primeicons.css" // Primeicons
 import "../../css/primereact-theme.css" //Tema primereact
-import "../../src/index.css" // Moderniza components
+import "../../lib/index.css" // Moderniza components
 
 function App() {
   const [componentName, setComponentName] = useState(null)
