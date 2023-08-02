@@ -20,7 +20,7 @@ const Header = ({ expandAll, collapseAll, setSearch, callback, setTypeViewList }
                 icon="pi pi-search"
                 size="small"
                 severity="primary"
-                className="me-2"
+                className="me-50 mr-50"
                 onClick={() => {
                   setSearchInput(!searchInput)
                   setSearch(!searchInput)
@@ -33,7 +33,7 @@ const Header = ({ expandAll, collapseAll, setSearch, callback, setTypeViewList }
                 size="small"
                 severity="primary"
                 outlined
-                className="me-2"
+                className="me-50 mr-50"
                 onClick={() => expandAll()}
               />
 
