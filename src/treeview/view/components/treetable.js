@@ -97,7 +97,7 @@ export default function TemplateDemo({ tree, callback, setNodeSelected, setTypeV
           onClick={() => {
             setEditKey(row)
           }}
-        ></Button>
+        />
         <Button
           type="button"
           size="small"
@@ -106,7 +106,7 @@ export default function TemplateDemo({ tree, callback, setNodeSelected, setTypeV
           onClick={() => {
             setAddLevelKey(row)
           }}
-        ></Button>
+        />
       </div>
     )
   }
@@ -156,7 +156,7 @@ export default function TemplateDemo({ tree, callback, setNodeSelected, setTypeV
                 </div>
               </Col>
               <Col xs="4" sm="4" lg="4" className="d-flex justify-content-end align-itens-center p-0 my-auto">
-                <span className="p-buttonset px-0 my-auto">
+                <span className="p-buttonset mx-1 my-auto">
                   <Button
                     size="small"
                     severity="primary"
@@ -171,7 +171,6 @@ export default function TemplateDemo({ tree, callback, setNodeSelected, setTypeV
                     severity="primary"
                     icon={"pi pi-table"}
                     outlined={typeView}
-                    className="me-1"
                     onClick={() => {
                       setTypeViewList(false)
                       setTypeView(false)
