@@ -11,6 +11,7 @@ const columns = [
         sortField: '',
         filter: false,
         filterField: '',
+        exportable: false,
         body: () => {
             return <span className="text-2xl font-semibold">Valor fixado na esquerda, veja como é legal congelar um valor</span>
         }

@@ -8,7 +8,7 @@ import { FilterOperator, FilterMatchMode } from 'primereact/api'
 
 export default {
     title: false,
-    type: 'list',
+    type: 'table',
     height: 'calc(100vh - 95px)',
     filterDisplay: 'menu',
     scrollable: true,
@@ -16,7 +16,7 @@ export default {
     expand: {
         expander: (row) => {
             // mostra apenas o expand se o ID for impar
-            return row.id % 2 == 0
+            return row.id % 2 === 0
         },
         frozen: true
     },
@@ -66,14 +66,14 @@ export default {
         extensions: ['xlsx', 'pdf', 'csv'],
         fileName: 'artists'
     },
-    responsive: {
-        xs: 'grid',
-        sm: 'grid',
-        md: 'list',
-        lg: 'table',
-        xl: 'table',
-        xxl: 'table'
-    },
+    // responsive: {
+    //     xs: 'grid',
+    //     sm: 'grid',
+    //     md: 'list',
+    //     lg: 'table',
+    //     xl: 'table',
+    //     xxl: 'table'
+    // },
     onRequest: async (event) => {
         const response = await getData(event)
         const content = response.data.data
