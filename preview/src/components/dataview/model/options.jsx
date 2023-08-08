@@ -9,7 +9,7 @@ import { FilterOperator, FilterMatchMode } from 'primereact/api'
 export default {
     title: false,
     type: 'table',
-    height: 'calc(100vh - 95px)',
+    height: 'calc(100vh - 150px)',
     filterDisplay: 'menu',
     scrollable: true,
     dataKey: "id",

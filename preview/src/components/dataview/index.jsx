@@ -1,33 +1,35 @@
-import { Dataview } from '@moderniza-components'
+import { Dataview, Utils } from '@moderniza-components'
 import sampleOptions from './model/options'
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 const DataviewSample = () => {
+    const dataviewRef = useRef()
     const [values, setValues] = useState(null)
 
-    const testar = () =>{
-        
-        setValues(values.map((item)=>{
+    useEffect(() => {
+        if (Utils.readyValues(values)) {
+            console.log('readable', values)
+        }
+    }, [values])
+
+    const zerar = () => {
+        setValues(values.map((item) => {
             item.price = 0
             return item
         }))
+    }
 
-        console.log('vou pegar', values)
+    const recarregar = () => {
+        if (Utils.readyRef(dataviewRef)) dataviewRef.current.refresh()
     }
 
     return (
         <React.Fragment>
-            {
-                console.log('values', values)
-            }
-            <button className="btn btn-primary" onClick={()=>{
-                testar()
-            }}>Testar</button>
-            <Dataview options={sampleOptions} values={values} onChange={(newValues) => {
-                if (newValues) {
-                    setValues(newValues)
-                }
-            }} />
+            <div className="mb-2">
+                <button className="btn btn-primary me-2" onClick={() => { zerar() }}>Zerar preços</button>
+                <button className="btn btn-primary" onClick={() => { recarregar() }}>Recarregar</button>
+            </div>
+            <Dataview options={sampleOptions} values={values} onChangeValues={(state) => { if (state) setValues(state) }} ref={dataviewRef} />
         </React.Fragment>
     )
 }
