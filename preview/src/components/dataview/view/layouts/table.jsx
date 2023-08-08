@@ -1,5 +1,11 @@
 import { InputText } from 'primereact/inputtext'
 import { InputNumber } from 'primereact/inputnumber'
+import React from 'react'
+
+const test = () =>{
+    const that = this
+    console.log('test', that)
+}
 
 const columns = [
     {
@@ -48,19 +54,15 @@ const columns = [
         sortField: '',
         filter: false,
         filterField: '',
-        body: (row) => {
-            return <span className="text-2xl font-semibold">{row.price}</span>
-        }
-    },
-    {
-        header: 'Discount',
-        field: 'price',
-        sortable: false,
-        sortField: '',
-        filter: false,
-        filterField: '',
-        body: (row) => {
-            return <span className="text-2xl font-semibold">{row.price}</span>
+        body: (row, props) => {
+            return (
+                <React.Fragment>
+                    <span className="text-2xl font-semibold">{row.price}</span>
+                    <button className="btn btn-primary" onClick={()=>{
+                        test()
+                    }}>test</button>
+                </React.Fragment>
+            )
         }
     },
     {
