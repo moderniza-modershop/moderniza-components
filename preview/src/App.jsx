@@ -45,13 +45,11 @@ function App() {
 
   useEffect(() => {
     window.addEventListener("hashchange", handleHashChange)
-    window.addEventListener("load", handleHashChange)
 
     return () => {
       window.removeEventListener("hashchange", handleHashChange)
-      window.removeEventListener("load", handleHashChange)
     }
-  }, [])
+  }, [componentName, componentView])
 
   return (
     <>
