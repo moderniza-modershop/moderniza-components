@@ -1,3 +1,7 @@
 .mdz-treeview .p-treetable-header {
   padding: 0px !important;
 }
+
+.p-treenode-content[aria-expanded="true"] + .p-treenode-children {
+  display: block !important;
+}
