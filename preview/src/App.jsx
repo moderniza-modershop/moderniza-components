@@ -4,7 +4,7 @@ import Spa from "./spa"
 // * Components
 import Dumb from "./components/dumb"
 import Dataview from "./components/dataview"
-import Treeview from "./components/treeviewcall"
+import TreeView from "./components/treeview"
 
 // * CSS
 import "bootstrap/dist/css/bootstrap.min.css" // Bootstrap
@@ -27,8 +27,8 @@ function App() {
       component: Dataview
     },
     Treeview: {
-      name: "Treeview",
-      component: Treeview
+      name: "TreeView",
+      component: TreeView
     }
   })
 
