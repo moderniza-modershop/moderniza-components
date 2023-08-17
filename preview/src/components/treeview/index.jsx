@@ -1,5 +1,7 @@
 import React, { useRef, useState } from "react"
 import { TreeView, Utils } from "@moderniza-components"
+import { Button } from "primereact/button"
+import { InputSwitch } from "primereact/inputswitch"
 
 const TreeViewSample = () => {
   const treeCallRef = useRef()
@@ -77,21 +79,39 @@ const TreeViewSample = () => {
       console.log("event typeView", e)
     },
     nodeSelected: (e) => {
-      console.log("event selected", e)
-
-      switch (e.key) {
-        case "1":
-          setSituation(e.data.situation)
-          break
-        case "2":
-          setSituationOne(e.data.situation)
-          break
-        case "2-1":
-          setSituationTwo(e.data.situation)
-          break
-        case "2-1-1":
-          setSituationThree(e.data.situation)
-          break
+      if (typeof e.data === "object") {
+        console.log("event selected object", e)
+        switch (e.key) {
+          case "1":
+            setSituation(e.data.situation)
+            break
+          case "2":
+            setSituationOne(e.data.situation)
+            break
+          case "2-1":
+            setSituationTwo(e.data.situation)
+            break
+          case "2-1-1":
+            setSituationThree(e.data.situation)
+            break
+        }
+      }
+      if (typeof e.data === "string") {
+        console.log("event selected string", e)
+        switch (e.key) {
+          case "1":
+            setSituation(e.situacao)
+            break
+          case "2":
+            setSituationOne(e.situacao)
+            break
+          case "2-1":
+            setSituationTwo(e.situacao)
+            break
+          case "2-1-1":
+            setSituationThree(e.situacao)
+            break
+        }
       }
     },
     addLevelKey: (e) => {
@@ -102,6 +122,108 @@ const TreeViewSample = () => {
     },
     tree
   }
+
+  const columns = [
+    {
+      field: "",
+      header: "Editar",
+      style: { width: "90px" },
+      expander: false,
+      sortable: false,
+      headerClassName: "w-10rem",
+      bodyStyle: "",
+      body: (row) => {
+        return (
+          <div className="flex flex-wrap gap-2">
+            <span className="p-buttonset mx-1 my-auto">
+              <Button
+                type="button"
+                size="small"
+                icon="pi pi-pencil text-success"
+                severity="primary"
+                outlined
+                // rounded
+                onClick={() => {
+                  opt.editKey(row)
+                }}
+                style={{ border: "none" }}
+              />
+            </span>
+          </div>
+        )
+      }
+    },
+    {
+      field: "",
+      header: "Add filho",
+      style: { width: "115px" },
+      expander: false,
+      sortable: false,
+      headerClassName: "w-10rem",
+      bodyStyle: "",
+      body: (row) => {
+        return (
+          <div className="flex flex-wrap gap-2">
+            <span className="p-buttonset mx-1 my-auto">
+              <Button
+                type="button"
+                size="small"
+                icon="pi pi-plus text-primary"
+                outlined
+                // rounded
+                onClick={() => {
+                  opt.addLevelKey(row)
+                }}
+                style={{ border: "none" }}
+              />
+            </span>
+          </div>
+        )
+      }
+    },
+    {
+      field: "key",
+      header: "Referência",
+      expander: true,
+      sortable: false,
+      style: { width: "160px", color: "primary" },
+      bodyStyle: "",
+      headerClassName: "w-10rem",
+      body: ""
+    },
+    {
+      field: "name",
+      header: "Descrição",
+      expander: false,
+      sortable: false,
+      style: { color: "black" },
+      bodyStyle: "",
+      headerClassName: "w-10rem",
+      body: ""
+    },
+    {
+      field: "",
+      header: "Ativo",
+      expander: false,
+      sortable: false,
+      style: { width: "80px" },
+      bodyStyle: "",
+      headerClassName: "w-10rem",
+      body: (row) => {
+        return (
+          <div className="flex flex-wrap gap-2">
+            <InputSwitch
+              checked={row.data.situation}
+              onChange={(e) => {
+                row.data.situation = e.target.value
+                opt.nodeSelected(row)
+              }}
+            />
+          </div>
+        )
+      }
+    }
+  ]
 
   return (
     <div>
@@ -134,9 +256,7 @@ const TreeViewSample = () => {
           setTypeView: opt.typeView,
           button
         }}
-        // onChangeValues={(state) => {
-        //   if (state) setValues(state)
-        // }}
+        columns={columns}
         ref={treeCallRef}
       />
     </div>
