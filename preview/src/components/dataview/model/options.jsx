@@ -66,14 +66,14 @@ export default {
         extensions: ['xlsx', 'pdf', 'csv'],
         fileName: 'artists'
     },
-    // responsive: {
-    //     xs: 'grid',
-    //     sm: 'grid',
-    //     md: 'list',
-    //     lg: 'table',
-    //     xl: 'table',
-    //     xxl: 'table'
-    // },
+    responsive: {
+        xs: 'grid',
+        sm: 'grid',
+        md: 'list',
+        lg: 'table',
+        xl: 'table',
+        xxl: 'table'
+    },
     onRequest: async (event) => {
         const response = await getData(event)
         const content = response.data.data

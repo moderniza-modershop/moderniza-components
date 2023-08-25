@@ -50,6 +50,36 @@
     flex-wrap: wrap;
 }
 
+.mdz-dataview .mdz-datatable-component {
+	 border-radius: 0.428rem;
+	 background-color: transparent;
+}
+ .mdz-dataview .mdz-datatable-component .p-datatable-header {
+	 border: inherit;
+	 border-bottom: 1px solid #dee2e6;
+	 background: #fff;
+	 box-shadow: 0 4px 24px 0 #22292f1a;
+	 border-radius: 0.428rem 0.428rem 0px 0px;
+	 z-index: 1;
+}
+ .mdz-dataview .mdz-datatable-component .p-datatable-wrapper {
+	 box-shadow: 0 4px 24px 0 #22292f1a;
+	 border-radius: 0px 0px 0.428rem 0.428rem;
+}
+ .mdz-dataview .mdz-datatable-component .p-datatable-wrapper .p-datatable-thead {
+	 background: #fff;
+}
+ .mdz-dataview .mdz-datatable-component .p-datatable-wrapper .p-datatable-thead tr th {
+	 background: #fff;
+}
+ .mdz-dataview .mdz-datatable-component .p-datatable-footer {
+	 box-shadow: 0 4px 24px 0 #22292f1a;
+	 background: #fff;
+	 border-radius: 0.428rem;
+	 border: inherit;
+	 padding: 0.5rem 1rem;
+}
+ 
 @media (max-width:991.98px){
     .mdz-dataview-component .p-dataview-header, .mdz-datatable-component .p-datatable-header{
         height: 130px !important;
