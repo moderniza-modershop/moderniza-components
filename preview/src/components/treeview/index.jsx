@@ -33,7 +33,7 @@ const TreeViewSample = () => {
         observacao: "Custo",
         icon: false ? "pi pi-arrow-circle-left text-warning" : "pi pi-arrow-circle-right text-success",
         situacao: situation,
-        tipo: renderType({ data: { type: "Saída" } }),
+        tipo: "1",
         children: []
       },
       {
@@ -43,7 +43,7 @@ const TreeViewSample = () => {
         observacao: "Parcial",
         icon: true ? "pi pi-arrow-circle-left text-warning" : "pi pi-arrow-circle-right text-success",
         situacao: situationOne,
-        tipo: renderType({ data: { type: "Entrada" } }),
+        tipo: "0",
         children: [
           {
             id: 3,
@@ -52,7 +52,7 @@ const TreeViewSample = () => {
             observacao: "parcial-parcial",
             situacao: situationTwo,
             icon: true ? "pi pi-arrow-circle-left text-warning" : "pi pi-arrow-circle-right text-success",
-            tipo: renderType({ data: { type: "Entrada" } }),
+            tipo: "0",
             children: [
               {
                 id: 4,
@@ -61,7 +61,7 @@ const TreeViewSample = () => {
                 observacao: "Custo",
                 icon: true ? "pi pi-arrow-circle-left text-warning" : "pi pi-arrow-circle-right text-success",
                 situacao: situationThree,
-                tipo: renderType({ data: { type: "Entrada" } }),
+                tipo: "0",
                 children: []
               }
             ]
@@ -133,14 +133,14 @@ const TreeViewSample = () => {
           id="tooltipgerar"
           type="button"
           size="small"
-          icon={row.data.type === "Entrada" ? "pi pi-arrow-circle-left" : "pi pi-arrow-circle-right"}
-          severity={row.data.type === "Entrada" ? "warning" : "info"}
+          icon={row.data.type === "0" ? "pi pi-arrow-circle-left text-warning" : "pi pi-arrow-circle-right text-info"}
+          severity={row.data.type === "0" ? "warning" : "info"}
           rounded
           outlined
           style={{ padding: "10px" }}
         >
           <UncontrolledTooltip placement="right" target="tooltipgerar">
-            {row.data.type === "Entrada" ? "Entrada" : "Saída"}
+            {row.data.type === "0" ? "Entrada" : "Saída"}
           </UncontrolledTooltip>
         </Button>
       </div>
@@ -156,7 +156,7 @@ const TreeViewSample = () => {
       style: { color: "black", width: "70px" },
       bodyStyle: "",
       headerClassName: "w-10rem",
-      body: (row) => row.data.type
+      body: (row) => renderType(row)
     },
     {
       field: "",
