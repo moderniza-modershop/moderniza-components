@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react"
 import { TreeView, Utils } from "@moderniza-components"
 import { Button } from "primereact/button"
 import { InputSwitch } from "primereact/inputswitch"
+import { UncontrolledTooltip } from "reactstrap"
 
 const TreeViewSample = () => {
   const treeCallRef = useRef()
@@ -14,6 +15,7 @@ const TreeViewSample = () => {
 
   const recarregar = () => {
     if (Utils.readyRef(treeCallRef)) treeCallRef.current.refresh()
+    console.log("carregar")
     carregarTree()
   }
 
@@ -29,9 +31,9 @@ const TreeViewSample = () => {
         referencia: "1",
         descricao: "PAI UM",
         observacao: "Custo",
-        icon: situation ? "pi pi-power-off text-success" : "pi pi-ban text-danger",
+        icon: false ? "pi pi-arrow-circle-left text-warning" : "pi pi-arrow-circle-right text-success",
         situacao: situation,
-        tipo: "Entrada",
+        tipo: "Saída",
         children: []
       },
       {
@@ -39,7 +41,7 @@ const TreeViewSample = () => {
         referencia: "2",
         descricao: "PAI DOIS",
         observacao: "Parcial",
-        icon: situationOne ? "pi pi-power-off text-success" : "pi pi-ban text-danger",
+        icon: true ? "pi pi-arrow-circle-left text-warning" : "pi pi-arrow-circle-right text-success",
         situacao: situationOne,
         tipo: "Entrada",
         children: [
@@ -49,14 +51,15 @@ const TreeViewSample = () => {
             descricao: "FILHO UM ",
             observacao: "parcial-parcial",
             situacao: situationTwo,
-            icon: situationTwo ? "pi pi-power-off text-success" : "pi pi-ban text-danger",
+            icon: true ? "pi pi-arrow-circle-left text-warning" : "pi pi-arrow-circle-right text-success",
+            tipo: "Entrada",
             children: [
               {
                 id: 4,
                 referencia: "2-1-1",
                 descricao: "NETO UM",
                 observacao: "Custo",
-                icon: situationThree ? "pi pi-power-off text-success" : "pi pi-ban text-danger",
+                icon: true ? "pi pi-arrow-circle-left text-warning" : "pi pi-arrow-circle-right text-success",
                 situacao: situationThree,
                 tipo: "Entrada",
                 children: []
@@ -124,6 +127,34 @@ const TreeViewSample = () => {
   }
 
   const columns = [
+    {
+      field: "type",
+      header: "Tipo",
+      expander: false,
+      sortable: false,
+      style: { color: "black", width: "70px" },
+      bodyStyle: "",
+      headerClassName: "w-10rem",
+      body: (row) => {
+        return (
+          <>
+            <Button
+              id="tooltipgerar"
+              type="button"
+              size="small"
+              icon={row.data.type === "Entrada" ? "pi pi-arrow-circle-left" : "pi pi-arrow-circle-right"}
+              severity={row.data.type === "Entrada" ? "warning" : "info"}
+              rounded
+              outlined
+            >
+              <UncontrolledTooltip placement="right" target="tooltipgerar">
+                {row.data.type}
+              </UncontrolledTooltip>
+            </Button>
+          </>
+        )
+      }
+    },
     {
       field: "",
       header: "Editar",
