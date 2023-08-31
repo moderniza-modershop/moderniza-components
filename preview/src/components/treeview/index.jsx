@@ -53,6 +53,7 @@ const TreeViewSample = () => {
             situacao: situationTwo,
             icon: true ? "pi pi-arrow-circle-left text-warning" : "pi pi-arrow-circle-right text-success",
             tipo: "0",
+            iconType: operationType("1"),
             children: [
               {
                 id: 4,
@@ -62,6 +63,7 @@ const TreeViewSample = () => {
                 icon: true ? "pi pi-arrow-circle-left text-warning" : "pi pi-arrow-circle-right text-success",
                 situacao: situationThree,
                 tipo: "0",
+                iconType: operationType("0"),
                 children: []
               }
             ]
@@ -124,6 +126,24 @@ const TreeViewSample = () => {
       console.log("event edit Key", e)
     },
     tree
+  }
+
+  const operationType = (node) => {
+    return (
+      <Button
+        id="tooltipSituation"
+        type="button"
+        icon={node === "0" ? "pi pi-arrow-circle-left text-warning" : "pi pi-arrow-circle-right text-info"}
+        size="small"
+        severity={node === "0" ? "warning" : "success"}
+        outlined
+        style={{ border: "none", paddingRight: "0" }}
+      >
+        <UncontrolledTooltip placement="right" target="tooltipSituation">
+          {node === "0" ? "Entrada" : "Saída"}
+        </UncontrolledTooltip>
+      </Button>
+    )
   }
 
   const renderType = (row) => {
