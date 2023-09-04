@@ -12,31 +12,33 @@ const columns = [
         sortField: '',
         filter: false,
         filterField: '',
-        exportable: false,
+        // exportable: false,
         body: () => {
             return <span className="text-2xl font-semibold">Valor fixado na esquerda, veja como é legal congelar um valor</span>
         }
     },
     {
-        header: 'Titulo',
+        header: 'Modelo api',
         style: { minWidth: '150px' },
-        field: 'id',
+        field: 'api_model',
         sortable: false,
         sortField: '',
         filter: false,
         filterField: '',
-        body: () => {
-            return <span className="text-2xl font-semibold">Um texto</span>
+        // exportable: false,
+        body: (row) => {
+            return <span className="text-2xl font-semibold">{ row.api_model}</span>
         }
     },
     {
-        header: 'Descrição',
+        header: 'Id',
         style: { minWidth: '400px' },
         field: 'id',
         sortable: false,
         sortField: '',
         filter: false,
         filterField: '',
+        exportable: true,
         body: () => {
             return <span className="text-2xl font-semibold">Um texto um pouco maior para ocupar espaço</span>
         }
@@ -49,6 +51,7 @@ const columns = [
         sortField: '',
         filter: false,
         filterField: '',
+        // exportable: false,
         body: (row) => {
             return (
                 <React.Fragment>
@@ -64,6 +67,7 @@ const columns = [
         sortField: '',
         filter: false,
         filterField: '',
+        // exportable: false,
         body: (row) => {
             return <span className="text-2xl font-semibold">{row.scale}</span>
         }
@@ -75,6 +79,7 @@ const columns = [
         sortField: 'title',
         filter: true,
         filterField: 'title',
+        exportable: true,
         filterElement: (options) => {
             return <InputText value={options.value} onChange={() => options.filterCallback(options.value, options.index)} />
         },
@@ -89,6 +94,7 @@ const columns = [
         sortable: true,
         sortField: '_score',
         filter: true,
+        // exportable: false,
         filterField: '_score',
         filterElement: (options) => {
             return <InputNumber value={options.value} onChange={() => options.filterCallback(options.value, options.index)} />
