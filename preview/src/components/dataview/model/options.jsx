@@ -14,18 +14,18 @@ export default {
     filterDisplay: 'menu',
     scrollable: true,
     dataKey: "id",
-    // expand: {
-    //     expander: (row) => {
-    //         // mostra apenas o expand se o ID for impar
-    //         return row.id % 2 === 0
-    //     },
-    //     frozen: true
-    // },
+    expand: {
+        expander: (row) => {
+            // mostra apenas o expand se o ID for impar
+            return row.id % 2 === 0
+        },
+        frozen: true
+    },
     templates: {
         columns,
-        // list,
+        list,
         grid,
-        // expand
+        expand
     },
     pagination: {
         visible: true,
@@ -94,11 +94,11 @@ export default {
         }
 
     },
-    // add: {
-    //     onClick: () => {
-    //         alert('você clicou!')
-    //     }
-    // },
+    add: {
+        onClick: () => {
+            alert('você clicou!')
+        }
+    },
     onPageChange: (ev, index) => {
         console.log('onPageChangeExternal', ev, index)
     },
