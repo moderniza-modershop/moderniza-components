@@ -64,7 +64,19 @@ const TreeViewSample = () => {
                 situacao: situationThree,
                 tipo: "0",
                 iconType: operationType("0"),
-                children: []
+                children: [
+                  {
+                    id: 5,
+                    referencia: "2-1-1-1",
+                    descricao: "BISNETO UM",
+                    observacao: "Custo",
+                    icon: true ? "pi pi-arrow-circle-left text-warning" : "pi pi-arrow-circle-right text-success",
+                    situacao: situationThree,
+                    tipo: "0",
+                    iconType: operationType("0"),
+                    children: []
+                  }
+                ]
               }
             ]
           }
