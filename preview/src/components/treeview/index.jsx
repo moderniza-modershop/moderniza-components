@@ -12,6 +12,7 @@ const TreeViewSample = () => {
   const [situationThree, setSituationThree] = useState(true)
   const [tree, setTree] = useState([])
   const button = true
+  const hide_ref = true
 
   const recarregar = () => {
     if (Utils.readyRef(treeCallRef)) treeCallRef.current.refresh()
@@ -34,6 +35,7 @@ const TreeViewSample = () => {
         icon: false ? "pi pi-arrow-circle-left text-warning" : "pi pi-arrow-circle-right text-success",
         situacao: situation,
         tipo: "1",
+        logo: "https://modershop-img.s3.amazonaws.com/97146609000296/categoria/10/1260d32a-4cdb-4a9e-8fdc-e02ea0a0d17d.png",
         children: []
       },
       {
@@ -44,6 +46,7 @@ const TreeViewSample = () => {
         icon: true ? "pi pi-arrow-circle-left text-warning" : "pi pi-arrow-circle-right text-success",
         situacao: situationOne,
         tipo: "0",
+        logo: "https://modershop-img.s3.amazonaws.com/46016454000151/categoria/339/6781f9ed-82b5-4f0f-a3da-f2d4f3c91558.png",
         children: [
           {
             id: 3,
@@ -54,6 +57,7 @@ const TreeViewSample = () => {
             icon: true ? "pi pi-arrow-circle-left text-warning" : "pi pi-arrow-circle-right text-success",
             tipo: "0",
             iconType: operationType("1"),
+            logo: "https://modershop-img.s3.amazonaws.com/97146609000296/categoria/9/3bd5661a-d91e-4ef8-b431-338eee2ed100.png",
             children: [
               {
                 id: 4,
@@ -64,6 +68,7 @@ const TreeViewSample = () => {
                 situacao: situationThree,
                 tipo: "0",
                 iconType: operationType("0"),
+                logo: "https://modershop-img.s3.amazonaws.com/46016454000151/categoria/785/a533b7e9-af87-477a-bb0a-4c79f53d488c.png",
                 children: [
                   {
                     id: 5,
@@ -74,6 +79,7 @@ const TreeViewSample = () => {
                     situacao: situationThree,
                     tipo: "0",
                     iconType: operationType("0"),
+                    logo: "https://modershop-img.s3.amazonaws.com/97146609000296/categoria/11/3fa0cb87-4228-424a-9a5a-4f8466adb261.png",
                     children: []
                   }
                 ]
@@ -179,6 +185,10 @@ const TreeViewSample = () => {
     )
   }
 
+  const RenderImageTable = (img) => {
+    return <img className="user-avatar mr-1" src={img ? img : ""} alt="user profile avatar" height="40" width="40" />
+  }
+
   const columns = [
     {
       field: "type",
@@ -258,6 +268,18 @@ const TreeViewSample = () => {
       body: ""
     },
     {
+      field: "",
+      header: "",
+      expander: false,
+      sortable: false,
+      style: { width: "80px" },
+      bodyStyle: "",
+      headerClassName: "w-10rem",
+      body: (row) => {
+        return <div className="d-flex justify-content-left align-items-center">{RenderImageTable(row.data.logo)}</div>
+      }
+    },
+    {
       field: "name",
       header: "Descrição",
       expander: false,
@@ -267,6 +289,7 @@ const TreeViewSample = () => {
       headerClassName: "w-10rem",
       body: ""
     },
+
     {
       field: "",
       header: "Ativo",
@@ -320,7 +343,8 @@ const TreeViewSample = () => {
           addLevelKey: opt.addLevelKey,
           editKey: opt.editKey,
           setTypeView: opt.typeView,
-          button
+          button,
+          hide_ref
         }}
         columns={columns}
         ref={treeCallRef}
