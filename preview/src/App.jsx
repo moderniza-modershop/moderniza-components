@@ -5,6 +5,7 @@ import Spa from "./spa"
 import Dumb from "./components/dumb"
 import Dataview from "./components/dataview"
 import TreeView from "./components/treeview"
+import ProgressBar from "./components/progressBar"
 
 // * CSS
 import "bootstrap/dist/css/bootstrap.min.css" // Bootstrap
@@ -29,6 +30,10 @@ function App() {
     Treeview: {
       name: "TreeView",
       component: TreeView
+    },
+    LoadingBar: {
+      name: "ProgressBar",
+      component: ProgressBar
     }
   })
 
