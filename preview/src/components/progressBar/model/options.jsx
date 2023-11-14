@@ -1,11 +1,10 @@
 export const title = {
-  // description: "Processando...",
-  fontSize: "12px",
-  font: "500",
+  fontSize: "16px",
+  font: "700",
   color: "blue"
 }
 
 export const styles = {
-  height: "6px",
+  height: "16px",
   color: null
 }
