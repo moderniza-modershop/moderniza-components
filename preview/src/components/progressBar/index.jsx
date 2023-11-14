@@ -49,7 +49,7 @@ const LoadingSample = () => {
       }
     }
   }, [activated])
-  console.log("height", valueHeight)
+
   return (
     <React.Fragment>
       <div className="mb-5">
