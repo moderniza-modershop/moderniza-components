@@ -11,7 +11,7 @@ import ProgressBar from "./components/progressBar"
 import "bootstrap/dist/css/bootstrap.min.css" // Bootstrap
 import "primereact/resources/primereact.min.css" // Primereact
 import "primeicons/primeicons.css" // Primeicons
-import "../../css/primereact-theme.css" //Tema primereact
+import "../../css/light/theme.css" //Tema primereact
 import "../../lib/index.css" // Moderniza components
 
 function App() {
