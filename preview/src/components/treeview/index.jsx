@@ -367,8 +367,7 @@ const TreeViewSample = () => {
           expandableSelected: expandable,
           setExpandableSelected: opt.setExpandableSelected,
           filterButton: filterButton,
-          callbackFilter: opt.callbackFilter,
-          theme: "light"
+          callbackFilter: opt.callbackFilter
         }}
         columns={columns}
         ref={treeCallRef}
