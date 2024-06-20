@@ -10,6 +10,8 @@ const TreeViewSample = () => {
   const [situationOne, setSituationOne] = useState(false)
   const [situationTwo, setSituationTwo] = useState(false)
   const [situationThree, setSituationThree] = useState(true)
+  const [filterButton, setFilterButton] = useState(false)
+  const [expandable, setExpandable] = useState(false)
   const [tree, setTree] = useState([])
   const button = true
   const hide_ref = true
@@ -18,11 +20,13 @@ const TreeViewSample = () => {
     if (Utils.readyRef(treeCallRef)) treeCallRef.current.refresh()
     console.log("carregar")
     carregarTree()
+    setFilterButton(false)
   }
 
   const limpar = () => {
     if (Utils.readyRef(treeCallRef)) treeCallRef.current.refresh()
     setTree([])
+    setFilterButton(false)
   }
 
   const carregarTree = () => {
@@ -142,6 +146,13 @@ const TreeViewSample = () => {
     },
     editKey: (e) => {
       console.log("event edit Key", e)
+    },
+    callbackFilter: (e) => {
+      console.log("event callback filter", e)
+    },
+    setExpandableSelected: (e) => {
+      console.log("event Open Closed", e)
+      setExpandable(e)
     },
     tree
   }
@@ -325,6 +336,14 @@ const TreeViewSample = () => {
         >
           Recarregar
         </button>
+        <button
+          className="btn btn-primary mx-1"
+          onClick={() => {
+            setFilterButton(true)
+          }}
+        >
+          Filtros
+        </button>
 
         <button
           className="btn btn-primary"
@@ -343,8 +362,13 @@ const TreeViewSample = () => {
           addLevelKey: opt.addLevelKey,
           editKey: opt.editKey,
           setTypeView: opt.typeView,
-          button,
-          hide_ref
+          button: button,
+          hide_ref: hide_ref,
+          expandableSelected: expandable,
+          setExpandableSelected: opt.setExpandableSelected,
+          filterButton: filterButton,
+          callbackFilter: opt.callbackFilter,
+          theme: "light"
         }}
         columns={columns}
         ref={treeCallRef}
