@@ -26,7 +26,11 @@
     "start:bundle": "rollup -c -w",
     "lint:fix": "eslint lib/**/*.js --fix",
     "jsx:to:js": "cd lib && jsx_to_js.bat",
-    "js:to:jsx": "cd lib && js_to_jsx.bat"
+    "js:to:jsx": "cd lib && js_to_jsx.bat",
+    "build:theme": "npm run theme:light && npm run theme:dark",
+    "theme:light": "sass --update sass/primereact/themes/bootstrap4/bootstrap4-light/purple/theme.scss:css/primereact/light/theme.css",
+    "theme:dark": "sass --update sass/primereact/themes/bootstrap4/bootstrap4-dark/purple/theme.scss:css/primereact/dark/theme.css",
+    "publish": "npm run build && npm version patch && npm publish"
   },
   "peerDependencies": {
     "prop-types": "^15.0.0",
@@ -56,7 +60,7 @@
     "jspdf-autotable": "^3.5.29",
     "minify": "^10.2.0",
     "primeicons": "^6.0.1",
-    "primereact": "^9.5.0",
+    "primereact": "^10.6.6",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "^4.0.2",
@@ -69,7 +73,6 @@
     "rollup-plugin-postcss": "^1.6.2",
     "rollup-plugin-scss": "^3.0.0",
     "rollup-plugin-url": "^1.4.0",
-    "sass": "^1.63.6",
     "xlsx": "^0.18.5"
   },
   "files": [
@@ -80,6 +83,7 @@
     "css/*.css"
   ],
   "dependencies": {
+    "node-sass": "^9.0.0",
     "rollup-plugin-threads": "^1.2.0"
   }
 }

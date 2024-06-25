@@ -56,20 +56,20 @@
 
 .mdz-dataview .mdz-datatable-component .p-datatable-header, .mdz-dataview .mdz-dataview-component .p-dataview-header {
   border: inherit;
-  border-bottom: 1px solid #dee2e6;
-  background: #fff;
-  box-shadow: 0 4px 24px 0 #22292f1a;
+  /* border-bottom: 1px solid #dee2e6; */
+  /* background: #fff; */
+  /* box-shadow: 0 4px 24px 0 #22292f1a; */
   border-radius: 0.428rem 0.428rem 0px 0px;
   z-index: 1;
 }
 
 .mdz-dataview .mdz-datatable-component .p-datatable-wrapper {
-  box-shadow: 0 4px 24px 0 #22292f1a;
+  /* box-shadow: 0 4px 24px 0 #22292f1a; */
   border-radius: 0px 0px 0.428rem 0.428rem;
 }
 
 .mdz-dataview .mdz-datatable-component .p-datatable-wrapper .p-datatable-thead {
-  background: #fff;
+  /* background: #fff; */
 }
 
 .mdz-dataview
@@ -78,13 +78,13 @@
   .p-datatable-thead
   tr
   th {
-  background: #fff;
+  /* background: #fff; */
 }
 
 .mdz-dataview .mdz-datatable-component .p-datatable-footer,
 .mdz-dataview .mdz-dataview-component .p-dataview-footer {
-  box-shadow: 0 4px 24px 0 #22292f1a;
-  background: #fff;
+  /* box-shadow: 0 4px 24px 0 #22292f1a; */
+  /* background: #fff; */
   border-radius: 0.428rem;
   border: inherit;
   padding: 0.5rem 1rem;

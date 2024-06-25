@@ -5,7 +5,7 @@ const grid = (row) => {
         <Col xs="12" md="6" lg="4" className="p-1">
             <Card className="mb-0">
                 <CardBody>
-                    <CardTitle tag="h5">{row.title}</CardTitle>
+                    <CardTitle className="text-dark" tag="h5">{row.title}</CardTitle>
                     <CardSubtitle
                         className="mb-0 text-muted"
                         tag="h6"
