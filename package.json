@@ -30,8 +30,7 @@
     "build:theme": "npm run theme:light && npm run theme:dark",
     "theme:light": "sass --update sass/primereact/themes/bootstrap4/bootstrap4-light/purple/theme.scss:css/primereact/light/theme.css",
     "theme:dark": "sass --update sass/primereact/themes/bootstrap4/bootstrap4-dark/purple/theme.scss:css/primereact/dark/theme.css",
-    "new:version": "npm version patch && git add * && git commit -m 'new version' && git push origin master",
-    "publish": "npm run build && npm run new:version && npm publish"
+    "publish": "npm run build && npm version patch && git push origin master && npm publish"
   },
   "peerDependencies": {
     "prop-types": "^15.0.0",
