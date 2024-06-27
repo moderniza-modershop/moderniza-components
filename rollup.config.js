@@ -4,7 +4,7 @@ import commonjs from "rollup-plugin-commonjs";
 import external from "rollup-plugin-peer-deps-external";
 import postcss from "rollup-plugin-postcss";
 import resolve from "rollup-plugin-node-resolve";
-// import scss from "rollup-plugin-scss";
+import scss from "rollup-plugin-scss";
 import url from "rollup-plugin-url";
 import pkg from "./package.json";
 
@@ -23,10 +23,10 @@ export default {
     },
   ],
   plugins: [
-    // scss({
-    //   sourceMap: true,
-    //   failOnError: true,
-    // }),
+    scss({
+      sourceMap: true,
+      failOnError: true,
+    }),
     external(),
     postcss({
       modules: true,

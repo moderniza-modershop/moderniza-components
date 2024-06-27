@@ -59,6 +59,7 @@
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.5.29",
     "minify": "^10.2.0",
+    "node-sass": "^9.0.0",
     "primeicons": "^6.0.1",
     "primereact": "^10.6.6",
     "react": "^18.1.0",
