@@ -72,6 +72,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-postcss": "^1.6.2",
     "rollup-plugin-scss": "^3.0.0",
+    "rollup-plugin-threads": "^1.2.0",
     "rollup-plugin-url": "^1.4.0",
     "xlsx": "^0.18.5"
   },
@@ -82,8 +83,5 @@
     "css",
     "css/*.css"
   ],
-  "dependencies": {
-    "node-sass": "^9.0.0",
-    "rollup-plugin-threads": "^1.2.0"
-  }
+  "dependencies": {}
 }
