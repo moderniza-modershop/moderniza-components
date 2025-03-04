@@ -5,3 +5,11 @@
 .p-treenode-content[aria-expanded="true"] + .p-treenode-children {
   display: block !important;
 }
+
+.mdz-treeview .p-input-icon-left .p-inputtext {
+  padding-left: 32px !important;
+}
+
+.mdz-treeview .p-input-icon-left .pi {
+  padding-left: 10px;
+}

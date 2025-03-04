@@ -1,8 +1,8 @@
 # Moderniza Components
 
-Repositório de componentes da moderniza.
+Livraria de componentes próprios da moderniza. Utilizados no gestão e plataforma.
 
-Node: 14 LTS
+Node: 16.20.0 LTS
 
 ## Documentação
 
@@ -21,9 +21,22 @@ Algumas funcionalidade podem não estar inclusas no projeto. Então verifique a 
 - Não é suportado `<></>`. Utilize `''`, ou, `<React.Fragment>`
 - Não é suportado [Optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining) `objeto?.propriedade?.outra`
 
+## Requerimento de instalação
+
+Para instalar, rodar e compilar o projeto na sua maquina é necessário ter:
+
+- Versão mais atual do Python (3.12^).
+- Node GyP `npm install -g node-gyp`.
+- Visual Studio Build Tools (2022^) apenas para Windows.
+
+![alt text](/docs/installation/visual-studio-22.png "Instalação Visual Studio Build Tools para C++")
+
+Caso você não tenha todos os requisitos irá falhar ao executar `npm install`.
+Como obter, como instalar em Linux ou outra plataforma? [Instalação Node GyP](https://github.com/nodejs/node-gyp?tab=readme-ov-file#installation).
+
 ## Instalação da livraria
 
-1. Execute o comando ```npm install moderniza-components@latest``` para instalar a livraria. Em algumas versões mais antigas do Node e NPM é necessário utilizar o parametro `--legacy-peer-deps` para normalizar a arvore de dependencias
+1. Execute o comando `npm install moderniza-components@latest` para instalar a livraria. Em algumas versões mais antigas do Node e NPM é necessário utilizar o parametro `--legacy-peer-deps` para normalizar a arvore de dependencias
 2. Importe os estilos da moderniza `import 'moderniza-components/dist/index.css'`
 
 **Tenha instalado no respositório que receberá o `moderniza-components`**
@@ -43,16 +56,16 @@ Utilize a livraria desta maneira:
 /*
  * Caso esteja faltando estilos do reactstrap, importe o css como especificado em:
  * https://reactstrap.github.io/?path=/docs/home-installation--page
-*/
+ */
 
 // Importação de estilos de outras dependencias relacionadas
-import "primereact/resources/primereact.min.css" // primereact base
-import 'primeicons/primeicons.css' // icones primereact
-import "primereact/resources/themes/lara-light-indigo/theme.css" // tema prime react
+import "primereact/resources/primereact.min.css"; // primereact base
+import "primeicons/primeicons.css"; // icones primereact
+import "primereact/resources/themes/lara-light-indigo/theme.css"; // tema prime react
 
 // Moderniza components abaixo
-import 'moderniza-components/dist/index.css' // CSS
-import { Dataview, Dumb } from 'moderniza-components' // Componentes
+import "moderniza-components/dist/index.css"; // CSS
+import { Dataview, Dumb } from "moderniza-components"; // Componentes
 ```
 
 ## Instalando em modo pre-visualização
@@ -95,7 +108,7 @@ Estrutura de pasta aceita para livraria
 
 - **src/[nome-componente]**
   - index.js (arquivo principal do componente)
-  - [nome-componente].css (arquivo principal de estilos) <- import {view/components/*}
+  - [nome-componente].css (arquivo principal de estilos) <- import {view/components/\*}
   - **src/[nome-componente]/model**
     - src/[nome-componente]/model/a.js <- export {a}
     - src/[nome-componente]/model/b.js <- export {b}

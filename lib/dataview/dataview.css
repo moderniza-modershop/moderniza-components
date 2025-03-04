@@ -121,3 +121,11 @@
   bottom: unset !important;
   padding: 1rem 1rem !important;
 }
+
+.mdz-dataview .p-input-icon-left .p-inputtext {
+  padding-left: 32px !important;
+}
+
+.mdz-dataview .p-input-icon-left .pi {
+  padding-left: 10px;
+}
