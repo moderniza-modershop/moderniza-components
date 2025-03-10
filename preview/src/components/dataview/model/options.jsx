@@ -19,7 +19,8 @@ export default {
             // mostra apenas o expand se o ID for impar
             return row.id % 2 === 0
         },
-        frozen: true
+        frozen: true,
+        // style:{width: '250px'}
     },
     templates: {
         columns,

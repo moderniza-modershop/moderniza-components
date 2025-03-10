@@ -11,7 +11,7 @@ Componente dinâmico criado através dos componentes do *Primereact* **Dataview*
 - [ ] Opção frozenRow do `datatable`
 - [ ] Opção selecionar todos do `datatable`
 - [ ] Opção skeleton do `datatable`
-- [ ] Opção expandable do `datatable`  
+- [x] Opção expandable do `datatable`  
 - [ ] Adicionar a funcionalidade do `height` responsivo
 - [ ] Adicionar a funcionalidade do `pagination.infinite`, scroll infinito (Virtual Scroller)
 - [ ] Documentar a utilização dos `filters` e `fitlerDisplay`
@@ -325,6 +325,9 @@ Veja abaixo as opções disponíveis para o componente
 | export.csv.label | `String` | Texto do botão | --- | `'Arquivo (.csv)'` |
 | export.csv.icon | `String` | Icone do botão | --- | `'pi pi-file'` |
 | export.csv.style | `Object` | Style do botão | --- | `{}` |
+| expand.expander | `Object` | Determina se terá expandir | `true` or `false` | false |
+| expand.frozen | `Object` | Determina se congelará a coluna | `true` or `false` | false |
+| expand.style | `Object` | Define o estilo da coluna | --- | false |
 
 ## Diagrama de fluxo
 
