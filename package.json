@@ -2,13 +2,13 @@
   "description": "Livraria de componentes da moderniza",
   "author": "lucas de Oliveira Neitzke",
   "license": "MIT",
-  "name": "moderniza-components",
-  "version": "0.12.39",
+  "name": "@renan.moderniza/moderniza-components",
+  "version": "0.12.40",
   "private": false,
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lucas-neitzke-moderniza/moderniza-components.git"
+    "url": "git+https://github.com/moderniza-modershop/moderniza-components.git"
   },
   "main": "dist/index.js",
   "module": "dist/index.es.js",
